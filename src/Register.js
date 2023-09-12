@@ -67,6 +67,12 @@ const Register = () => {
       <h1>Register</h1>
       <form>
         <label htmlFor="username">Username:</label>
+        <span className={validName ? "valid" : "hide"}>
+          <FontAwesomeIcon icon={faCheck} />
+        </span>
+        <span className={validName || !user ? "hide" : "invalid"}>
+          <FontAwesomeIcon icon={faTimes} />
+        </span>
         <input
           type="text"
           id="username"
@@ -79,6 +85,17 @@ const Register = () => {
           onFocus={() => setUserFocus(true)}
           onBlur={() => setUserFocus(false)}
         />
+        <p
+          id="uidnote"
+          className={
+            userFocus && user && !validName ? "instructions" : "offscreen"
+          }
+        >
+          <FontAwesomeIcon icon={faInfoCircle} />
+          4 to 24 characters. <br />
+          Must begin with a letter. <br />
+          Letters, numbers, underscores, hyphens allowed.
+        </p>
       </form>
     </section>
   );
