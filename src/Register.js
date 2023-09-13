@@ -10,8 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-import React from "react";
-
 const Register = () => {
   const userRef = useRef();
   const errRef = useRef();
@@ -47,8 +45,8 @@ const Register = () => {
     console.log(result);
     console.log(pwd);
     setValidPwd(result);
-    const matchPwd = pwd === matchPwd;
-    setValidMatchPwd(matchPwd);
+    const match = pwd === matchPwd;
+    setValidMatchPwd(match);
   }, [pwd, matchPwd]);
 
   useEffect(() => {
@@ -66,13 +64,15 @@ const Register = () => {
       </p>
       <h1>Register</h1>
       <form>
-        <label htmlFor="username">Username:</label>
-        <span className={validName ? "valid" : "hide"}>
-          <FontAwesomeIcon icon={faCheck} />
-        </span>
-        <span className={validName || !user ? "hide" : "invalid"}>
-          <FontAwesomeIcon icon={faTimes} />
-        </span>
+        <label htmlFor="username">
+          Username:
+          <span className={validName ? "valid" : "hide"}>
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
+          <span className={validName || !user ? "hide" : "invalid"}>
+            <FontAwesomeIcon icon={faTimes} />
+          </span>
+        </label>
         <input
           type="text"
           id="username"
