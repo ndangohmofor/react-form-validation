@@ -28,7 +28,7 @@ body {
 
 section {
   width: 100%;
-  max-width: 420%;
+  max-width: 420px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -55,8 +55,9 @@ input[type="password"],
 button,
 textarea {
   font-family: "Nunito", sans-serif;
-  font-size: 32px;
+  font-size: 22px;
   padding: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 label,
@@ -76,6 +77,10 @@ button {
   padding: 0.25rem;
   position: relative;
   bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
 }
 
 .offscreen {
@@ -105,6 +110,6 @@ button {
   margin-bottom: 0.5rem;
 }
 
-.inline {
+.line {
   display: inline-block;
 }

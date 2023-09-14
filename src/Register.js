@@ -66,12 +66,14 @@ const Register = () => {
       <form>
         <label htmlFor="username">
           Username:
-          <span className={validName ? "valid" : "hide"}>
-            <FontAwesomeIcon icon={faCheck} />
-          </span>
-          <span className={validName || !user ? "hide" : "invalid"}>
-            <FontAwesomeIcon icon={faTimes} />
-          </span>
+          <FontAwesomeIcon
+            icon={faCheck}
+            className={validName ? "valid" : "hide"}
+          />
+          <FontAwesomeIcon
+            icon={faTimes}
+            className={validName || !user ? "hide" : "invalid"}
+          />
         </label>
         <input
           type="text"
@@ -79,6 +81,7 @@ const Register = () => {
           ref={userRef}
           autoComplete="off"
           onChange={(e) => setUser(e.target.value)}
+          value={user}
           required
           aria-invalid={validName ? "false" : "true"}
           aria-aria-describedby="uidnote"
