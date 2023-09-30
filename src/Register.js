@@ -53,6 +53,17 @@ const Register = () => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // if the button is enabled with JS hack
+    const v1 = USER_REGEX.test(user);
+    const v2 = USER_REGEX.test(pwd);
+    if (!v1 || !v2) {
+      setErrMsg("Invalid Entry");
+      return;
+    }
+  };
+
   return (
     <section>
       <p
@@ -63,7 +74,7 @@ const Register = () => {
         {errMsg}
       </p>
       <h1>Register</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="username">
           Username:
           <FontAwesomeIcon
@@ -164,7 +175,20 @@ const Register = () => {
           <FontAwesomeIcon icon={faInfoCircle} />
           Must match the first password input field.
         </p>
+        <button
+          disabled={!validName || !validPwd || !validMatchPwd ? true : false}
+        >
+          Sign Up
+        </button>
       </form>
+      <p>
+        Already registered?
+        <br />
+        <span className="line">
+          {/** put a router link here */}
+          <a href="#">Sign In</a>
+        </span>
+      </p>
     </section>
   );
 };
