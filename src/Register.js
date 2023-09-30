@@ -9,6 +9,7 @@ import axios from "./api/axios";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const REGISTER_URL = "/register";
 
 const Register = () => {
   const userRef = useRef();
@@ -62,8 +63,34 @@ const Register = () => {
       setErrMsg("Invalid Entry");
       return;
     }
-    console.log(user, pwd);
-    setSuccess(true);
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({
+          user,
+          pwd,
+        }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(response.data);
+      console.log(JSON.stringify(response));
+      setSuccess(true);
+      //clear the input fields out in the registration form
+    } catch (err) {
+      if (!err?.resposne) {
+        setErrMsg("No Server Response");
+      } else if (err.response.status === 409) {
+        setErrMsg("Username Taken");
+      } else {
+        setErrMsg("Registration failed");
+      }
+      errRef.current.focus();
+    }
   };
 
   return (
