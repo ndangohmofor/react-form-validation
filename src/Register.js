@@ -22,6 +22,7 @@ const Register = () => {
   const [userFocus, setUserFocus] = useState(false);
   const [firstNameFocus, setFirstNameFocus] = useState(false);
   const [lastNameFocus, setLastNameFocus] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -48,6 +49,11 @@ const Register = () => {
   }, [user]);
 
   useEffect(() => {
+    const result = EMAIL_REGEX.test(email);
+    setValidEmail(result);
+  }, [email]);
+
+  useEffect(() => {
     const result = PWD_REGEX.test(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
@@ -63,7 +69,8 @@ const Register = () => {
     // if the button is enabled with JS hack
     const v1 = USER_REGEX.test(user);
     const v2 = PWD_REGEX.test(pwd);
-    if (!v1 || !v2) {
+    const v3 = EMAIL_REGEX.test(email);
+    if (!v1 || !v2 || !v3) {
       setErrMsg("Invalid Entry");
       return;
     }
@@ -73,6 +80,9 @@ const Register = () => {
         JSON.stringify({
           username: user,
           password: pwd,
+          firstName,
+          lastName,
+          email,
         }),
         {
           headers: {
@@ -127,12 +137,12 @@ const Register = () => {
               value={firstName}
               required
               aria-invalid={!!firstName ? "false" : "true"}
-              aria-describedby="uidfirstname"
+              aria-describedby="firstnamenote"
               onFocus={() => setFirstNameFocus(true)}
               onBlur={() => setFirstNameFocus(false)}
             />
             <p
-              id="uidfirstname"
+              id="firstnamenote"
               className={
                 !firstNameFocus || (firstNameFocus && !!firstName)
                   ? "offscreen"
@@ -144,7 +154,7 @@ const Register = () => {
             </p>
 
             {/** Label for Last name */}
-            <label htmlFor="lastName">First Name:</label>
+            <label htmlFor="lastName">Last Name:</label>
             <input
               type="text"
               id="lastName"
@@ -153,12 +163,12 @@ const Register = () => {
               value={lastName}
               required
               aria-invalid={!!lastName ? "false" : "true"}
-              aria-describedby="uidfirstname"
+              aria-describedby="lastnamenote"
               onFocus={() => setLastNameFocus(true)}
               onBlur={() => setLastNameFocus(false)}
             />
             <p
-              id="uidfirstname"
+              id="lastnamenote"
               className={
                 !lastNameFocus || (lastNameFocus && !!lastName)
                   ? "offscreen"
@@ -170,6 +180,44 @@ const Register = () => {
             </p>
 
             {/** Label for Email */}
+            <label htmlFor="email">
+              Email:
+              <FontAwesomeIcon
+                icon={faCheck}
+                className={validEmail ? "valid" : "hide"}
+              />
+              <FontAwesomeIcon
+                icon={faTimes}
+                className={validEmail || !email ? "hide" : "invalid"}
+              />
+            </label>
+            <input
+              type="text"
+              id="email"
+              autoComplete="on"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              required
+              aria-invalid={validEmail ? "false" : "true"}
+              aria-describedby="emailnote"
+              onFocus={() => setEmailFocus(true)}
+              onBlur={() => setEmailFocus(false)}
+            />
+            <p
+              id="emailnote"
+              className={
+                emailFocus && email && !validEmail
+                  ? "instructions"
+                  : "offscreen"
+              }
+            >
+              <FontAwesomeIcon icon={faInfoCircle} />
+              Enter a valid email address. <br />
+              A valid email address will have a username, an '@' symbol, and a
+              domain name ending starting with "."
+              <br />
+              Example: "someusername@somedomain.com"
+            </p>
 
             {/** Label for Username */}
             <label htmlFor="username">
@@ -192,7 +240,7 @@ const Register = () => {
               value={user}
               required
               aria-invalid={validName ? "false" : "true"}
-              aria-aria-describedby="uidnote"
+              aria-describedby="uidnote"
               onFocus={() => setUserFocus(true)}
               onBlur={() => setUserFocus(false)}
             />
