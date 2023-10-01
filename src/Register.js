@@ -5,19 +5,18 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "./api/axios";
+import { useUserRegistration } from "./hooks/useRegister";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const REGISTER_URL = "/api/v1/registration";
 
 const Register = () => {
-  const userRef = useRef();
+  const usernameRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
   const [firstNameFocus, setFirstNameFocus] = useState(false);
@@ -39,14 +38,20 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  const {
+    data: response,
+    mutateAsync: registerUser,
+    isSuccess,
+  } = useUserRegistration();
+
   useEffect(() => {
-    userRef.current.focus();
+    usernameRef.current.focus();
   }, []);
 
   useEffect(() => {
-    const result = USER_REGEX.test(user);
+    const result = USER_REGEX.test(username);
     setValidName(result);
-  }, [user]);
+  }, [username]);
 
   useEffect(() => {
     const result = EMAIL_REGEX.test(email);
@@ -62,12 +67,12 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd]);
+  }, [username, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if the button is enabled with JS hack
-    const v1 = USER_REGEX.test(user);
+    const v1 = USER_REGEX.test(username);
     const v2 = PWD_REGEX.test(pwd);
     const v3 = EMAIL_REGEX.test(email);
     if (!v1 || !v2 || !v3) {
@@ -75,25 +80,17 @@ const Register = () => {
       return;
     }
     try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({
-          username: user,
-          password: pwd,
-          firstName,
-          lastName,
-          email,
-        }),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          // withCredentials: true,
-        }
-      );
-      console.log(response.data);
-      console.log(JSON.stringify(response));
-      setSuccess(true);
+      registerUser({
+        username,
+        password: pwd,
+        firstName,
+        lastName,
+        email,
+      });
+      if (isSuccess) {
+        console.log(response);
+        setSuccess(true);
+      }
       //clear the input fields out in the registration form
     } catch (err) {
       if (!err?.resposne) {
@@ -109,9 +106,9 @@ const Register = () => {
 
   return (
     <>
-      {success ? (
+      {isSuccess ? (
         <section>
-          <h1>Success!</h1>
+          <h1>{response.data}</h1>
           <p>
             <a href="#">Sign In</a>
           </p>
@@ -228,16 +225,16 @@ const Register = () => {
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validName || !user ? "hide" : "invalid"}
+                className={validName || !username ? "hide" : "invalid"}
               />
             </label>
             <input
               type="text"
               id="username"
-              ref={userRef}
+              ref={usernameRef}
               autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
               required
               aria-invalid={validName ? "false" : "true"}
               aria-describedby="uidnote"
@@ -247,7 +244,9 @@ const Register = () => {
             <p
               id="uidnote"
               className={
-                userFocus && user && !validName ? "instructions" : "offscreen"
+                userFocus && username && !validName
+                  ? "instructions"
+                  : "offscreen"
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
