@@ -9,7 +9,9 @@ import axios from "./api/axios";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = "/register";
+const EMAIL_REGEX =
+  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const REGISTER_URL = "/api/v1/registration";
 
 const Register = () => {
   const userRef = useRef();
@@ -18,10 +20,16 @@ const Register = () => {
   const [user, setUser] = useState("");
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
+  const [firstNameFocus, setFirstNameFocus] = useState(false);
+  const [lastNameFocus, setLastNameFocus] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
 
   const [matchPwd, setMatchPwd] = useState("");
   const [validMatchPwd, setValidMatchPwd] = useState(false);
@@ -36,15 +44,11 @@ const Register = () => {
 
   useEffect(() => {
     const result = USER_REGEX.test(user);
-    console.log(result);
-    console.log(user);
     setValidName(result);
   }, [user]);
 
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    console.log(result);
-    console.log(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatchPwd(match);
@@ -67,8 +71,8 @@ const Register = () => {
       const response = await axios.post(
         REGISTER_URL,
         JSON.stringify({
-          user,
-          pwd,
+          username: user,
+          password: pwd,
         }),
         {
           headers: {
@@ -113,6 +117,61 @@ const Register = () => {
           </p>
           <h1>Register</h1>
           <form onSubmit={handleSubmit}>
+            {/** Label for First name */}
+            <label htmlFor="firstName">First Name:</label>
+            <input
+              type="text"
+              id="firstName"
+              autoComplete="on"
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
+              required
+              aria-invalid={!!firstName ? "false" : "true"}
+              aria-describedby="uidfirstname"
+              onFocus={() => setFirstNameFocus(true)}
+              onBlur={() => setFirstNameFocus(false)}
+            />
+            <p
+              id="uidfirstname"
+              className={
+                !firstNameFocus || (firstNameFocus && !!firstName)
+                  ? "offscreen"
+                  : "instructions"
+              }
+            >
+              <FontAwesomeIcon icon={faInfoCircle} />
+              Please enter your first name <br />
+            </p>
+
+            {/** Label for Last name */}
+            <label htmlFor="lastName">First Name:</label>
+            <input
+              type="text"
+              id="lastName"
+              autoComplete="on"
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+              required
+              aria-invalid={!!lastName ? "false" : "true"}
+              aria-describedby="uidfirstname"
+              onFocus={() => setLastNameFocus(true)}
+              onBlur={() => setLastNameFocus(false)}
+            />
+            <p
+              id="uidfirstname"
+              className={
+                !lastNameFocus || (lastNameFocus && !!lastName)
+                  ? "offscreen"
+                  : "instructions"
+              }
+            >
+              <FontAwesomeIcon icon={faInfoCircle} />
+              Please enter your last name <br />
+            </p>
+
+            {/** Label for Email */}
+
+            {/** Label for Username */}
             <label htmlFor="username">
               Username:
               <FontAwesomeIcon
@@ -148,6 +207,8 @@ const Register = () => {
               Must begin with a letter. <br />
               Letters, numbers, underscores, hyphens allowed.
             </p>
+
+            {/** Label for Password */}
 
             <label htmlFor="password">
               Password:
@@ -185,6 +246,9 @@ const Register = () => {
               <span aria-label="dollar sign">$</span>
               <span aria-label="percent">%</span>
             </p>
+
+            {/** Label for Confirm Password */}
+
             <label htmlFor="confirm_pwd">
               Confirm Password:
               <span className={validMatchPwd && matchPwd ? "valid" : "hide"}>
