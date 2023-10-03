@@ -1,7 +1,9 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
+import AuthContext from "./context/AuthProvider";
 
 const Login = () => {
+  const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -18,6 +20,10 @@ const Login = () => {
     setErrMsg("");
   }, [user, password]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  };
+
   return (
     <section>
       <p
@@ -28,7 +34,7 @@ const Login = () => {
         {errMsg}
       </p>
       <h1>Sign In</h1>
-      <form>
+      <form onSubmit={handleSumit}>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
