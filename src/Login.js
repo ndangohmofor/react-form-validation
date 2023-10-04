@@ -1,6 +1,9 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import React, { useEffect, useRef, useState, useContext } from "react";
 import AuthContext from "./context/AuthProvider";
+import axios from "./api/axios";
+
+const LOGIN_URL = "/auth/login";
 
 const Login = () => {
   const { setAuth } = useContext(AuthContext);
@@ -22,6 +25,34 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ user, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      const accessToken = response.data?.accessToken;
+      const roles = response.data?.roles;
+      setAuth(user, password, roles, accessToken);
+      setUser("");
+      setPassword("");
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing Username or password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login failed");
+      }
+      errRef.current.focus();
+    }
   };
 
   return (
