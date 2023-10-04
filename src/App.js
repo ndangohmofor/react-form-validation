@@ -1,3 +1,4 @@
+import Login from "./Login";
 import Register from "./Register";
 import { QueryClientProvider, QueryClient } from "react-query";
 
@@ -7,7 +8,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <main className="App">
-        <Register />
+        {/* <Register /> */}
+        <Login />
       </main>
     </QueryClientProvider>
   );

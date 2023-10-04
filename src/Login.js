@@ -23,7 +23,7 @@ const Login = () => {
     setErrMsg("");
   }, [user, password]);
 
-  const handleSubmit = async (e) => {
+  const handleSumit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
