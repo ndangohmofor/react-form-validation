@@ -3,14 +3,14 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import AuthContext from "./context/AuthProvider";
 import axios from "./api/axios";
 
-const LOGIN_URL = "/auth/login";
+const LOGIN_URL = "/api/v1/login";
 
 const Login = () => {
   const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
@@ -21,24 +21,24 @@ const Login = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, password]);
+  }, [username, password]);
 
   const handleSumit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         LOGIN_URL,
-        JSON.stringify({ user, password }),
+        JSON.stringify({ username, password }),
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
+          //   withCredentials: true,
         }
       );
       console.log(JSON.stringify(response?.data));
       const accessToken = response.data?.accessToken;
       const roles = response.data?.roles;
-      setAuth(user, password, roles, accessToken);
-      setUser("");
+      setAuth(username, password, roles, accessToken);
+      setUsername("");
       setPassword("");
       setSuccess(true);
     } catch (err) {
@@ -72,8 +72,8 @@ const Login = () => {
           id="username"
           ref={userRef}
           autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
           required
         />
         <label htmlFor="password">Password:</label>
@@ -81,7 +81,7 @@ const Login = () => {
           type="password"
           id="password"
           onChange={(e) => setPassword(e.target.value)}
-          value={user}
+          value={password}
           required
         />
         <button>Sign in</button>
