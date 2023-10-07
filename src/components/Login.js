@@ -1,19 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "../api/axios";
 import useAuth from "../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const LOGIN_URL = "/api/v1/login";
 
 const Login = () => {
   const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const userRef = useRef();
   const errRef = useRef();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -39,7 +43,7 @@ const Login = () => {
       setAuth(username, password, roles, accessToken);
       setUsername("");
       setPassword("");
-      setSuccess(true);
+      navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
