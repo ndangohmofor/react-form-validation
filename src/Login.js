@@ -1,12 +1,11 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
-import React, { useEffect, useRef, useState, useContext } from "react";
-import AuthContext from "./context/AuthProvider";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "./api/axios";
+import useAuth from "./hooks/useAuth";
 
 const LOGIN_URL = "/api/v1/login";
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
   const userRef = useRef();
   const errRef = useRef();
 
