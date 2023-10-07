@@ -4,6 +4,10 @@ import Register from "./components/Register";
 import { QueryClientProvider, QueryClient } from "react-query";
 import RequireAuth from "./components/RequireAuth";
 import { Routes, Route } from "react-router-dom";
+import Admin from "./pages/Admin";
+import Employee from "./pages/Employee";
+import Missing from "./pages/Missing";
+import Home from "./pages/Home";
 
 const queryClient = new QueryClient();
 

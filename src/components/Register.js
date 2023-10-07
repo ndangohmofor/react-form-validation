@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useUserRegistration } from "../hooks/useRegister";
+import { Link } from "react-router-dom";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -337,7 +338,7 @@ const Register = () => {
             <br />
             <span className="line">
               {/** put a router link here */}
-              <a href="#">Sign In</a>
+              <Link to={"/login"}>Sign In</Link>
             </span>
           </p>
         </section>
