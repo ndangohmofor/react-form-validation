@@ -31,10 +31,9 @@ const Login = () => {
         JSON.stringify({ username, password }),
         {
           headers: { "Content-Type": "application/json" },
-          //   withCredentials: true,
+          withCredentials: true,
         }
       );
-      console.log(response.data);
       const accessToken = response.data?.jwt;
       const roles = response.data?.roles;
       setAuth(username, password, roles, accessToken);
