@@ -22,8 +22,10 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* protected routes */}
-          <Route element={<RequireAuth />}>
+          <Route element={<RequireAuth allowedRoles={[]} />}>
             <Route path="admin" element={<Admin />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={[]} />}>
             <Route path="employee" element={<Employee />} />
           </Route>
 
