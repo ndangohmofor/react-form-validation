@@ -26,36 +26,35 @@ const NavigationBar = () => {
         />
       </Nav>
       <Navbar.Brand href="#home">Workout Planner</Navbar.Brand>
-      <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
-            {auth.user?.checkedIn ? (
-              <Nav.Link href="/checkout">Check Out</Nav.Link>
-            ) : (
-              <Nav.Link href="/checkin">Check In</Nav.Link>
-            )}
-            <Nav.Link href="/machineguides">Machine Guides</Nav.Link>
-            <Nav.Link href="/workoutmetrics">Workout Metrics</Nav.Link>
-            <Nav.Link href="/reservedclasses">Reserved Classes</Nav.Link>
-          </Nav>
-          <Nav className="justify-content-end">
-            {auth.user ? (
-              <>
-                <Navbar.Text>{auth.user?.firstName}</Navbar.Text>
-                <Nav.Link href="/signout">Sign Out</Nav.Link>
-              </>
-            ) : (
-              <>
-                <Nav.Link href="/login">Login</Nav.Link>
-                <Nav.Link href="/register">Register</Nav.Link>
-              </>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/about">About</Nav.Link>
+          {auth.user?.checkedIn ? (
+            <Nav.Link href="/checkout">Check Out</Nav.Link>
+          ) : (
+            <Nav.Link href="/checkin">Check In</Nav.Link>
+          )}
+          <Nav.Link href="/machineguides">Machine Guides</Nav.Link>
+          <Nav.Link href="/workoutmetrics">Workout Metrics</Nav.Link>
+          <Nav.Link href="/reservedclasses">Reserved Classes</Nav.Link>
+        </Nav>
+        <Nav className="justify-content-end">
+          {auth.user ? (
+            <>
+              <Navbar.Text>{auth.user?.firstName}</Navbar.Text>
+              <Nav.Link href="/signout">Sign Out</Nav.Link>
+            </>
+          ) : (
+            <>
+              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/register">Register</Nav.Link>
+            </>
+          )}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 };

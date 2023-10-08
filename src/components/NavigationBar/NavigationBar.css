@@ -6,4 +6,5 @@ a.navbar-brand,
 a.nav-link,
 nav.navbar {
   padding: 0;
+  text-align: right;
 }
