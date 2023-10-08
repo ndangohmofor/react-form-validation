@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useAuth from "../../hooks/useAuth";
@@ -8,13 +8,7 @@ import "./NavigationBar.css";
 const NavigationBar = () => {
   const { auth } = useAuth();
   return (
-    <Navbar
-      expand="lg"
-      sticky="top"
-      bg="primary"
-      data-bs-theme="dark"
-      // className="bg-body-tertiary"
-    >
+    <Navbar expand="lg" sticky="top" bg="primary" data-bs-theme="dark">
       <Nav>
         <img
           id="logo"

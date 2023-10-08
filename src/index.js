@@ -5,6 +5,7 @@ import App from "./App";
 import { AuthProvider } from "./context/AuthProvider";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
+import Footer from "./components/Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +17,7 @@ root.render(
           <Route path="/*" element={<App />} />
         </Routes>
       </AuthProvider>
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
