@@ -1,0 +1,21 @@
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-group {
+  padding: 5px;
+  width: 50%;
+}
+
+.form-group input {
+  width: 100%;
+}
+
+section {
+  min-width: fit-content;
+}

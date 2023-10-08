@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useUserRegistration } from "../../hooks/useRegister";
 import { Link } from "react-router-dom";
+import "./Register.css";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -125,213 +126,243 @@ const Register = () => {
           </p>
           <h1>Register</h1>
           <form onSubmit={handleSubmit}>
-            {/** Label for First name */}
-            <label htmlFor="firstName">First Name:</label>
-            <input
-              type="text"
-              id="firstName"
-              autoComplete="on"
-              onChange={(e) => setFirstName(e.target.value)}
-              value={firstName}
-              required
-              aria-invalid={!!firstName ? "false" : "true"}
-              aria-describedby="firstnamenote"
-              onFocus={() => setFirstNameFocus(true)}
-              onBlur={() => setFirstNameFocus(false)}
-            />
-            <p
-              id="firstnamenote"
-              className={
-                !firstNameFocus || (firstNameFocus && !!firstName)
-                  ? "offscreen"
-                  : "instructions"
-              }
-            >
-              <FontAwesomeIcon icon={faInfoCircle} />
-              Please enter your first name <br />
-            </p>
+            <div className="form-row">
+              <div className="form-group">
+                {/** Label for First name */}
+                <label htmlFor="firstName">First Name:</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  autoComplete="on"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  value={firstName}
+                  required
+                  aria-invalid={!!firstName ? "false" : "true"}
+                  aria-describedby="firstnamenote"
+                  onFocus={() => setFirstNameFocus(true)}
+                  onBlur={() => setFirstNameFocus(false)}
+                />
+                <p
+                  id="firstnamenote"
+                  className={
+                    !firstNameFocus || (firstNameFocus && !!firstName)
+                      ? "offscreen"
+                      : "instructions"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Please enter your first name <br />
+                </p>
+              </div>
 
-            {/** Label for Last name */}
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-              type="text"
-              id="lastName"
-              autoComplete="on"
-              onChange={(e) => setLastName(e.target.value)}
-              value={lastName}
-              required
-              aria-invalid={!!lastName ? "false" : "true"}
-              aria-describedby="lastnamenote"
-              onFocus={() => setLastNameFocus(true)}
-              onBlur={() => setLastNameFocus(false)}
-            />
-            <p
-              id="lastnamenote"
-              className={
-                !lastNameFocus || (lastNameFocus && !!lastName)
-                  ? "offscreen"
-                  : "instructions"
-              }
-            >
-              <FontAwesomeIcon icon={faInfoCircle} />
-              Please enter your last name <br />
-            </p>
+              <div className="form-group">
+                {/** Label for Last name */}
+                <label htmlFor="lastName">Last Name:</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  autoComplete="on"
+                  onChange={(e) => setLastName(e.target.value)}
+                  value={lastName}
+                  required
+                  aria-invalid={!!lastName ? "false" : "true"}
+                  aria-describedby="lastnamenote"
+                  onFocus={() => setLastNameFocus(true)}
+                  onBlur={() => setLastNameFocus(false)}
+                />
+                <p
+                  id="lastnamenote"
+                  className={
+                    !lastNameFocus || (lastNameFocus && !!lastName)
+                      ? "offscreen"
+                      : "instructions"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Please enter your last name <br />
+                </p>
+              </div>
+            </div>
 
-            {/** Label for Email */}
-            <label htmlFor="email">
-              Email:
-              <FontAwesomeIcon
-                icon={faCheck}
-                className={validEmail ? "valid" : "hide"}
-              />
-              <FontAwesomeIcon
-                icon={faTimes}
-                className={validEmail || !email ? "hide" : "invalid"}
-              />
-            </label>
-            <input
-              type="text"
-              id="email"
-              autoComplete="on"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              required
-              aria-invalid={validEmail ? "false" : "true"}
-              aria-describedby="emailnote"
-              onFocus={() => setEmailFocus(true)}
-              onBlur={() => setEmailFocus(false)}
-            />
-            <p
-              id="emailnote"
-              className={
-                emailFocus && email && !validEmail
-                  ? "instructions"
-                  : "offscreen"
-              }
-            >
-              <FontAwesomeIcon icon={faInfoCircle} />
-              Enter a valid email address. <br />
-              A valid email address will have a username, an '@' symbol, and a
-              domain name ending starting with "."
-              <br />
-              Example: "someusername@somedomain.com"
-            </p>
+            <div className="form-row">
+              <div className="form-group">
+                {/** Label for Email */}
+                <label htmlFor="email">
+                  Email:
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className={validEmail ? "valid" : "hide"}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className={validEmail || !email ? "hide" : "invalid"}
+                  />
+                </label>
+                <input
+                  type="text"
+                  id="email"
+                  autoComplete="on"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  required
+                  aria-invalid={validEmail ? "false" : "true"}
+                  aria-describedby="emailnote"
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
+                />
+                <p
+                  id="emailnote"
+                  className={
+                    emailFocus && email && !validEmail
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Enter a valid email address. <br />
+                  A valid email address will have a username, an '@' symbol, and
+                  a domain name ending starting with "."
+                  <br />
+                  Example: "someusername@somedomain.com"
+                </p>
+              </div>
 
-            {/** Label for Username */}
-            <label htmlFor="username">
-              Username:
-              <FontAwesomeIcon
-                icon={faCheck}
-                className={validName ? "valid" : "hide"}
-              />
-              <FontAwesomeIcon
-                icon={faTimes}
-                className={validName || !username ? "hide" : "invalid"}
-              />
-            </label>
-            <input
-              type="text"
-              id="username"
-              ref={usernameRef}
-              autoComplete="off"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-              required
-              aria-invalid={validName ? "false" : "true"}
-              aria-describedby="uidnote"
-              onFocus={() => setUserFocus(true)}
-              onBlur={() => setUserFocus(false)}
-            />
-            <p
-              id="uidnote"
-              className={
-                userFocus && username && !validName
-                  ? "instructions"
-                  : "offscreen"
-              }
-            >
-              <FontAwesomeIcon icon={faInfoCircle} />
-              4 to 24 characters. <br />
-              Must begin with a letter. <br />
-              Letters, numbers, underscores, hyphens allowed.
-            </p>
+              <div className="form-group">
+                {/** Label for Username */}
+                <label htmlFor="username">
+                  Username:
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className={validName ? "valid" : "hide"}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTimes}
+                    className={validName || !username ? "hide" : "invalid"}
+                  />
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  ref={usernameRef}
+                  autoComplete="off"
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
+                  required
+                  aria-invalid={validName ? "false" : "true"}
+                  aria-describedby="uidnote"
+                  onFocus={() => setUserFocus(true)}
+                  onBlur={() => setUserFocus(false)}
+                />
+                <p
+                  id="uidnote"
+                  className={
+                    userFocus && username && !validName
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  4 to 24 characters. <br />
+                  Must begin with a letter. <br />
+                  Letters, numbers, underscores, hyphens allowed.
+                </p>
+              </div>
+            </div>
 
-            {/** Label for Password */}
+            <div className="form-row">
+              <div className="form-group">
+                {/** Label for Password */}
 
-            <label htmlFor="password">
-              Password:
-              <span className={validPwd ? "valid" : "hide"}>
-                <FontAwesomeIcon icon={faCheck} />
-              </span>
-              <span className={validPwd || !pwd ? "hide" : "invalid"}>
-                <FontAwesomeIcon icon={faTimes} />
-              </span>
-            </label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              required
-              aria-invalid={validPwd ? "false" : "true"}
-              aria-describedby="pwdnote"
-              onFocus={() => setPwdFocus(true)}
-              onBlur={() => setPwdFocus(false)}
-            />
-            <p
-              id="pwdnote"
-              className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
-            >
-              <FontAwesomeIcon icon={faInfoCircle} />
-              8 to 24 characters.
-              <br />
-              Must include uppercase and lowercase letters, a number and a
-              special character.
-              <br />
-              Allowed special characters:{" "}
-              <span aria-label="exclamation-mark">!</span>
-              <span aria-label="at symbol">@</span>
-              <span aria-label="hashtag">#</span>
-              <span aria-label="dollar sign">$</span>
-              <span aria-label="percent">%</span>
-            </p>
+                <label htmlFor="password">
+                  Password:
+                  <span className={validPwd ? "valid" : "hide"}>
+                    <FontAwesomeIcon icon={faCheck} />
+                  </span>
+                  <span className={validPwd || !pwd ? "hide" : "invalid"}>
+                    <FontAwesomeIcon icon={faTimes} />
+                  </span>
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  onChange={(e) => setPwd(e.target.value)}
+                  required
+                  aria-invalid={validPwd ? "false" : "true"}
+                  aria-describedby="pwdnote"
+                  onFocus={() => setPwdFocus(true)}
+                  onBlur={() => setPwdFocus(false)}
+                />
+                <p
+                  id="pwdnote"
+                  className={
+                    pwdFocus && !validPwd ? "instructions" : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  8 to 24 characters.
+                  <br />
+                  Must include uppercase and lowercase letters, a number and a
+                  special character.
+                  <br />
+                  Allowed special characters:{" "}
+                  <span aria-label="exclamation-mark">!</span>
+                  <span aria-label="at symbol">@</span>
+                  <span aria-label="hashtag">#</span>
+                  <span aria-label="dollar sign">$</span>
+                  <span aria-label="percent">%</span>
+                </p>
+              </div>
 
-            {/** Label for Confirm Password */}
+              <div className="form-group">
+                {/** Label for Confirm Password */}
 
-            <label htmlFor="confirm_pwd">
-              Confirm Password:
-              <span className={validMatchPwd && matchPwd ? "valid" : "hide"}>
-                <FontAwesomeIcon icon={faCheck} />
-              </span>
-              <span className={validMatchPwd || !matchPwd ? "hide" : "invalid"}>
-                <FontAwesomeIcon icon={faTimes} />
-              </span>
-            </label>
-            <input
-              type="password"
-              id="confirm_pwd"
-              onChange={(e) => setMatchPwd(e.target.value)}
-              required
-              aria-invalid={validMatchPwd ? "false" : "true"}
-              aria-describedby="confirmnote"
-              onFocus={() => setMatchPwdFocus(true)}
-              onBlur={() => setMatchPwdFocus(false)}
-            />
-            <p
-              id="confirmnote"
-              className={
-                matchPwdFocus && !validMatchPwd ? "instructions" : "offscreen"
-              }
-            >
-              <FontAwesomeIcon icon={faInfoCircle} />
-              Must match the first password input field.
-            </p>
-            <button
-              disabled={
-                !validName || !validPwd || !validMatchPwd ? true : false
-              }
-            >
-              Sign Up
-            </button>
+                <label htmlFor="confirm_pwd">
+                  Confirm Password:
+                  <span
+                    className={validMatchPwd && matchPwd ? "valid" : "hide"}
+                  >
+                    <FontAwesomeIcon icon={faCheck} />
+                  </span>
+                  <span
+                    className={validMatchPwd || !matchPwd ? "hide" : "invalid"}
+                  >
+                    <FontAwesomeIcon icon={faTimes} />
+                  </span>
+                </label>
+                <input
+                  type="password"
+                  id="confirm_pwd"
+                  onChange={(e) => setMatchPwd(e.target.value)}
+                  required
+                  aria-invalid={validMatchPwd ? "false" : "true"}
+                  aria-describedby="confirmnote"
+                  onFocus={() => setMatchPwdFocus(true)}
+                  onBlur={() => setMatchPwdFocus(false)}
+                />
+                <p
+                  id="confirmnote"
+                  className={
+                    matchPwdFocus && !validMatchPwd
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Must match the first password input field.
+                </p>
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <button
+                  disabled={
+                    !validName || !validPwd || !validMatchPwd ? true : false
+                  }
+                >
+                  Sign Up
+                </button>
+              </div>
+            </div>
           </form>
           <p>
             Already registered?

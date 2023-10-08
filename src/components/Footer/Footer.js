@@ -5,7 +5,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary footer" sticky="bottom">
+      <Navbar expand="lg" className="bg-body-tertiary footer">
         <Container>
           <Row>
             <Col className="justify-content-right">
