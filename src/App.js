@@ -1,8 +1,8 @@
-import Layout from "./components/Layout";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Layout from "./components/Layout/Layout";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 import { QueryClientProvider, QueryClient } from "react-query";
-import RequireAuth from "./components/RequireAuth";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 import { Routes, Route } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";

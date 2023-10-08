@@ -1,0 +1,9 @@
+img#logo {
+  border-radius: 30%;
+}
+
+a.navbar-brand,
+a.nav-link,
+nav.navbar {
+  padding: 0;
+}

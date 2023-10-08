@@ -2,7 +2,8 @@ import React from "react";
 import { Navbar, Container } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
+import "./NavigationBar.css";
 
 const NavigationBar = () => {
   const { auth } = useAuth();
@@ -10,24 +11,26 @@ const NavigationBar = () => {
     <Navbar
       expand="lg"
       sticky="top"
-      bg="dark"
+      bg="primary"
       data-bs-theme="dark"
-      className="bg-body-tertiary"
+      // className="bg-body-tertiary"
     >
       <Nav>
         <img
+          id="logo"
           alt="Workout Planner Logo"
           src="images/Logo.png"
-          width={"80"}
-          height={"80"}
+          width={"50"}
+          height={"50"}
           className="d-inline-block align-left"
-        />{" "}
+        />
       </Nav>
+      <Navbar.Brand href="#home">Workout Planner</Navbar.Brand>
       <Container>
-        <Navbar.Brand href="#home">Workout Planner</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             {auth.user?.checkedIn ? (
               <Nav.Link href="/checkout">Check Out</Nav.Link>
@@ -38,9 +41,12 @@ const NavigationBar = () => {
             <Nav.Link href="/workoutmetrics">Workout Metrics</Nav.Link>
             <Nav.Link href="/reservedclasses">Reserved Classes</Nav.Link>
           </Nav>
-          <Nav>
+          <Nav className="justify-content-end">
             {auth.user ? (
-              <span>{auth.user?.firstName}</span>
+              <>
+                <Navbar.Text>{auth.user?.firstName}</Navbar.Text>
+                <Nav.Link href="/signout">Sign Out</Nav.Link>
+              </>
             ) : (
               <>
                 <Nav.Link href="/login">Login</Nav.Link>
