@@ -11,6 +11,10 @@ ul.footer > li > a {
   font-size: small;
 }
 
+p.footer-address {
+  font-size: smaller;
+}
+
 p.footer-paragraph {
   font-style: italic;
   font-size: small;

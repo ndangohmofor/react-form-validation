@@ -61,7 +61,7 @@ const Footer = () => {
             </Col>
             <Col md={3} className="justify-content-right">
               <h5 className="footer">Contact Us</h5>
-              <p>
+              <p className="footer-address">
                 123 S Main St
                 <br />
                 New York, NY 10012, US
