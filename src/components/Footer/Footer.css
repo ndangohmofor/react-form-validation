@@ -1,6 +1,7 @@
-nav.footer a.navbar-brand {
+h5.footer {
   padding: 0;
-  text-align: right;
+  text-align: left;
+  font-size: smaller;
   font-weight: bold;
   color: black;
   text-decoration: underline;
@@ -23,4 +24,8 @@ nav.footer > div.container > div.row > div.col > a {
   text-align: center;
   font-style: italic;
   font-size: smaller;
+}
+
+p.footer-copyright {
+  color: white;
 }
