@@ -37,3 +37,15 @@ nav.footer > div.container > div.row > div.col > a {
 p.footer-copyright {
   color: white;
 }
+
+ul.footer > li > a:visited {
+  color: grey;
+}
+
+ul.footer > li > a:link {
+  color: darkblue;
+}
+
+ul.footer > li > a:hover {
+  color: darkred;
+}
