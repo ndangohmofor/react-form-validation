@@ -33,7 +33,7 @@ const Footer = () => {
             </Col>
             <Col md={2} className="justify-content-center">
               <h5 className="footer">Our Offerings</h5>
-              <ul className="list-unstyled">
+              <ul className="list-unstyled footer">
                 <li>
                   <a href="#!">Pool</a>
                 </li>
@@ -47,7 +47,7 @@ const Footer = () => {
             </Col>
             <Col className="justify-content-right">
               <h5 className="footer">Useful Links</h5>
-              <ul className="list-unstyled">
+              <ul className="list-unstyled footer">
                 <li>
                   <a href="#!">Upcoming Classes</a>
                 </li>
@@ -71,7 +71,7 @@ const Footer = () => {
             </Col>
             <Col className="justify-content-center">
               <h5 className="footer">Follow Us</h5>
-              <ul className="list-unstyled my-0">
+              <ul className="list-unstyled my-0 footer">
                 <li>
                   <a href="#!">
                     <FontAwesomeIcon icon={faFacebook} /> Facebook

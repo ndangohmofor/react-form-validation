@@ -7,6 +7,10 @@ h5.footer {
   text-decoration: underline;
 }
 
+ul.footer > li > a {
+  font-size: small;
+}
+
 p.footer-paragraph {
   font-style: italic;
   font-size: small;
