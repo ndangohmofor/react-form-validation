@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
+import useRefreshToken from "../../hooks/useRefreshToken";
 
 const Users = () => {
   const [users, setUsers] = useState();
+  const refresh = useRefreshToken();
 
   useEffect(() => {
     let isMounted = true;
@@ -10,7 +12,7 @@ const Users = () => {
 
     const getUsers = async () => {
       try {
-        const response = await axios.get("/users", {
+        const response = await axios.get("/api/v1/admin/allusers", {
           signal: controler.signal,
         });
         console.log(response.data);
@@ -40,6 +42,8 @@ const Users = () => {
       ) : (
         <p>No users to display</p>
       )}
+      <button onClick={() => refresh()}>Refresh</button>
+      <br />
     </article>
   );
 };
