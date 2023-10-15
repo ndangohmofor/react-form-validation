@@ -39,8 +39,8 @@ const Login = () => {
         }
       );
       const accessToken = response.data?.jwt;
-      const roles = response.data?.roles;
-      setAuth(username, password, roles, accessToken);
+      const role = response.data?.role;
+      setAuth({ username, role, accessToken });
       setUsername("");
       setPassword("");
       navigate(from, { replace: true });
