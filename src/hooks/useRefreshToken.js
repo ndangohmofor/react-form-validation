@@ -10,10 +10,10 @@ const useRefreshToken = (props) => {
 
     setAuth((prev) => {
       console.log(JSON.stringify(prev));
-      console.log(response.data.jwt);
-      return { ...prev, jwt: response.data.jwt };
+      console.log(response.data.accessToken);
+      return { ...prev, accessToken: response.data.accessToken };
     });
-    return response.data.jwt;
+    return response.data.accessToken;
   };
   return refresh;
 };
