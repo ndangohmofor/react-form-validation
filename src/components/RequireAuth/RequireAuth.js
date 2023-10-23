@@ -6,9 +6,10 @@ import React from "react";
 const RequireAuth = ({ allowedRoles }) => {
   const { auth } = useAuth();
   const location = useLocation();
+  console.log(auth);
   return allowedRoles?.includes(auth?.role) ? (
     <Outlet />
-  ) : auth?.user ? (
+  ) : auth?.username ? (
     <Navigate to={"/Unauthorized"} state={{ from: location }} replace />
   ) : (
     <Navigate to={"/login"} state={{ from: location }} replace />
