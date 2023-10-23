@@ -4,9 +4,19 @@ import Nav from "react-bootstrap/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useAuth from "../../hooks/useAuth";
 import "./NavigationBar.css";
+import useLogout from "../../hooks/useLogout";
+import { useNavigate } from "react-router-dom";
 
 const NavigationBar = () => {
   const { auth } = useAuth();
+  const navigate = useNavigate();
+  const logout = useLogout();
+
+  const signOut = async () => {
+    await logout();
+    navigate("/");
+  };
+
   return (
     <Navbar expand="lg" sticky="top" bg="primary" data-bs-theme="dark">
       <Nav>
@@ -36,10 +46,10 @@ const NavigationBar = () => {
           <Nav.Link href="/reservedclasses">Reserved Classes</Nav.Link>
         </Nav>
         <Nav className="justify-content-end">
-          {auth.user ? (
+          {auth.username ? (
             <>
-              <Navbar.Text>{auth.user?.firstName}</Navbar.Text>
-              <Nav.Link href="/signout">Sign Out</Nav.Link>
+              <Nav.Link href="/profile">{auth.username}</Nav.Link>
+              <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
             </>
           ) : (
             <>
