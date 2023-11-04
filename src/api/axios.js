@@ -13,11 +13,9 @@ const HEADERS = {
 export default axios.create({
   baseURL: BASE_URL,
   headers: HEADERS,
-  withCredentials: true,
 });
 
 export const axiosPrivate = axios.create({
   baseURL: BASE_URL,
   headers: HEADERS,
-  withCredentials: true,
 });
