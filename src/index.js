@@ -19,6 +19,5 @@ root.render(
       </AuthProvider>
       <Footer />
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
