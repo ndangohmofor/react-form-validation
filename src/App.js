@@ -3,7 +3,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import { QueryClientProvider, QueryClient } from "react-query";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
-import PersistLogin from "./components/persistLogin/PersistLogin";
+import PersistLogin from "./components/PersistLogin/PersistLogin";
 import { Routes, Route } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";
@@ -25,10 +25,10 @@ function App() {
           {/* protected routes */}
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={["ROLE_ADMIN"]} />}>
-              <Route path="admin" element={<Admin />} />
+              <Route path="/admin" element={<Admin />} />
             </Route>
             <Route element={<RequireAuth allowedRoles={[]} />}>
-              <Route path="employee" element={<Employee />} />
+              <Route path="/employee" element={<Employee />} />
             </Route>
           </Route>
 
