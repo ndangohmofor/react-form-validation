@@ -38,10 +38,9 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      const accessToken = response.data?.access_token;
-      const role = response.data?.role;
-      const refreshToken = response.data?.refresh_token;
-      setAuth({ username, role, accessToken, refreshToken });
+      const accessToken = response.data?.body?.access_token;
+      const role = response.data?.body?.role;
+      setAuth({ username, role, accessToken });
       setUsername("");
       setPassword("");
       navigate(from, { replace: true });
