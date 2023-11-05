@@ -2,6 +2,7 @@ import Layout from "./components/Layout/Layout";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
 import { Routes, Route } from "react-router-dom";
@@ -36,6 +37,7 @@ function App() {
           <Route path="*" element={<Missing />} />
         </Route>
       </Routes>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
 }
