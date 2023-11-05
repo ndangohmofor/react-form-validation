@@ -87,6 +87,7 @@ const Login = () => {
           value={password}
           required
         />
+        <hr />
         <button>Sign in</button>
       </form>
       <p>
