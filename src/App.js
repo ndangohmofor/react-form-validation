@@ -21,15 +21,27 @@ function App() {
           {/* public routes */}
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="/" element={<Home />} />
 
           {/* protected routes */}
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={["ROLE_ADMIN"]} />}>
               <Route path="/admin" element={<Admin />} />
             </Route>
-            <Route element={<RequireAuth allowedRoles={[]} />}>
+            <Route
+              element={
+                <RequireAuth allowedRoles={["ROLE_EMPLOYEE", "ROLE_ADMIN"]} />
+              }
+            >
               <Route path="/employee" element={<Employee />} />
+            </Route>
+            <Route
+              element={
+                <RequireAuth
+                  allowedRoles={["ROLE_USER", "ROLE_USER", "ROLE_ADMIN"]}
+                />
+              }
+            >
+              <Route path="/home" element={<Home />} />
             </Route>
           </Route>
 
