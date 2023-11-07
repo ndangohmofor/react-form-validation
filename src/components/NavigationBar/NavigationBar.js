@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import useAuth from "../../hooks/useAuth";
 import "./NavigationBar.css";
 import useLogout from "../../hooks/useLogout";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const NavigationBar = () => {
   const { auth } = useAuth();
@@ -29,30 +29,48 @@ const NavigationBar = () => {
           className="d-inline-block align-left"
         />
       </Nav>
-      <Navbar.Brand href="#home">Workout Planner</Navbar.Brand>
+      <Navbar.Brand as={Link} to="#home">
+        Workout Planner
+      </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
-          <Nav.Link href="/machineguides">Machine Guides</Nav.Link>
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
+          <Nav.Link as={Link} to="/about">
+            About
+          </Nav.Link>
+          <Nav.Link as={Link} to="/machineguides">
+            Machine Guides
+          </Nav.Link>
         </Nav>
 
         {auth.username ? (
           <>
             <Nav className="justify-content-center">
               {auth.user?.checkedIn ? (
-                <Nav.Link href="/checkout">Check Out</Nav.Link>
+                <Nav.Link as={Link} to="/checkout">
+                  Check Out
+                </Nav.Link>
               ) : (
-                <Nav.Link href="/checkin">Check In</Nav.Link>
+                <Nav.Link as={Link} to="/checkin">
+                  Check In
+                </Nav.Link>
               )}
-              <Nav.Link href="/workoutmetrics">Workout Metrics</Nav.Link>
-              <Nav.Link href="/reservedclasses">Reserved Classes</Nav.Link>
+              <Nav.Link as={Link} to="/workoutmetrics">
+                Workout Metrics
+              </Nav.Link>
+              <Nav.Link as={Link} to="/reservedclasses">
+                Reserved Classes
+              </Nav.Link>
             </Nav>
             <Nav className="justify-content-end">
               <>
-                <Nav.Link href="/profile">{auth.username}</Nav.Link>
+                <Nav.Link as={Link} to="/profile">
+                  {auth.username}
+                </Nav.Link>
                 <Nav.Link onClick={signOut}>Logout</Nav.Link>
               </>
             </Nav>
@@ -60,8 +78,12 @@ const NavigationBar = () => {
         ) : (
           <Nav>
             <>
-              <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/register">Register</Nav.Link>
+              <Nav.Link as={Link} to="/login">
+                Login
+              </Nav.Link>
+              <Nav.Link as={Link} to="/register">
+                Register
+              </Nav.Link>
             </>
           </Nav>
         )}
