@@ -36,28 +36,35 @@ const NavigationBar = () => {
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
-          {auth.user?.checkedIn ? (
-            <Nav.Link href="/checkout">Check Out</Nav.Link>
-          ) : (
-            <Nav.Link href="/checkin">Check In</Nav.Link>
-          )}
           <Nav.Link href="/machineguides">Machine Guides</Nav.Link>
-          <Nav.Link href="/workoutmetrics">Workout Metrics</Nav.Link>
-          <Nav.Link href="/reservedclasses">Reserved Classes</Nav.Link>
         </Nav>
-        <Nav className="justify-content-end">
-          {auth.username ? (
-            <>
-              <Nav.Link href="/profile">{auth.username}</Nav.Link>
-              <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
-            </>
-          ) : (
+
+        {auth.username ? (
+          <>
+            <Nav className="justify-content-center">
+              {auth.user?.checkedIn ? (
+                <Nav.Link href="/checkout">Check Out</Nav.Link>
+              ) : (
+                <Nav.Link href="/checkin">Check In</Nav.Link>
+              )}
+              <Nav.Link href="/workoutmetrics">Workout Metrics</Nav.Link>
+              <Nav.Link href="/reservedclasses">Reserved Classes</Nav.Link>
+            </Nav>
+            <Nav className="justify-content-end">
+              <>
+                <Nav.Link href="/profile">{auth.username}</Nav.Link>
+                <Nav.Link onClick={signOut}>Logout</Nav.Link>
+              </>
+            </Nav>
+          </>
+        ) : (
+          <Nav>
             <>
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/register">Register</Nav.Link>
             </>
-          )}
-        </Nav>
+          </Nav>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
