@@ -4,6 +4,8 @@ import useAuth from "./useAuth";
 const useLogout = () => {
   const { setAuth } = useAuth();
 
+  // TODO: Update this hook to use useQuery
+
   const logout = async () => {
     setAuth({});
     try {
