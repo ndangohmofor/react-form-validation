@@ -1,5 +1,6 @@
-import React from "react";
-import { Navbar } from "react-bootstrap";
+import React, { useState } from "react";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropDown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useAuth from "../../hooks/useAuth";
@@ -11,6 +12,7 @@ const NavigationBar = () => {
   const { auth } = useAuth();
   const navigate = useNavigate();
   const logout = useLogout();
+  const [expanded, setExpanded] = useState(false);
 
   const signOut = async () => {
     await logout();
@@ -18,8 +20,14 @@ const NavigationBar = () => {
   };
 
   return (
-    <Navbar expand="lg" sticky="top" bg="primary" data-bs-theme="dark">
-      <Nav>
+    <Navbar
+      expand="lg"
+      sticky="top"
+      bg="primary"
+      data-bs-theme="dark"
+      expanded={expanded}
+    >
+      <Navbar.Brand as={Link} to="/">
         <img
           id="logo"
           alt="Workout Planner Logo"
@@ -28,12 +36,39 @@ const NavigationBar = () => {
           height={"50"}
           className="d-inline-block align-left"
         />
-      </Nav>
-      <Navbar.Brand as={Link} to="#home">
         Workout Planner
       </Navbar.Brand>
+      {/* <Navbar.Brand as={Link} to="#home">
+        Workout Planner
+      </Navbar.Brand> */}
 
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
+      <Navbar.Toggle
+        aria-controls="basic-navbar-nav"
+        onClick={() => setExpanded(!expanded)}
+      />
+
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link as={Link} to={"/"}>
+            Home
+          </Nav.Link>
+          <Nav.Link as={Link} to={"/about"}>
+            About
+          </Nav.Link>
+          <NavDropDown title="Services" id="basic-nav-dropdown">
+            <NavDropDown.Item as={Link} to={"/machineguides"}>
+              Machine Guides
+            </NavDropDown.Item>
+            <NavDropDown.Item as={Link} to={"/workoutmetrics"}>
+              Workout Metrics
+            </NavDropDown.Item>
+            <NavDropDown.Item as={Link} to={"/reservedclasses"}>
+              Reserved Classes
+            </NavDropDown.Item>
+          </NavDropDown>
+        </Nav>
+
+        {/* <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link as={Link} to="/">
@@ -45,46 +80,41 @@ const NavigationBar = () => {
           <Nav.Link as={Link} to="/machineguides">
             Machine Guides
           </Nav.Link>
-        </Nav>
+        </Nav> */}
 
         {auth.username ? (
-          <>
-            <Nav className="justify-content-center">
+          <Nav>
+            <NavDropDown title={auth.username} id="basic-nav-dropdown">
               {auth.user?.checkedIn ? (
-                <Nav.Link as={Link} to="/checkout">
-                  Check Out
-                </Nav.Link>
+                <NavDropDown.Item as={Link} to={"/checkout"}>
+                  Checkout
+                </NavDropDown.Item>
               ) : (
-                <Nav.Link as={Link} to="/checkin">
-                  Check In
-                </Nav.Link>
+                <NavDropDown.Item as={Link} to={"checkin"}>
+                  Checkin
+                </NavDropDown.Item>
               )}
-              <Nav.Link as={Link} to="/workoutmetrics">
-                Workout Metrics
-              </Nav.Link>
-              <Nav.Link as={Link} to="/reservedclasses">
-                Reserved Classes
-              </Nav.Link>
-            </Nav>
-            <Nav className="justify-content-end">
-              <>
-                <Nav.Link as={Link} to="/profile">
-                  {auth.username}
-                </Nav.Link>
-                <Nav.Link onClick={signOut}>Logout</Nav.Link>
-              </>
-            </Nav>
-          </>
+              <NavDropDown.Item as={Link} to={"/profile"}>
+                Profile
+              </NavDropDown.Item>
+              <NavDropDown.Divider />
+              <NavDropDown.Item
+                onClick={() => {
+                  signOut();
+                }}
+              >
+                Logout
+              </NavDropDown.Item>
+            </NavDropDown>
+          </Nav>
         ) : (
           <Nav>
-            <>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
-              <Nav.Link as={Link} to="/register">
-                Register
-              </Nav.Link>
-            </>
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/register">
+              Register
+            </Nav.Link>
           </Nav>
         )}
       </Navbar.Collapse>
