@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";
 import Missing from "./pages/Missing";
 import Home from "./pages/Home";
+import UserProfileCard from "./components/UserProfile/UserProfileCard";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,15 @@ function App() {
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth allowedRoles={["ROLE_ADMIN"]} />}>
               <Route path="/admin" element={<Admin />} />
+            </Route>
+            <Route
+              element={
+                <RequireAuth
+                  allowedRoles={["ROLE_USER", "ROLE_EMPLOYEE", "ROLE_ADMIN"]}
+                />
+              }
+            >
+              <Route path="/profile" element={<UserProfileCard />} />
             </Route>
             <Route
               element={
