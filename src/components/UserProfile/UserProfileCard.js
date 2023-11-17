@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
+import FullName from "../fullName/FullName";
 
 const UserProfileCard = () => {
   const [userProfileDetails, setUserProfileDetails] = useState({});
@@ -44,8 +45,6 @@ const UserProfileCard = () => {
 
   let imageUrl;
 
-  console.log(userProfileDetails);
-
   return (
     <div className="userprofile">
       {!isLoading ? (
@@ -60,9 +59,7 @@ const UserProfileCard = () => {
             <div className="profile-name">
               {userProfileDetails.preferredName}
             </div>
-            <div className="profile-name">
-              {userProfileDetails.lastName}, {userProfileDetails.firstName}
-            </div>
+            <FullName {...userProfileDetails} />
           </div>
         </div>
       ) : (
