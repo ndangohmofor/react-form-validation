@@ -10,7 +10,7 @@ import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";
 import Missing from "./pages/Missing";
 import Home from "./pages/Home";
-import UserProfileCard from "./components/UserProfile/UserProfileCard";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +35,7 @@ function App() {
                 />
               }
             >
-              <Route path="/profile" element={<UserProfileCard />} />
+              <Route path="/profile" element={<UserProfile />} />
             </Route>
             <Route
               element={
