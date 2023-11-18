@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import "./profile.css";
 
 function Profile({
   profilePhoto,
@@ -58,7 +59,7 @@ function Profile({
           </Col>
         </Row>
         <br />
-        <Button variant="secondary" size="sm">
+        <Button variant="secondary" size="sm" className="float-end">
           Update Profile
         </Button>
       </Card.Body>
