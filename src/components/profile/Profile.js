@@ -13,17 +13,8 @@ function Profile({
 }) {
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={`data:image/jpeg;base64,${profilePhoto}`} />
-      <Card.Header as="h6">User Profile</Card.Header>
+      <Card.Header as="h6">User Details</Card.Header>
       <Card.Body>
-        <Row>
-          <Col>
-            <Card.Text>Preferred Name:</Card.Text>
-          </Col>
-          <Col>
-            <Card.Text>{preferredName}</Card.Text>
-          </Col>
-        </Row>
         <Row>
           <Col>
             <Card.Text>First Name:</Card.Text>
@@ -48,14 +39,6 @@ function Profile({
           </Col>
           <Col>
             <Card.Text>{lastName}</Card.Text>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Card.Text>Workout Goal</Card.Text>
-          </Col>
-          <Col>
-            <Card.Text>{goal}</Card.Text>
           </Col>
         </Row>
         <br />
