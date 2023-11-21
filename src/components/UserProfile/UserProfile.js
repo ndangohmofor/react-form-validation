@@ -3,6 +3,8 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import Profile from "../profile/Profile";
+import ProfilePhoto from "../profile/ProfilePhoto";
+import { Row } from "react-bootstrap";
 
 const UserProfile = () => {
   const [userProfileDetails, setUserProfileDetails] = useState({});
@@ -46,9 +48,10 @@ const UserProfile = () => {
   return (
     <>
       {!isLoading ? (
-        <>
+        <Row>
+          <ProfilePhoto {...userProfileDetails} />
           <Profile {...userProfileDetails} />
-        </>
+        </Row>
       ) : (
         <div>{/* display a skeleton loader here */}</div>
       )}
