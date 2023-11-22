@@ -6,12 +6,12 @@ const ProfilePhoto = ({ profilePhoto, preferredName }) => {
   return (
     <Card style={{ width: "18rem", margin: 32 }} variant="top">
       <Card.Img variant="top" src={`data:image/jpeg;base64,${profilePhoto}`} />
+      <Card.Header as="h6">Preferred Name</Card.Header>
       <Card.Body>
-        <Card.Title>Preferred Name</Card.Title>
-        <Card.Header as="h4">{preferredName}</Card.Header>
+        <Card.Title className="float-start">{preferredName}</Card.Title>
         <br />
         <Button variant="secondary" size="sm" className="float-end">
-          Edit Profile
+          Edit Photo
         </Button>
       </Card.Body>
     </Card>
