@@ -12,7 +12,7 @@ function Profile({
   goal,
 }) {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "18rem", margin: 32 }}>
       <Card.Header as="h6">User Details</Card.Header>
       <Card.Body>
         <Row>
@@ -43,7 +43,7 @@ function Profile({
         </Row>
         <br />
         <Button variant="secondary" size="sm" className="float-end">
-          Update Profile
+          Update Name
         </Button>
       </Card.Body>
     </Card>
