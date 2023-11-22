@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 
 const ProfileGoals = ({ goal }) => {
   const [updatedGoal, setUpdatedGoal] = useState(goal);
 
   const handleGoalUpdate = () => {
     // Logic to update the goal goes here
-    // For now, let's just update the goal with a random number
-    const randomGoal = Math.floor(Math.random() * 100);
-    setUpdatedGoal(randomGoal);
+    // set a new workout goal
   };
 
   return (
-    <Card>
+    <Card style={{ width: "18rem", margin: 32 }}>
+      <Card.Header>Goal</Card.Header>
       <Card.Body>
-        <Card.Title>Goal</Card.Title>
-        <Card.Text>{updatedGoal}</Card.Text>
-        <Button onClick={handleGoalUpdate}>Update Goal</Button>
+        <Button
+          variant="secondary"
+          size="sm"
+          className="float-end"
+          onClick={handleGoalUpdate}
+        >
+          Update Goal
+        </Button>
       </Card.Body>
     </Card>
   );
