@@ -4,7 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import Profile from "../profile/Profile";
 import ProfilePhoto from "../profile/ProfilePhoto";
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import ProfileGoals from "../profile/ProfileGoals";
 
 const UserProfile = () => {
   const [userProfileDetails, setUserProfileDetails] = useState({});
@@ -49,8 +50,19 @@ const UserProfile = () => {
     <>
       {!isLoading ? (
         <Row>
-          <ProfilePhoto {...userProfileDetails} />
-          <Profile {...userProfileDetails} />
+          <Col>
+            <ProfilePhoto {...userProfileDetails} />
+          </Col>
+          <Col>
+            <Row>
+              <Col>
+                <Profile {...userProfileDetails} />
+              </Col>
+              <Col>
+                <ProfileGoals {...userProfileDetails} />
+              </Col>
+            </Row>
+          </Col>
         </Row>
       ) : (
         <div>{/* display a skeleton loader here */}</div>
