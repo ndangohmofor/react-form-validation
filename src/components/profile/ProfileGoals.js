@@ -14,6 +14,8 @@ const ProfileGoals = ({ goal }) => {
     <Card style={{ width: "18rem", margin: 32 }}>
       <Card.Header>Goal</Card.Header>
       <Card.Body>
+        {goal}
+        <br />
         <Button
           variant="secondary"
           size="sm"
