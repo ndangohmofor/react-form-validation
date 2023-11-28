@@ -47,7 +47,8 @@ const UserProfile = () => {
   }, [isFetched]);
 
   return (
-    <>
+    <div>
+      <h1 className="text-center">User Profile</h1>
       {!isLoading ? (
         <Row>
           <Col>
@@ -62,9 +63,6 @@ const UserProfile = () => {
                   {userProfileDetails.preferredName}
                 </Card.Title>
                 <br />
-                <Button variant="secondary" size="sm" className="float-end">
-                  Edit Photo
-                </Button>
               </Card.Body>
             </Card>
           </Col>
@@ -101,9 +99,6 @@ const UserProfile = () => {
                       </Col>
                     </Row>
                     <br />
-                    <Button variant="secondary" size="sm" className="float-end">
-                      Update Name
-                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -113,24 +108,32 @@ const UserProfile = () => {
                   <Card.Body>
                     {userProfileDetails.goal}
                     <br />
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="float-end"
-                      // onClick={handleGoalUpdate}
-                    >
-                      Update Goal
-                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
+              <Row>
+                <Col>
+                  <Card style={{ width: "10rem", margin: 32 }}>
+                    <Card.Header>
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        className="float-end"
+                        // onClick={handleGoalUpdate}
+                      >
+                        Update User Profile
+                      </Button>
+                    </Card.Header>
+                  </Card>
+                </Col>
+              </Row>
             </Row>
           </Col>
         </Row>
       ) : (
         <div>{/* display a skeleton loader here */}</div>
       )}
-    </>
+    </div>
   );
 };
 
