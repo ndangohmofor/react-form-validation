@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const UserProfile = () => {
   const [userProfileDetails, setUserProfileDetails] = useState({});
@@ -133,9 +133,9 @@ const UserProfile = () => {
         </Row>
       ) : (
         // Add a skeleton loader here
-        <>
+        <SkeletonTheme baseColor="#313131" highlightColor="#525252">
           <Skeleton count={3} />
-        </>
+        </SkeletonTheme>
       )}
     </div>
   );
