@@ -113,15 +113,15 @@ const UserProfile = () => {
               </Col>
               <Row>
                 <Col>
-                  <Card style={{ width: "10rem", margin: 32 }}>
-                    <Card.Header>
+                  <Card style={{ width: "8rem", margin: 32 }}>
+                    <Card.Header style={{ margin: 0 }}>
                       <Button
-                        variant="secondary"
+                        variant="primary"
                         size="sm"
                         className="float-end"
                         // onClick={handleGoalUpdate}
                       >
-                        Update User Profile
+                        Update Profile
                       </Button>
                     </Card.Header>
                   </Card>
