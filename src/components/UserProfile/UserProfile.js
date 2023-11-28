@@ -3,7 +3,8 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import Profile from "../profile/Profile";
-import ProfilePhoto from "../profile/ProfilePhoto";
+import Card from "react-bootstrap/Card";
+import { Button } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
 import ProfileGoals from "../profile/ProfileGoals";
 
@@ -43,6 +44,7 @@ const UserProfile = () => {
   useEffect(() => {
     if (isFetched) {
       setUserProfileDetails(userProfile.data.body);
+      console.log(userProfileDetails);
     }
   }, [isFetched]);
 
@@ -51,7 +53,22 @@ const UserProfile = () => {
       {!isLoading ? (
         <Row>
           <Col>
-            <ProfilePhoto {...userProfileDetails} />
+            <Card style={{ width: "18rem", margin: 32 }} variant="top">
+              <Card.Img
+                variant="top"
+                src={`data:image/jpeg;base64,${userProfileDetails.profilePhoto}`}
+              />
+              <Card.Header as="h6">Preferred Name</Card.Header>
+              <Card.Body>
+                <Card.Title className="float-start">
+                  {userProfileDetails.preferredName}
+                </Card.Title>
+                <br />
+                <Button variant="secondary" size="sm" className="float-end">
+                  Edit Photo
+                </Button>
+              </Card.Body>
+            </Card>
           </Col>
           <Col>
             <Row>
