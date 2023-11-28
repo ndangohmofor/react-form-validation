@@ -2,11 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
-import Profile from "../profile/Profile";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
-import ProfileGoals from "../profile/ProfileGoals";
 
 const UserProfile = () => {
   const [userProfileDetails, setUserProfileDetails] = useState({});
@@ -73,10 +71,58 @@ const UserProfile = () => {
           <Col>
             <Row>
               <Col>
-                <Profile {...userProfileDetails} />
+                <Card style={{ width: "18rem", margin: 32 }}>
+                  <Card.Header as="h6">User Details</Card.Header>
+                  <Card.Body>
+                    <Row>
+                      <Col>
+                        <Card.Text>First Name:</Card.Text>
+                      </Col>
+                      <Col>
+                        <Card.Text>{userProfileDetails.firstName}</Card.Text>
+                      </Col>
+                    </Row>
+                    {userProfileDetails.middleName && (
+                      <Row>
+                        <Col>
+                          <Card.Text>Middle Name:</Card.Text>
+                        </Col>
+                        <Col>
+                          <Card.Text>{userProfileDetails.middleName}</Card.Text>
+                        </Col>
+                      </Row>
+                    )}
+                    <Row>
+                      <Col>
+                        <Card.Text>Last Name:</Card.Text>
+                      </Col>
+                      <Col>
+                        <Card.Text>{userProfileDetails.lastName}</Card.Text>
+                      </Col>
+                    </Row>
+                    <br />
+                    <Button variant="secondary" size="sm" className="float-end">
+                      Update Name
+                    </Button>
+                  </Card.Body>
+                </Card>
               </Col>
               <Col>
-                <ProfileGoals {...userProfileDetails} />
+                <Card style={{ width: "18rem", margin: 32 }}>
+                  <Card.Header>Goal</Card.Header>
+                  <Card.Body>
+                    {userProfileDetails.goal}
+                    <br />
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="float-end"
+                      // onClick={handleGoalUpdate}
+                    >
+                      Update Goal
+                    </Button>
+                  </Card.Body>
+                </Card>
               </Col>
             </Row>
           </Col>
