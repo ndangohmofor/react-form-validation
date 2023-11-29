@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const UpdateProfile = ({ userProfileDetails }) => {
   // State variables for first name and last name
   const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
 
   // Function to handle form submission
@@ -28,6 +29,16 @@ const UpdateProfile = ({ userProfileDetails }) => {
           />
         </label>
         <br />
+        {userProfileDetails.middleName && (
+          <label>
+            First Name:
+            <input
+              type="text"
+              value={userProfileDetails.middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
+            />
+          </label>
+        )}
         <label>
           Last Name:
           <input
