@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ userProfileDetails }) => {
   // State variables for first name and last name
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,7 +23,7 @@ const UpdateProfile = () => {
           First Name:
           <input
             type="text"
-            value={firstName}
+            value={userProfileDetails.firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
@@ -32,7 +32,7 @@ const UpdateProfile = () => {
           Last Name:
           <input
             type="text"
-            value={lastName}
+            value={userProfileDetails.lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
         </label>
