@@ -11,6 +11,7 @@ import Employee from "./pages/Employee";
 import Missing from "./pages/Missing";
 import Home from "./pages/Home";
 import UserProfile from "./components/UserProfile/UserProfile";
+import UpdateProfile from "./components/UserProfile/UpdateProfile";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,12 @@ function App() {
               }
             >
               <Route path="/profile" element={<UserProfile />} />
+              <Route
+                path="/updateprofile/:username"
+                element={
+                  <UpdateProfile userProfileDetails={userProfileDetails} />
+                }
+              />
             </Route>
             <Route
               element={
