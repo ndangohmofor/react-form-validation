@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useQuery } from "@tanstack/react-query";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
@@ -117,14 +117,15 @@ const UserProfile = () => {
                 <Col>
                   <Card style={{ width: "8rem", margin: 32 }}>
                     <Card.Header style={{ margin: 0 }}>
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        className="float-end"
-                        // onClick={handleGoalUpdate}
-                      >
-                        Update Profile
-                      </Button>
+                      <Link to="/update-profile">
+                        <Button
+                          variant="primary"
+                          size="sm"
+                          className="float-end"
+                        >
+                          Update Profile
+                        </Button>
+                      </Link>
                     </Card.Header>
                   </Card>
                 </Col>
