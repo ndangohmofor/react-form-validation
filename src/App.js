@@ -12,60 +12,61 @@ import Missing from "./pages/Missing";
 import Home from "./pages/Home";
 import UserProfile from "./components/UserProfile/UserProfile";
 import UpdateProfile from "./components/UserProfile/UpdateProfile";
+import { UserDetailsProvider } from "./context/UserDetailsProvider";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* public routes */}
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+      <UserDetailsProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* public routes */}
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
 
-          {/* protected routes */}
-          <Route element={<PersistLogin />}>
-            <Route element={<RequireAuth allowedRoles={["ROLE_ADMIN"]} />}>
-              <Route path="/admin" element={<Admin />} />
-            </Route>
-            <Route
-              element={
-                <RequireAuth
-                  allowedRoles={["ROLE_USER", "ROLE_EMPLOYEE", "ROLE_ADMIN"]}
-                />
-              }
-            >
-              <Route path="/profile" element={<UserProfile />} />
+            {/* protected routes */}
+            <Route element={<PersistLogin />}>
+              <Route element={<RequireAuth allowedRoles={["ROLE_ADMIN"]} />}>
+                <Route path="/admin" element={<Admin />} />
+              </Route>
               <Route
-                path="/updateprofile/:username"
                 element={
-                  <UpdateProfile userProfileDetails={userProfileDetails} />
+                  <RequireAuth
+                    allowedRoles={["ROLE_USER", "ROLE_EMPLOYEE", "ROLE_ADMIN"]}
+                  />
                 }
-              />
-            </Route>
-            <Route
-              element={
-                <RequireAuth allowedRoles={["ROLE_EMPLOYEE", "ROLE_ADMIN"]} />
-              }
-            >
-              <Route path="/employee" element={<Employee />} />
-            </Route>
-            <Route
-              element={
-                <RequireAuth
-                  allowedRoles={["ROLE_USER", "ROLE_USER", "ROLE_ADMIN"]}
+              >
+                <Route path="/profile" element={<UserProfile />} />
+                <Route
+                  path="/updateprofile/:username"
+                  element={<UpdateProfile />}
                 />
-              }
-            >
-              <Route path="/home" element={<Home />} />
+              </Route>
+              <Route
+                element={
+                  <RequireAuth allowedRoles={["ROLE_EMPLOYEE", "ROLE_ADMIN"]} />
+                }
+              >
+                <Route path="/employee" element={<Employee />} />
+              </Route>
+              <Route
+                element={
+                  <RequireAuth
+                    allowedRoles={["ROLE_USER", "ROLE_USER", "ROLE_ADMIN"]}
+                  />
+                }
+              >
+                <Route path="/home" element={<Home />} />
+              </Route>
             </Route>
-          </Route>
 
-          {/* catch all  */}
-          <Route path="*" element={<Missing />} />
-        </Route>
-      </Routes>
+            {/* catch all  */}
+            <Route path="*" element={<Missing />} />
+          </Route>
+        </Routes>
+      </UserDetailsProvider>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
