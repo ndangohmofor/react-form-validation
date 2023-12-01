@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import useUserProfileDetails from "../../hooks/useUserProfileDetails";
 
-const UpdateProfile = ({ userProfileDetails }) => {
+const UpdateProfile = () => {
+  const { userProfileDetails } = useUserProfileDetails();
   // State variables for first name and last name
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
