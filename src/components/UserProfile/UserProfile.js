@@ -117,7 +117,9 @@ const UserProfile = () => {
                 <Col>
                   <Card style={{ width: "8rem", margin: 32 }}>
                     <Card.Header style={{ margin: 0 }}>
-                      <Link to="/update-profile">
+                      <Link
+                        to={`/updateprofile/${userProfileDetails.firstName}`}
+                      >
                         <Button
                           variant="primary"
                           size="sm"
