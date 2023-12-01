@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import useUserProfileDetails from "../../hooks/useUserProfileDetails";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,8 +10,8 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import CardSkeleton from "../skeleton/CardSkeleton";
 
 const UserProfile = () => {
-  const [userProfileDetails, setUserProfileDetails] = useState({});
   const axiosPrivate = useAxiosPrivate();
+  const { userProfileDetails, setUserProfileDetails } = useUserProfileDetails();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -44,14 +45,13 @@ const UserProfile = () => {
   useEffect(() => {
     if (isFetched) {
       setUserProfileDetails(userProfile.data.body);
-      console.log(userProfileDetails);
     }
-  }, [isFetched]);
+  }, [isFetched, userProfile]);
 
   return (
     <div>
       <h1 className="text-center">User Profile</h1>
-      {!isLoading ? (
+      {!isLoading && userProfileDetails ? (
         <Row>
           <Col>
             <Card style={{ width: "18rem", margin: 32 }} variant="top">
