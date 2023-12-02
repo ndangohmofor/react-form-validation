@@ -16,8 +16,30 @@ const UpdateProfile = () => {
   );
   const [goal, setGoal] = useState(userProfileDetails.goal || "");
   const [profilePhoto, setProfilePhoto] = useState(
-    userProfileDetails.profilePhoto || ""
+    userProfileDetails.profilePhoto
+      ? userProfileDetails.profilePhoto.startsWith("data:image/")
+        ? userProfileDetails.profilePhoto
+        : "data:image/jpeg;base64," + userProfileDetails.profilePhoto
+      : ""
   );
+
+  console.log("profilePhoto", profilePhoto);
+
+  // Function to read uploaded file as base64 and set to state
+  const handleFileRead = (e) => {
+    const file = e.target.files[0];
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.onerror = (err) => reject(err);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleFileUpload = async (e) => {
+    const base64 = await handleFileRead(e);
+    setProfilePhoto(base64);
+  };
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -38,17 +60,10 @@ const UpdateProfile = () => {
             <label htmlFor="profilePhoto">
               Profile Picture:
               <div className="row justify-content-center">
-                <img
-                  for="profilePhoto"
-                  src={`data:image/jpeg;base64,${profilePhoto}`}
-                  alt="profile photo"
-                />
+                <img src={profilePhoto} alt="profile photo" />
               </div>
               <br />
-              <input
-                type="file"
-                onChange={(e) => setProfilePhoto(e.target.files[0])}
-              />
+              <input type="file" onChange={(e) => handleFileUpload(e)} />
             </label>
           </div>
         </div>
