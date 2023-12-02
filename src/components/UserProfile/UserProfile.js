@@ -57,7 +57,12 @@ const UserProfile = () => {
             <Card style={{ width: "18rem", margin: 32 }} variant="top">
               <Card.Img
                 variant="top"
-                src={`data:image/jpeg;base64,${userProfileDetails.profilePhoto}`}
+                src={
+                  userProfileDetails.profilePhoto.startsWith("data:image")
+                    ? userProfileDetails.profilePhoto
+                    : `data:image/jpeg;base64,${userProfileDetails.profilePhoto}`
+                }
+                alt="profile photo"
               />
               <Card.Header as="h6">Preferred Name</Card.Header>
               <Card.Body>
