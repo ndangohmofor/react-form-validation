@@ -7,6 +7,8 @@ const UpdateProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [preferredName, setPreferredName] = useState("");
+  const [goal, setGoal] = useState("");
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -22,35 +24,79 @@ const UpdateProfile = () => {
     <div>
       <h2>Update Profile</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            value={userProfileDetails.firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </label>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>
+              Preferred Name:
+              <input
+                type="text"
+                value={userProfileDetails.preferredName}
+                onChange={(e) => setPreferredName(e.target.value)}
+              />
+            </label>
+          </div>
+        </div>
+        <br />
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>
+              First Name:
+              <input
+                type="text"
+                value={userProfileDetails.firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </label>
+          </div>
+        </div>
         <br />
         {userProfileDetails.middleName && (
-          <label>
-            First Name:
-            <input
-              type="text"
-              value={userProfileDetails.middleName}
-              onChange={(e) => setMiddleName(e.target.value)}
-            />
-          </label>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label>
+                Middle Name:
+                <input
+                  type="text"
+                  value={userProfileDetails.middleName}
+                  onChange={(e) => setMiddleName(e.target.value)}
+                />
+              </label>
+            </div>
+          </div>
         )}
-        <label>
-          Last Name:
-          <input
-            type="text"
-            value={userProfileDetails.lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </label>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>
+              Last Name:
+              <input
+                type="text"
+                value={userProfileDetails.lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </label>
+          </div>
+        </div>
         <br />
-        <button type="submit">Update</button>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>
+              Workout Goal:
+              <input
+                type="text"
+                value={userProfileDetails.goal}
+                onChange={(e) => setGoal(e.target.value)}
+              />
+            </label>
+          </div>
+        </div>
+        <br />
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <button type="submit" className="btn btn-primary">
+              Update Profile
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
