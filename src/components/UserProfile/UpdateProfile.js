@@ -4,11 +4,20 @@ import useUserProfileDetails from "../../hooks/useUserProfileDetails";
 const UpdateProfile = () => {
   const { userProfileDetails } = useUserProfileDetails();
   // State variables for first name and last name
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [preferredName, setPreferredName] = useState("");
-  const [goal, setGoal] = useState("");
+  const [firstName, setFirstName] = useState(
+    userProfileDetails.firstName || ""
+  );
+  const [middleName, setMiddleName] = useState(
+    userProfileDetails.middleName || ""
+  );
+  const [lastName, setLastName] = useState(userProfileDetails.lastName || "");
+  const [preferredName, setPreferredName] = useState(
+    userProfileDetails.preferredName || ""
+  );
+  const [goal, setGoal] = useState(userProfileDetails.goal || "");
+  const [profilePhoto, setProfilePhoto] = useState(
+    userProfileDetails.profilePhoto || ""
+  );
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -26,11 +35,31 @@ const UpdateProfile = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group col-md-6">
+            <label htmlFor="profilePhoto">
+              Profile Picture:
+              <div className="row justify-content-center">
+                <img
+                  for="profilePhoto"
+                  src={`data:image/jpeg;base64,${profilePhoto}`}
+                  alt="profile photo"
+                />
+              </div>
+              <br />
+              <input
+                type="file"
+                onChange={(e) => setProfilePhoto(e.target.files[0])}
+              />
+            </label>
+          </div>
+        </div>
+        <br />
+        <div className="form-row">
+          <div className="form-group col-md-6">
             <label>
               Preferred Name:
               <input
                 type="text"
-                value={userProfileDetails.preferredName}
+                value={preferredName}
                 onChange={(e) => setPreferredName(e.target.value)}
               />
             </label>
@@ -43,7 +72,7 @@ const UpdateProfile = () => {
               First Name:
               <input
                 type="text"
-                value={userProfileDetails.firstName}
+                value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
@@ -57,7 +86,7 @@ const UpdateProfile = () => {
                 Middle Name:
                 <input
                   type="text"
-                  value={userProfileDetails.middleName}
+                  value={middleName}
                   onChange={(e) => setMiddleName(e.target.value)}
                 />
               </label>
@@ -70,7 +99,7 @@ const UpdateProfile = () => {
               Last Name:
               <input
                 type="text"
-                value={userProfileDetails.lastName}
+                value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
@@ -83,7 +112,7 @@ const UpdateProfile = () => {
               Workout Goal:
               <input
                 type="text"
-                value={userProfileDetails.goal}
+                value={goal}
                 onChange={(e) => setGoal(e.target.value)}
               />
             </label>
