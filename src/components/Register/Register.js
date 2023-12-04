@@ -90,7 +90,6 @@ const Register = () => {
         email,
       });
       if (isSuccess) {
-        console.log(response);
         setSuccess(true);
       }
       //clear the input fields out in the registration form
