@@ -43,17 +43,13 @@ const UpdateProfile = () => {
   const navigate = useNavigate();
   const { userProfileDetails } = useUserProfileDetails();
   // State variables for first name and last name
-  const [firstName, setFirstName] = useState(
-    userProfileDetails.firstName || ""
-  );
-  const [middleName, setMiddleName] = useState(
-    userProfileDetails.middleName || ""
-  );
-  const [lastName, setLastName] = useState(userProfileDetails.lastName || "");
+  const [firstName, setFirstName] = useState(userProfileDetails.firstName);
+  const [middleName, setMiddleName] = useState(userProfileDetails.middleName);
+  const [lastName, setLastName] = useState(userProfileDetails.lastName);
   const [preferredName, setPreferredName] = useState(
-    userProfileDetails.preferredName || ""
+    userProfileDetails.preferredName
   );
-  const [goal, setGoal] = useState(userProfileDetails.goal || "");
+  const [goal, setGoal] = useState(userProfileDetails.goal);
   const [profilePhoto, setProfilePhoto] = useState(
     userProfileDetails.profilePhoto
       ? userProfileDetails.profilePhoto.startsWith("data:image/")
@@ -124,20 +120,20 @@ const UpdateProfile = () => {
           </div>
         </div>
         <br />
-        {userProfileDetails.middleName && (
-          <div className="form-row">
-            <div className="form-group col-md-6">
-              <label>
-                Middle Name:
-                <input
-                  type="text"
-                  value={middleName}
-                  onChange={(e) => setMiddleName(e.target.value)}
-                />
-              </label>
-            </div>
+
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>
+              Middle Name:
+              <input
+                type="text"
+                value={middleName}
+                onChange={(e) => setMiddleName(e.target.value)}
+              />
+            </label>
           </div>
-        )}
+        </div>
+        <br />
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>
