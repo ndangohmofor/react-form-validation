@@ -1,5 +1,27 @@
 import React, { useState } from "react";
 import useUserProfileDetails from "../../hooks/useUserProfileDetails";
+import { useQuery } from "@tanstack/react-query";
+import { axiosPrivate } from "../../api/axios";
+
+// Function to read uploaded file as base64 and set to state
+const handleFileRead = (e) => {
+  const file = e.target.files[0];
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target.result);
+    reader.onerror = (err) => reject(err);
+    reader.readAsDataURL(file);
+  });
+};
+
+//Function to patch user profile details to the backend using axios patch request
+const patchUserProfile = async (userProfileDetails) => {
+  const response = await axiosPrivate.patch(
+    "/api/v1/profiles/profile",
+    userProfileDetails
+  );
+  return response;
+};
 
 const UpdateProfile = () => {
   const { userProfileDetails } = useUserProfileDetails();
@@ -23,19 +45,6 @@ const UpdateProfile = () => {
       : ""
   );
 
-  console.log("profilePhoto", profilePhoto);
-
-  // Function to read uploaded file as base64 and set to state
-  const handleFileRead = (e) => {
-    const file = e.target.files[0];
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => resolve(e.target.result);
-      reader.onerror = (err) => reject(err);
-      reader.readAsDataURL(file);
-    });
-  };
-
   const handleFileUpload = async (e) => {
     const base64 = await handleFileRead(e);
     setProfilePhoto(base64);
@@ -44,11 +53,8 @@ const UpdateProfile = () => {
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform the update profile logic here
-    console.log("Updating profile:", firstName, lastName);
-    // Reset the form fields
-    setFirstName("");
-    setLastName("");
+    //use patchUserProfile function and useQuery to update the user profile details
+    console.log(e.target.value);
   };
 
   return (
@@ -60,7 +66,7 @@ const UpdateProfile = () => {
             <label htmlFor="profilePhoto">
               Profile Picture:
               <div className="row justify-content-center">
-                <img src={profilePhoto} alt="profile photo" />
+                <img src={profilePhoto} alt="profile" />
               </div>
               <br />
               <input type="file" onChange={(e) => handleFileUpload(e)} />
