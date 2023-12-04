@@ -46,12 +46,12 @@ const UserProfile = () => {
     if (isFetched) {
       setUserProfileDetails(userProfile.data.body);
     }
-  }, [isFetched, userProfile]);
+  }, [isFetched]);
 
   return (
     <div>
       <h1 className="text-center">User Profile</h1>
-      {!isLoading && userProfileDetails ? (
+      {!isLoading && userProfileDetails.profilePhoto ? (
         <Row>
           <Col>
             <Card style={{ width: "18rem", margin: 32 }} variant="top">
