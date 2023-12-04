@@ -17,14 +17,7 @@ const handleFileRead = (e) => {
 };
 
 //Function to patch user profile details to the backend using axios patch request
-const patchUserProfile = async ({
-  fName,
-  mName,
-  lName,
-  pName,
-  goal,
-  photo,
-}) => {
+const patchUserProfile = async (fName, mName, lName, pName, goal, photo) => {
   const userProfileDetails = {
     firstName: fName,
     middleName: mName,
@@ -75,17 +68,17 @@ const UpdateProfile = () => {
   };
 
   // Function to handle form submission
-  const handleSubmit = (e, preferredName) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    patchUserProfile({
+    patchUserProfile(
       firstName,
       middleName,
       lastName,
       preferredName,
       goal,
-      profilePhoto,
-    });
-    navigate(`/userprofile/${userProfileDetails.username}`);
+      profilePhoto
+    );
+    navigate("/profile");
   };
 
   return (
