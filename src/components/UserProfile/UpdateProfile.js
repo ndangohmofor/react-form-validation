@@ -68,8 +68,8 @@ const UpdateProfile = () => {
   );
 
   const handleFileUpload = async (e) => {
-    const base64 = await handleFileRead(e);
-    setProfilePhoto(base64);
+    const base64Photo = await handleFileRead(e);
+    setProfilePhoto(base64Photo);
   };
 
   // Function to handle form submission
