@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import useUserProfileDetails from "../../hooks/useUserProfileDetails";
-import { useQuery } from "@tanstack/react-query";
 import { axiosPrivate } from "../../api/axios";
-import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 // Function to read uploaded file as base64 and set to state
@@ -27,7 +25,7 @@ const patchUserProfile = async (fName, mName, lName, pName, goal, photo) => {
     profilePhoto: photo,
   };
   const response = await axiosPrivate.patch(
-    "/api/v1/profiles/profile",
+    "/api/v1/profiles/updateprofile",
     userProfileDetails,
     {
       headers: {
