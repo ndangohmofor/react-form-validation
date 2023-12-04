@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useUserProfileDetails from "../../hooks/useUserProfileDetails";
 import { useQuery } from "@tanstack/react-query";
 import { axiosPrivate } from "../../api/axios";
+import { redirect } from "react-router-dom";
 
 // Function to read uploaded file as base64 and set to state
 const handleFileRead = (e) => {
@@ -15,10 +16,31 @@ const handleFileRead = (e) => {
 };
 
 //Function to patch user profile details to the backend using axios patch request
-const patchUserProfile = async (userProfileDetails) => {
+const patchUserProfile = async ({
+  fName,
+  mName,
+  lName,
+  pName,
+  goal,
+  photo,
+}) => {
+  const userProfileDetails = {
+    firstName: fName,
+    middleName: mName,
+    lastName: lName,
+    preferredName: pName,
+    goal: goal,
+    profilePhoto: photo,
+  };
   const response = await axiosPrivate.patch(
     "/api/v1/profiles/profile",
-    userProfileDetails
+    userProfileDetails,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    }
   );
   return response;
 };
@@ -54,7 +76,15 @@ const UpdateProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //use patchUserProfile function and useQuery to update the user profile details
-    console.log(e.target.value);
+    patchUserProfile({
+      firstName,
+      middleName,
+      lastName,
+      preferredName,
+      goal,
+      profilePhoto,
+    });
+    redirect(`/userprofile/${userProfileDetails.username}`);
   };
 
   return (
