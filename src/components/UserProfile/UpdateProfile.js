@@ -3,6 +3,7 @@ import useUserProfileDetails from "../../hooks/useUserProfileDetails";
 import { useQuery } from "@tanstack/react-query";
 import { axiosPrivate } from "../../api/axios";
 import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Function to read uploaded file as base64 and set to state
 const handleFileRead = (e) => {
@@ -46,6 +47,7 @@ const patchUserProfile = async ({
 };
 
 const UpdateProfile = () => {
+  const navigate = useNavigate();
   const { userProfileDetails } = useUserProfileDetails();
   // State variables for first name and last name
   const [firstName, setFirstName] = useState(
@@ -73,9 +75,8 @@ const UpdateProfile = () => {
   };
 
   // Function to handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, preferredName) => {
     e.preventDefault();
-    //use patchUserProfile function and useQuery to update the user profile details
     patchUserProfile({
       firstName,
       middleName,
@@ -84,7 +85,7 @@ const UpdateProfile = () => {
       goal,
       profilePhoto,
     });
-    redirect(`/userprofile/${userProfileDetails.username}`);
+    navigate(`/userprofile/${userProfileDetails.username}`);
   };
 
   return (
