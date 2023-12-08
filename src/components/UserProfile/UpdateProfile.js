@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useUserProfileDetails from "../../hooks/useUserProfileDetails";
-import { axiosPrivate } from "../../api/axios";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useNavigate } from "react-router-dom";
 
 // Function to read uploaded file as base64 and set to state
@@ -12,29 +12,6 @@ const handleFileRead = (e) => {
     reader.onerror = (err) => reject(err);
     reader.readAsDataURL(file);
   });
-};
-
-//Function to patch user profile details to the backend using axios patch request
-const patchUserProfile = async (fName, mName, lName, pName, goal, photo) => {
-  const userProfileDetails = {
-    firstName: fName,
-    middleName: mName,
-    lastName: lName,
-    preferredName: pName,
-    goal: goal,
-    profilePhoto: photo,
-  };
-  const response = await axiosPrivate.patch(
-    "/api/v1/profiles/updateprofile",
-    userProfileDetails,
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    }
-  );
-  return response;
 };
 
 const UpdateProfile = () => {
@@ -55,6 +32,38 @@ const UpdateProfile = () => {
         : "data:image/jpeg;base64," + userProfileDetails.profilePhoto
       : ""
   );
+  const [username, setUsername] = useState(userProfileDetails.username);
+
+  const axiosPrivate = useAxiosPrivate();
+  const controller = new AbortController();
+
+  //Function to patch user profile details to the backend using axios patch request
+  const patchUserProfile = async (fName, mName, lName, pName, goal, photo) => {
+    const potentialUpdates = [
+      fName && { op: "replace", path: "/firstName", value: fName },
+      mName && { op: "replace", path: "/middleName", value: mName },
+      lName && { op: "replace", path: "/lastName", value: lName },
+      pName && { op: "replace", path: "/preferredName", value: pName },
+      goal && { op: "replace", path: "/goal", value: goal },
+      photo && {
+        op: "replace",
+        path: "/profilePhoto",
+        value: photo.replace("data:", "").replace(/^.+,/, ""),
+      },
+    ];
+
+    const userProfileDetails = potentialUpdates.filter(Boolean);
+
+    const response = await axiosPrivate.patch(
+      `/api/v1/profiles/profile/${username}/update`,
+      userProfileDetails,
+      {
+        headers: { "Content-Type": "application/json-patch+json" },
+        signal: controller.signal,
+      }
+    );
+    return response;
+  };
 
   const handleFileUpload = async (e) => {
     const base64Photo = await handleFileRead(e);
@@ -71,8 +80,9 @@ const UpdateProfile = () => {
       preferredName,
       goal,
       profilePhoto
-    );
-    navigate("/profile");
+    ).then((response) => {
+      navigate("/profile");
+    });
   };
 
   return (
@@ -98,7 +108,7 @@ const UpdateProfile = () => {
               Preferred Name:
               <input
                 type="text"
-                value={preferredName}
+                value={preferredName ? preferredName : ""}
                 onChange={(e) => setPreferredName(e.target.value)}
               />
             </label>
@@ -111,7 +121,7 @@ const UpdateProfile = () => {
               First Name:
               <input
                 type="text"
-                value={firstName}
+                value={firstName ? firstName : ""}
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
@@ -125,7 +135,7 @@ const UpdateProfile = () => {
               Middle Name:
               <input
                 type="text"
-                value={middleName}
+                value={middleName ? middleName : ""}
                 onChange={(e) => setMiddleName(e.target.value)}
               />
             </label>
@@ -138,7 +148,7 @@ const UpdateProfile = () => {
               Last Name:
               <input
                 type="text"
-                value={lastName}
+                value={lastName ? lastName : ""}
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
@@ -151,7 +161,7 @@ const UpdateProfile = () => {
               Workout Goal:
               <input
                 type="text"
-                value={goal}
+                value={goal ? goal : ""}
                 onChange={(e) => setGoal(e.target.value)}
               />
             </label>
