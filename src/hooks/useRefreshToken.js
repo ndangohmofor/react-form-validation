@@ -5,18 +5,16 @@ const useRefreshToken = () => {
   const { setAuth } = useAuth();
   //TODO: Update this hook to use react-query's useQuery hook so that it handles instances of multiple calls seamlessly.
   const refresh = async () => {
-    const response = await axios.get("/api/v1/refreshtoken", {
-      withCredentials: true,
-    });
+    const response = await axios.get("/api/v1/refreshtoken");
     setAuth((prev) => {
       return {
         ...prev,
-        role: response.data.body.role,
-        username: response.data.body.username,
-        accessToken: response.data.body.access_token,
+        role: response.data.role,
+        username: response.data.username,
+        accessToken: response.data.access_token,
       };
     });
-    return response.data.body.access_token;
+    return response.data.access_token;
   };
   return refresh;
 };
