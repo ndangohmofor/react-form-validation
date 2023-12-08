@@ -44,23 +44,26 @@ const UserProfile = () => {
 
   useEffect(() => {
     if (isFetched) {
-      setUserProfileDetails(userProfile.data.body);
+      console.log(userProfile.data);
+      setUserProfileDetails(userProfile.data);
     }
   }, [isFetched]);
 
   return (
     <div>
       <h1 className="text-center">User Profile</h1>
-      {!isLoading && userProfileDetails.profilePhoto ? (
+      {!isLoading ? (
         <Row>
           <Col>
             <Card style={{ width: "18rem", margin: 32 }} variant="top">
               <Card.Img
                 variant="top"
                 src={
-                  userProfileDetails.profilePhoto.startsWith("data:image")
-                    ? userProfileDetails.profilePhoto
-                    : `data:image/jpeg;base64,${userProfileDetails.profilePhoto}`
+                  userProfileDetails.profilePhoto
+                    ? userProfileDetails.profilePhoto.startsWith("data:image")
+                      ? userProfileDetails.profilePhoto
+                      : `data:image/jpeg;base64,${userProfileDetails.profilePhoto}`
+                    : "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=826&t=st=1701696541~exp=1701697141~hmac=3da83f836ef4bde005012f6614e9296da82da2a7ef9a9f0e331ada9f23ecd177"
                 }
                 alt="profile photo"
               />
