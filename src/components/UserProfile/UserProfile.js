@@ -47,7 +47,7 @@ const UserProfile = () => {
       console.log(userProfile.data);
       setUserProfileDetails(userProfile.data);
     }
-  }, [isFetched]);
+  }, [userProfileDetails, userProfile, isFetched]);
 
   return (
     <div>
