@@ -22,6 +22,26 @@ const NavigationBar = () => {
     navigate("/");
   };
 
+  const navLinks = (
+    <>
+      <Nav.Link as={Link} to={"/home"}>
+        Home
+      </Nav.Link>
+      <Nav.Link as={Link} to={"/about"}>
+        About
+      </Nav.Link>
+      <Nav.Link as={Link} to={"/machineguides"}>
+        Machine Guides
+      </Nav.Link>
+      <Nav.Link as={Link} to={"/workoutmetrics"}>
+        Workout Metrics
+      </Nav.Link>
+      <Nav.Link as={Link} to={"/reservedclasses"}>
+        Classes
+      </Nav.Link>
+    </>
+  );
+
   return (
     <Navbar
       expand="sm"
@@ -43,23 +63,28 @@ const NavigationBar = () => {
           />
           Workout Planner
         </Navbar.Brand>
-        {/* <Navbar.Brand as={Link} to="#home">
-        Workout Planner
-      </Navbar.Brand> */}
 
+        {/* Custom button for mobile view */}
         <Button
+          className="ms-auto d-sm-none"
           aria-controls="basic-navbar-nav"
           onClick={() => setExpanded(!expanded)}
         >
           Menu
         </Button>
 
+        {/* Nav items for larger screens */}
+        <Navbar.Collapse id="basic-navbar-nav" className="d-sm-none">
+          <Nav className="me-auto">{navLinks}</Nav>
+        </Navbar.Collapse>
+
+        {/* Offcanvas for mobile view */}
         <Navbar.Offcanvas
           id="basic-navbar-nav"
-          aria-labelledby="basic-navbar-nav"
           placement="end"
           show={expanded}
           onHide={() => setExpanded(false)}
+          className="d-sm-none"
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbar-expand-sm">
@@ -68,118 +93,10 @@ const NavigationBar = () => {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-center flex-grow-1 pe-3">
-              <Nav.Link as={Link} to={"/home"}>
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/about"}>
-                About
-              </Nav.Link>
-              <NavDropDown title="Services" id="basic-nav-dropdown">
-                <NavDropDown.Item as={Link} to={"/machineguides"}>
-                  Machine Guides
-                </NavDropDown.Item>
-                <NavDropDown.Item as={Link} to={"/workoutmetrics"}>
-                  Workout Metrics
-                </NavDropDown.Item>
-                <NavDropDown.Item as={Link} to={"/reservedclasses"}>
-                  Reserved Classes
-                </NavDropDown.Item>
-              </NavDropDown>
+              {navLinks}
             </Nav>
-            {auth.username ? (
-              <Nav>
-                <NavDropDown title={auth.username} id="basic-nav-dropdown">
-                  {auth.user?.checkedIn ? (
-                    <NavDropDown.Item as={Link} to={"/checkout"}>
-                      Checkout
-                    </NavDropDown.Item>
-                  ) : (
-                    <NavDropDown.Item as={Link} to={"checkin"}>
-                      Checkin
-                    </NavDropDown.Item>
-                  )}
-                  <NavDropDown.Item as={Link} to={"/profile"}>
-                    Profile
-                  </NavDropDown.Item>
-                  <NavDropDown.Divider />
-                  <NavDropDown.Item
-                    onClick={() => {
-                      signOut();
-                    }}
-                  >
-                    Logout
-                  </NavDropDown.Item>
-                </NavDropDown>
-              </Nav>
-            ) : (
-              <Nav>
-                <Nav.Link as={Link} to="/login">
-                  Login
-                </Nav.Link>
-                <Nav.Link as={Link} to="/register">
-                  Register
-                </Nav.Link>
-              </Nav>
-            )}
           </Offcanvas.Body>
         </Navbar.Offcanvas>
-
-        {/* <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to={"/"}>
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} to={"/about"}>
-              About
-            </Nav.Link>
-            <NavDropDown title="Services" id="basic-nav-dropdown">
-              <NavDropDown.Item as={Link} to={"/machineguides"}>
-                Machine Guides
-              </NavDropDown.Item>
-              <NavDropDown.Item as={Link} to={"/workoutmetrics"}>
-                Workout Metrics
-              </NavDropDown.Item>
-              <NavDropDown.Item as={Link} to={"/reservedclasses"}>
-                Reserved Classes
-              </NavDropDown.Item>
-            </NavDropDown>
-          </Nav>
-          {auth.username ? (
-            <Nav>
-              <NavDropDown title={auth.username} id="basic-nav-dropdown">
-                {auth.user?.checkedIn ? (
-                  <NavDropDown.Item as={Link} to={"/checkout"}>
-                    Checkout
-                  </NavDropDown.Item>
-                ) : (
-                  <NavDropDown.Item as={Link} to={"checkin"}>
-                    Checkin
-                  </NavDropDown.Item>
-                )}
-                <NavDropDown.Item as={Link} to={"/profile"}>
-                  Profile
-                </NavDropDown.Item>
-                <NavDropDown.Divider />
-                <NavDropDown.Item
-                  onClick={() => {
-                    signOut();
-                  }}
-                >
-                  Logout
-                </NavDropDown.Item>
-              </NavDropDown>
-            </Nav>
-          ) : (
-            <Nav>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
-              <Nav.Link as={Link} to="/register">
-                Register
-              </Nav.Link>
-            </Nav>
-          )}
-        </Navbar.Collapse> */}
       </Container>
     </Navbar>
   );
