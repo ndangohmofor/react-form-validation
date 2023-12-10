@@ -8,3 +8,7 @@ nav.navbar {
   padding: 0;
   text-align: right;
 }
+
+.offcanvas-black-font {
+  color: black;
+}
