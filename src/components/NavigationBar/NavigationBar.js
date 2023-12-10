@@ -42,6 +42,42 @@ const NavigationBar = () => {
     </>
   );
 
+  const loginLinks = auth.username ? (
+    <Nav>
+      <NavDropDown title={auth.username} id="basic-nav-dropdown">
+        {auth.user?.checkedIn ? (
+          <NavDropDown.Item as={Link} to={"/checkout"}>
+            Checkout
+          </NavDropDown.Item>
+        ) : (
+          <NavDropDown.Item as={Link} to={"checkin"}>
+            Checkin
+          </NavDropDown.Item>
+        )}
+        <NavDropDown.Item as={Link} to={"/profile"}>
+          Profile
+        </NavDropDown.Item>
+        <NavDropDown.Divider />
+        <NavDropDown.Item
+          onClick={() => {
+            signOut();
+          }}
+        >
+          Logout
+        </NavDropDown.Item>
+      </NavDropDown>
+    </Nav>
+  ) : (
+    <Nav>
+      <Nav.Link as={Link} to="/login">
+        Login
+      </Nav.Link>
+      <Nav.Link as={Link} to="/register">
+        Register
+      </Nav.Link>
+    </Nav>
+  );
+
   return (
     <Navbar
       expand="sm"
@@ -76,6 +112,7 @@ const NavigationBar = () => {
         {/* Nav items for larger screens */}
         <Navbar.Collapse id="basic-navbar-nav" className="d-sm-none">
           <Nav className="me-auto">{navLinks}</Nav>
+          <Nav className="justify-content-end">{loginLinks}</Nav>
         </Navbar.Collapse>
 
         {/* Offcanvas for mobile view */}
@@ -95,6 +132,41 @@ const NavigationBar = () => {
             <Nav className="justify-content-center flex-grow-1 pe-3">
               {navLinks}
             </Nav>
+            {auth.username ? (
+              <Nav>
+                <NavDropDown title={auth.username} id="basic-nav-dropdown">
+                  {auth.user?.checkedIn ? (
+                    <NavDropDown.Item as={Link} to={"/checkout"}>
+                      Checkout
+                    </NavDropDown.Item>
+                  ) : (
+                    <NavDropDown.Item as={Link} to={"checkin"}>
+                      Checkin
+                    </NavDropDown.Item>
+                  )}
+                  <NavDropDown.Item as={Link} to={"/profile"}>
+                    Profile
+                  </NavDropDown.Item>
+                  <NavDropDown.Divider />
+                  <NavDropDown.Item
+                    onClick={() => {
+                      signOut();
+                    }}
+                  >
+                    Logout
+                  </NavDropDown.Item>
+                </NavDropDown>
+              </Nav>
+            ) : (
+              <Nav>
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
+                <Nav.Link as={Link} to="/register">
+                  Register
+                </Nav.Link>
+              </Nav>
+            )}
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
