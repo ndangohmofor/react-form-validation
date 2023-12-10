@@ -59,7 +59,6 @@ const NavigationBar = () => {
             >
               Checkout
             </NavDropDown.Item>
-            <br />
           </>
         ) : (
           <>
@@ -70,7 +69,6 @@ const NavigationBar = () => {
             >
               Checkin
             </NavDropDown.Item>
-            <br />
           </>
         )}
         <NavDropDown.Item className="nav-link-black" as={Link} to={"/profile"}>
@@ -149,7 +147,7 @@ const NavigationBar = () => {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="justify-content-center flex-grow-1 pe-3">
+            <Nav className="flex-column align-items-start justify-content-center flex-grow-1 pe-3">
               {navLinks}
             </Nav>
             {loginLinks}
