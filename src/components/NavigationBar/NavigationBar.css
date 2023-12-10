@@ -12,3 +12,6 @@ nav.navbar {
 .offcanvas-black-font {
   color: black;
 }
+.nav-link-black {
+  color: black !important;
+}
