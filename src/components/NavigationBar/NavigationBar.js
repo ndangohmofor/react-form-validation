@@ -24,23 +24,48 @@ const NavigationBar = () => {
 
   const navLinks = (
     <>
-      <Nav.Link className="nav-link-black" as={Link} to={"/home"}>
+      <Nav.Link
+        className="nav-link-black"
+        as={Link}
+        to={"/home"}
+        onClick={() => setExpanded(false)}
+      >
         Home
       </Nav.Link>
       <br />
-      <Nav.Link className="nav-link-black" as={Link} to={"/about"}>
+      <Nav.Link
+        className="nav-link-black"
+        as={Link}
+        to={"/about"}
+        onClick={() => setExpanded(false)}
+      >
         About
       </Nav.Link>
       <br />
-      <Nav.Link className="nav-link-black" as={Link} to={"/machineguides"}>
+      <Nav.Link
+        className="nav-link-black"
+        as={Link}
+        to={"/machineguides"}
+        onClick={() => setExpanded(false)}
+      >
         Machine Guides
       </Nav.Link>
       <br />
-      <Nav.Link className="nav-link-black" as={Link} to={"/workoutmetrics"}>
+      <Nav.Link
+        className="nav-link-black"
+        as={Link}
+        to={"/workoutmetrics"}
+        onClick={() => setExpanded(false)}
+      >
         Workout Metrics
       </Nav.Link>
       <br />
-      <Nav.Link className="nav-link-black" as={Link} to={"/reservedclasses"}>
+      <Nav.Link
+        className="nav-link-black"
+        as={Link}
+        to={"/reservedclasses"}
+        onClick={() => setExpanded(false)}
+      >
         Classes
       </Nav.Link>
       <br />
@@ -56,6 +81,7 @@ const NavigationBar = () => {
               className="nav-link-black"
               as={Link}
               to={"/checkout"}
+              onClick={() => setExpanded(false)}
             >
               Checkout
             </NavDropDown.Item>
@@ -66,12 +92,18 @@ const NavigationBar = () => {
               className="nav-link-black"
               as={Link}
               to={"checkin"}
+              onClick={() => setExpanded(false)}
             >
               Checkin
             </NavDropDown.Item>
           </>
         )}
-        <NavDropDown.Item className="nav-link-black" as={Link} to={"/profile"}>
+        <NavDropDown.Item
+          className="nav-link-black"
+          as={Link}
+          to={"/profile"}
+          onClick={() => setExpanded(false)}
+        >
           Profile
         </NavDropDown.Item>
         <NavDropDown.Divider />
@@ -79,6 +111,7 @@ const NavigationBar = () => {
           className="nav-link-black"
           onClick={() => {
             signOut();
+            setExpanded(false);
           }}
         >
           Logout
