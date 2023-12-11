@@ -135,7 +135,7 @@ const NavigationBar = () => {
       sticky="top"
       bg="primary"
       data-bs-theme="dark"
-      className="bg-body-primary mb-3"
+      className="bg-body-purple mb-3"
       expanded={expanded}
     >
       <Container fluid>
