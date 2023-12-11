@@ -15,3 +15,7 @@ nav.navbar {
 .nav-link-black {
   color: black !important;
 }
+
+.bg-body-purple {
+  background-color: #251552 !important;
+}
