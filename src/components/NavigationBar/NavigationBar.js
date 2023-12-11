@@ -25,7 +25,7 @@ const NavigationBar = () => {
   const navLinks = (
     <>
       <Nav.Link
-        className="nav-link-black"
+        className="nav-link-white"
         as={Link}
         to={"/home"}
         onClick={() => setExpanded(false)}
@@ -34,7 +34,7 @@ const NavigationBar = () => {
       </Nav.Link>
       <br />
       <Nav.Link
-        className="nav-link-black"
+        className="nav-link-white"
         as={Link}
         to={"/about"}
         onClick={() => setExpanded(false)}
@@ -43,7 +43,7 @@ const NavigationBar = () => {
       </Nav.Link>
       <br />
       <Nav.Link
-        className="nav-link-black"
+        className="nav-link-white"
         as={Link}
         to={"/machineguides"}
         onClick={() => setExpanded(false)}
@@ -52,7 +52,7 @@ const NavigationBar = () => {
       </Nav.Link>
       <br />
       <Nav.Link
-        className="nav-link-black"
+        className="nav-link-white"
         as={Link}
         to={"/workoutmetrics"}
         onClick={() => setExpanded(false)}
@@ -61,7 +61,7 @@ const NavigationBar = () => {
       </Nav.Link>
       <br />
       <Nav.Link
-        className="nav-link-black"
+        className="nav-link-white"
         as={Link}
         to={"/reservedclasses"}
         onClick={() => setExpanded(false)}
@@ -153,6 +153,8 @@ const NavigationBar = () => {
 
         {/* Custom button for mobile view */}
         <Button
+          variant="outline-light"
+          size="sm"
           className="ms-auto d-sm-none"
           aria-controls="basic-navbar-nav"
           onClick={() => setExpanded(!expanded)}
@@ -181,7 +183,53 @@ const NavigationBar = () => {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="flex-column align-items-start justify-content-center flex-grow-1 pe-3">
-              {navLinks}
+              <>
+                <Nav.Link
+                  className="nav-link-black"
+                  as={Link}
+                  to={"/home"}
+                  onClick={() => setExpanded(false)}
+                >
+                  Home
+                </Nav.Link>
+                <br />
+                <Nav.Link
+                  className="nav-link-black"
+                  as={Link}
+                  to={"/about"}
+                  onClick={() => setExpanded(false)}
+                >
+                  About
+                </Nav.Link>
+                <br />
+                <Nav.Link
+                  className="nav-link-black"
+                  as={Link}
+                  to={"/machineguides"}
+                  onClick={() => setExpanded(false)}
+                >
+                  Machine Guides
+                </Nav.Link>
+                <br />
+                <Nav.Link
+                  className="nav-link-black"
+                  as={Link}
+                  to={"/workoutmetrics"}
+                  onClick={() => setExpanded(false)}
+                >
+                  Workout Metrics
+                </Nav.Link>
+                <br />
+                <Nav.Link
+                  className="nav-link-black"
+                  as={Link}
+                  to={"/reservedclasses"}
+                  onClick={() => setExpanded(false)}
+                >
+                  Classes
+                </Nav.Link>
+                <br />
+              </>
             </Nav>
             {loginLinks}
           </Offcanvas.Body>

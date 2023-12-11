@@ -16,6 +16,10 @@ nav.navbar {
   color: black !important;
 }
 
+.nav-link-white {
+  color: white !important;
+}
+
 .bg-body-purple {
   background-color: #251552 !important;
 }
