@@ -156,3 +156,44 @@ body {
   /* More Scroll Snap properties */
   scroll-snap-align: start;
 }
+
+.video-container {
+  position: relative;
+  width: 100%;
+  /* height: 100%;
+  overflow: hidden; */
+}
+
+.video {
+  width: 100%;
+  height: auto;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-overlay-header {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.video-overlay-body {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
