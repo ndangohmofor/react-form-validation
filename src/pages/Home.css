@@ -1,0 +1,12 @@
+.video-section {
+  margin: 0;
+  width: 100%;
+  display: block; /* Ensures the section takes up the full width */
+}
+
+video {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any default margins */
+  padding: 0;
+}
