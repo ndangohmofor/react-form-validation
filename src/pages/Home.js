@@ -6,6 +6,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Table from "react-bootstrap/Table";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -118,6 +119,30 @@ const Home = () => {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
+        </section>
+        <section className="scroll-section">
+          <h2 className="text-center video-overlay-header">Workout Classes</h2>
+          <Table striped bordered hover variant="dark" responsive>
+            <thead>
+              <tr>
+                <th className="classes-table-header">Name</th>
+                <th className="classes-table-header">Date/Time</th>
+                <th className="classes-table-header">Duration</th>
+                <th className="classes-table-header">Details</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </Table>
+          <div className="d-grid gap-2">
+            <Button
+              variant="custom-primary"
+              as={Link}
+              to={"allWorkoutClasses"}
+              size="sm"
+            >
+              View all classes
+            </Button>
+          </div>
         </section>
       </div>
     </>
