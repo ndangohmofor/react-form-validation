@@ -107,6 +107,14 @@ const Home = () => {
                   Get a free training session when you inquire about our
                   training options.
                 </p>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"/classes"}
+                  size="sm"
+                >
+                  Classes
+                </Button>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
