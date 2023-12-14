@@ -80,6 +80,14 @@ const Home = () => {
                 <p className="video-overlay-body">
                   Sign up today and start your workout journey with us!
                 </p>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"/register"}
+                  size="sm"
+                >
+                  Register
+                </Button>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
