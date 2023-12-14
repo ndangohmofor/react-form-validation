@@ -186,6 +186,7 @@ body {
 .video-overlay-header {
   font-size: 1rem;
   font-weight: bold;
+  color: #fff;
 }
 
 .video-overlay-body {
