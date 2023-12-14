@@ -4,6 +4,8 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -54,6 +56,14 @@ const Home = () => {
                   Learn more about our mission to increase productivity in the
                   gym.
                 </p>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"/about"}
+                  size="sm"
+                >
+                  About Us
+                </Button>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
