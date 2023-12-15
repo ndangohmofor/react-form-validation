@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
+import Nav from "react-bootstrap/Nav";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -144,7 +145,21 @@ const Home = () => {
         </section>
         <section className="scroll-section">
           <h2 className="text-center video-overlay-header">Features</h2>
-          <Card style={{ width: "auto" }}>
+          <Card bg="secondary" style={{ width: "auto" }}>
+            <Card.Header>
+              <Nav variant="pills" defaultActiveKey="#first">
+                <Nav.Item>
+                  <Nav.Link className="feature-link" as={Link} to={"#first"}>
+                    Track
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link className="feature-link" as={Link} to={"#second"}>
+                    Log
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Card.Header>
             <Card.Img
               variant="top"
               src="/images/features/features_bikess.png"
@@ -155,15 +170,11 @@ const Home = () => {
                 Record your workout session through our easy one-click checkin
                 and checkout process.
               </Card.Text>
-              <Button
-                variant="custom-primary"
-                as={Link}
-                to={"allWorkoutClasses"}
-                size="sm"
-              >
-                Checkin
-              </Button>
             </Card.Body>
+
+            <Button variant="custom-primary" as={Link} to={"checkin"} size="sm">
+              Checkin
+            </Button>
           </Card>
         </section>
       </div>

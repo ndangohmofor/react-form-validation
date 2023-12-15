@@ -239,3 +239,10 @@ body {
   font-size: 0.75rem !important;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
 }
+
+.feature-link {
+  background-color: #190c3d !important;
+  margin-bottom: 8px !important;
+  margin-left: 8px !important;
+  padding: 4px !important;
+}
