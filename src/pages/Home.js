@@ -1,12 +1,10 @@
 import React from "react";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
+import Card from "react-bootstrap/Card";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -143,6 +141,30 @@ const Home = () => {
               View all classes
             </Button>
           </div>
+        </section>
+        <section className="scroll-section">
+          <h2 className="text-center video-overlay-header">Features</h2>
+          <Card style={{ width: "auto" }}>
+            <Card.Img
+              variant="top"
+              src="/images/features/features_bikess.png"
+            />
+            <Card.Body>
+              <Card.Title>Easy Tracking</Card.Title>
+              <Card.Text>
+                Record your workout session through our easy one-click checkin
+                and checkout process.
+              </Card.Text>
+              <Button
+                variant="custom-primary"
+                as={Link}
+                to={"allWorkoutClasses"}
+                size="sm"
+              >
+                Checkin
+              </Button>
+            </Card.Body>
+          </Card>
         </section>
       </div>
     </>
