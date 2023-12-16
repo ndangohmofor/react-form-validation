@@ -190,6 +190,26 @@ const Home = () => {
                 </Button>
               </Card>
             </Tab>
+            <Tab eventKey={"Coaching"} title={"Coach"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img variant="top" src="/images/features/lifting.png" />
+                <Card.Body>
+                  <Card.Title>Companion</Card.Title>
+                  <Card.Text>
+                    We offer training on our machines to help you perfect your
+                    form
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"machineinfo"}
+                  size="sm"
+                >
+                  Log your workout
+                </Button>
+              </Card>
+            </Tab>
           </Tabs>
         </section>
       </div>
