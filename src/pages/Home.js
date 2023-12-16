@@ -210,6 +210,25 @@ const Home = () => {
                 </Button>
               </Card>
             </Tab>
+            <Tab eventKey={"Classes"} title={"Class"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img variant="top" src="/images/features/yoga.jpg" />
+                <Card.Body>
+                  <Card.Title>Classes</Card.Title>
+                  <Card.Text>
+                    Try any classes you want. All classes are complementary
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"classes"}
+                  size="sm"
+                >
+                  View Classes
+                </Button>
+              </Card>
+            </Tab>
           </Tabs>
         </section>
       </div>
