@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -145,37 +147,32 @@ const Home = () => {
         </section>
         <section className="scroll-section">
           <h2 className="text-center video-overlay-header">Features</h2>
-          <Card bg="secondary" style={{ width: "auto" }}>
-            <Card.Header>
-              <Nav variant="pills" defaultActiveKey="#first">
-                <Nav.Item>
-                  <Nav.Link className="feature-link" as={Link} to={"#first"}>
-                    Track
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link className="feature-link" as={Link} to={"#second"}>
-                    Log
-                  </Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Card.Header>
-            <Card.Img
-              variant="top"
-              src="/images/features/features_bikess.png"
-            />
-            <Card.Body>
-              <Card.Title>Easy Tracking</Card.Title>
-              <Card.Text>
-                Record your workout session through our easy one-click checkin
-                and checkout process.
-              </Card.Text>
-            </Card.Body>
+          <Tabs id="controlled-tab-features" defaultActiveKey={"tracking"}>
+            <Tab eventKey={"tracking"} title={"Track"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img
+                  variant="top"
+                  src="/images/features/features_bikess.png"
+                />
+                <Card.Body>
+                  <Card.Title>Easy Tracking</Card.Title>
+                  <Card.Text>
+                    Record your workout session through our easy one-click
+                    checkin and checkout process.
+                  </Card.Text>
+                </Card.Body>
 
-            <Button variant="custom-primary" as={Link} to={"checkin"} size="sm">
-              Checkin
-            </Button>
-          </Card>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"checkin"}
+                  size="sm"
+                >
+                  Checkin
+                </Button>
+              </Card>
+            </Tab>
+          </Tabs>
         </section>
       </div>
     </>
