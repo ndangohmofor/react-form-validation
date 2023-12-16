@@ -202,6 +202,7 @@ body {
 .btn-custom-primary {
   background-color: #190c3d !important;
   border-color: #cedfe4 !important;
+  color: #fff !important;
 }
 
 .classes-table-header {
@@ -245,4 +246,12 @@ body {
   margin-bottom: 8px !important;
   margin-left: 8px !important;
   padding: 4px !important;
+}
+
+li.nav-item > button.nav-link {
+  background-color: #190c3d !important;
+  margin-bottom: 8px !important;
+  margin-left: 8px !important;
+  padding: 8px !important;
+  color: #fff !important;
 }
