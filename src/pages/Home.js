@@ -161,7 +161,6 @@ const Home = () => {
                     checkin and checkout process.
                   </Card.Text>
                 </Card.Body>
-
                 <Button
                   variant="custom-primary"
                   as={Link}
@@ -169,6 +168,25 @@ const Home = () => {
                   size="sm"
                 >
                   Checkin
+                </Button>
+              </Card>
+            </Tab>
+            <Tab eventKey={"Logging"} title={"Log"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img variant="top" src="/images/features/runner.png" />
+                <Card.Body>
+                  <Card.Title>Endurance</Card.Title>
+                  <Card.Text>
+                    Keep track of your goals by using our workout log.
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"exerciseLog"}
+                  size="sm"
+                >
+                  Log your workout
                 </Button>
               </Card>
             </Tab>
