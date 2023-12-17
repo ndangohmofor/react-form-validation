@@ -232,7 +232,7 @@ const Home = () => {
           <h2 className="text-center video-overlay-header">Features</h2>
         </section>
         <section className="scroll-section">
-          <Tabs id="controlled-tab-features" defaultActiveKey={"amenities"}>
+          <Tabs id="controlled-tab-features" defaultActiveKey={"yoga"}>
             <Tab eventKey={"yoga"} title={"Retreats"}>
               <Card bg="secondary" style={{ width: "auto" }}>
                 <Card.Img
@@ -243,9 +243,21 @@ const Home = () => {
                 <Card.Text>
                   Find your zen through our annual Yoga retreat in the Himalayas
                   led by John C.
-                  <br />
-                  Many of our attendees describe the experience as eye opening
-                  and attend every year.
+                </Card.Text>
+              </Card>
+            </Tab>
+            <Tab eventKey={"trainer"} title={"Trainer"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/personaltrainer.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">
+                  Personal Trainer
+                </Card.Title>
+                <Card.Text>
+                  Meet with our world-class trainers to help you meet your
+                  personal fitness goals.
                 </Card.Text>
               </Card>
             </Tab>
