@@ -261,6 +261,22 @@ const Home = () => {
                 </Card.Text>
               </Card>
             </Tab>
+            <Tab eventKey={"pool"} title={"Pool"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/water-sport.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">
+                  Olympic Sized Pool
+                </Card.Title>
+                <Card.Text>
+                  Get your cardio in by swimming in our olympic size pool.We
+                  also have varying diving board heights. At the end of your
+                  swim, rinse off and then relax in our sauna rooms.
+                </Card.Text>
+              </Card>
+            </Tab>
           </Tabs>
           <h2 className="text-center video-overlay-header">Amenities</h2>
         </section>
