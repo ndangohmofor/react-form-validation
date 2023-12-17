@@ -279,3 +279,9 @@ li.nav-item > button.nav-link {
   margin-bottom: 1rem;
   color: #9999a1;
 }
+
+.section-summary {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  font-size: small;
+  font-style: oblique;
+}

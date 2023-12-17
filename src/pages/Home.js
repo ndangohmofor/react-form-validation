@@ -295,6 +295,13 @@ const Home = () => {
             </Tab>
           </Tabs>
           <h2 className="text-center video-overlay-header">Amenities</h2>
+          <p className="section-summary mx-4">
+            Our modern gym offers a wide range of equipment, including cardio
+            machines, weights, and functional training zones. It hosts diverse
+            classes like yoga and spin, and features a VR workout area and
+            rock-climbing wall. Amenities include a steam room, sauna, and
+            wellness center for nutrition and physiotherapy services.
+          </p>
         </section>
       </div>
     </>
