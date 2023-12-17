@@ -285,3 +285,25 @@ li.nav-item > button.nav-link {
   font-size: small;
   font-style: oblique;
 }
+
+.footer-link {
+  text-decoration: none;
+  color: #190c3d !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  font-size: smaller;
+}
+
+a:visited.footer-link {
+  text-decoration: none;
+  color: #190c3d !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  font-size: smaller;
+}
+
+.footer-copyright {
+  font-size: smaller;
+}
+
+#footer_logo {
+  border-radius: 50%;
+}
