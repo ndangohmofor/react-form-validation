@@ -231,6 +231,27 @@ const Home = () => {
             </Tab>
           </Tabs>
         </section>
+        <section className="scroll-section">
+          <h2 className="text-center video-overlay-header">Amenities</h2>
+          <Tabs id="controlled-tab-features" defaultActiveKey={"amenities"}>
+            <Tab eventKey={"yoga"} title={"Retreats"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/amenityyoga.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">Yoga Retreats</Card.Title>
+                <Card.Text>
+                  Find your zen through our annual Yoga retreat in the Himalayas
+                  led by John C.
+                  <br />
+                  Many of our attendees describe the experience as eye opening
+                  and attend every year.
+                </Card.Text>
+              </Card>
+            </Tab>
+          </Tabs>
+        </section>
       </div>
     </>
   );
