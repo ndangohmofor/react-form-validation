@@ -277,6 +277,22 @@ const Home = () => {
                 </Card.Text>
               </Card>
             </Tab>
+            <Tab eventKey={"facilities"} title={"Facilities"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/gym-changing-room.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">
+                  Modern Facilities
+                </Card.Title>
+                <Card.Text>
+                  Say goodbye to the old gym changing room experience. Our
+                  modern rooms will make you feel like you are at a 5-star
+                  hotel.
+                </Card.Text>
+              </Card>
+            </Tab>
           </Tabs>
           <h2 className="text-center video-overlay-header">Amenities</h2>
         </section>
