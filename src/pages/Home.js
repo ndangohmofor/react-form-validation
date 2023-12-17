@@ -146,7 +146,6 @@ const Home = () => {
           </div>
         </section>
         <section className="scroll-section">
-          <h2 className="text-center video-overlay-header">Features</h2>
           <Tabs id="controlled-tab-features" defaultActiveKey={"tracking"}>
             <Tab eventKey={"tracking"} title={"Track"}>
               <Card bg="secondary" style={{ width: "auto" }}>
@@ -230,9 +229,9 @@ const Home = () => {
               </Card>
             </Tab>
           </Tabs>
+          <h2 className="text-center video-overlay-header">Features</h2>
         </section>
         <section className="scroll-section">
-          <h2 className="text-center video-overlay-header">Amenities</h2>
           <Tabs id="controlled-tab-features" defaultActiveKey={"amenities"}>
             <Tab eventKey={"yoga"} title={"Retreats"}>
               <Card bg="secondary" style={{ width: "auto" }}>
@@ -251,6 +250,7 @@ const Home = () => {
               </Card>
             </Tab>
           </Tabs>
+          <h2 className="text-center video-overlay-header">Amenities</h2>
         </section>
       </div>
     </>
