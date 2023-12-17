@@ -120,10 +120,10 @@ const NavigationBar = () => {
     </Nav>
   ) : (
     <Nav>
-      <Nav.Link as={Link} to="/login">
+      <Nav.Link as={Link} to="/login" onClick={() => setExpanded(false)}>
         Login
       </Nav.Link>
-      <Nav.Link as={Link} to="/register">
+      <Nav.Link as={Link} to="/register" onClick={() => setExpanded(false)}>
         Register
       </Nav.Link>
     </Nav>
