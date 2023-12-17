@@ -230,6 +230,10 @@ const Home = () => {
             </Tab>
           </Tabs>
           <h2 className="text-center video-overlay-header">Features</h2>
+          <p className="section-summary mx-4">
+            Modern gym with advanced equipment, diverse classes, VR workouts,
+            rock-climbing, wellness center, steam room, and nutrition services.
+          </p>
         </section>
         <section className="scroll-section">
           <Tabs id="controlled-tab-features" defaultActiveKey={"yoga"}>
