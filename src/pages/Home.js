@@ -7,7 +7,7 @@ import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import CarouselImage1 from "../components/images/CarouselImage3/CarouselImage3";
+import CarouselImage1 from "../components/images/CarouselImage1/CarouselImage1";
 import CarouselImage3 from "../components/images/CarouselImage3/CarouselImage3";
 import CarouselImage2 from "../components/images/CarouselImage2/CarouselImage2";
 
