@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
-import Nav from "react-bootstrap/Nav";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 
@@ -20,7 +19,9 @@ const Home = () => {
       <div className="video-section scroll-container">
         <section className="scroll-section">
           <div className="video-container">
+            {/* Video for mobile view point */}
             <video
+              className="mobile-video"
               width={"100%"}
               height={"auto"}
               preload={"auto"}
@@ -32,6 +33,19 @@ const Home = () => {
                 src="/videos/gym_ad_portrait_optimized.mp4"
                 type="video/mp4"
               />
+              Your browser does not support the video tag.
+            </video>
+            {/* Video for web view point */}
+            <video
+              className="web-video"
+              width={"100%"}
+              height={"auto"}
+              preload="auto"
+              autoPlay
+              muted
+              loop
+            >
+              <source src="/videos/gym_ad.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="video-overlay">
