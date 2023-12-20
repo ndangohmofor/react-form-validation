@@ -7,6 +7,9 @@ import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import CarouselImage1 from "../components/images/CarouselImage3/CarouselImage3";
+import CarouselImage3 from "../components/images/CarouselImage3/CarouselImage3";
+import CarouselImage2 from "../components/images/CarouselImage2/CarouselImage2";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -57,7 +60,11 @@ const Home = () => {
           </div>
         </section>
         <section className="scroll-section">
-          <Carousel activeIndex={index} onSelect={handleSelect}>
+          <Carousel
+            className="mobile-video"
+            activeIndex={index}
+            onSelect={handleSelect}
+          >
             <Carousel.Item>
               <img
                 className="d-block w-100"
@@ -115,6 +122,67 @@ const Home = () => {
                 height={"auto"}
               />
 
+              <Carousel.Caption>
+                <h5 className="video-overlay-header">
+                  Meet with a trainer today
+                </h5>
+                <p className="video-overlay-body">
+                  Get a free training session when you inquire about our
+                  training options.
+                </p>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"/classes"}
+                  size="sm"
+                >
+                  Classes
+                </Button>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+          <Carousel
+            className="web-video"
+            activeIndex={index}
+            onSelect={handleSelect}
+          >
+            <Carousel.Item>
+              <CarouselImage1 />
+              <Carousel.Caption>
+                <h5 className="video-overlay-header">About Us</h5>
+                <p className="video-overlay-body">
+                  Learn more about our mission to increase productivity in the
+                  gym.
+                </p>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"/about"}
+                  size="sm"
+                >
+                  About Us
+                </Button>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <CarouselImage2 />
+              <Carousel.Caption>
+                <h5 className="video-overlay-header">Join the fun</h5>
+                <p className="video-overlay-body">
+                  Sign up today and start your workout journey with us!
+                </p>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"/register"}
+                  size="sm"
+                >
+                  Register
+                </Button>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <CarouselImage3 />
               <Carousel.Caption>
                 <h5 className="video-overlay-header">
                   Meet with a trainer today
