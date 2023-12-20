@@ -440,6 +440,7 @@ li.nav-item > button.nav-link {
   .carousel-caption {
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+    margin-bottom: 0.5rem;
   }
 
   .btn-custom-primary {
