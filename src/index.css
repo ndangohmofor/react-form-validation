@@ -31,7 +31,8 @@ body {
 
 section {
   width: 100%;
-  min-height: 400px;
+  /* Make each section the height of the viewport */
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -154,8 +155,6 @@ body {
 
 .scroll-section {
   padding: 0;
-  /* Make each section the height of the viewport */
-  height: 100vh;
   /* More Scroll Snap properties */
   scroll-snap-align: start;
 }
@@ -195,6 +194,7 @@ body {
 .carousel-caption {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  margin-bottom: 10rem;
 }
 
 .btn-custom-primary {
