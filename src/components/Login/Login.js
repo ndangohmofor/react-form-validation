@@ -32,11 +32,7 @@ const Login = () => {
     try {
       const response = await axios.post(
         LOGIN_URL,
-        JSON.stringify({ username, password }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
+        JSON.stringify({ username, password })
       );
       const accessToken = response.data?.access_token;
       const role = response.data?.role;
