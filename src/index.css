@@ -17,293 +17,309 @@ body {
   background-color: dodgerblue;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-section {
-  width: 100%;
-  max-width: 420px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-grow: 1;
-  padding-bottom: 1rem;
-}
-
-a,
-a:visited {
-  color: #fff;
-}
-
-input[type="text"],
-input[type="password"],
-button,
-textarea {
-  font-family: "Nunito", sans-serif;
-  font-size: 22px;
-  padding: 0.25rem;
-  border-radius: 0.5rem;
-}
-
-label,
-button {
-  margin-top: 1rem;
-}
-
-button {
-  padding: 0.5rem;
-}
-
-.instructions {
-  font-size: 0.75rem;
-  border-radius: 0.5rem;
-  background: #000;
-  color: #fff;
-  padding: 0.25rem;
-  position: relative;
-  bottom: -10px;
-}
-
-.instructions > svg {
-  margin-right: 0.25rem;
-}
-
-.offscreen {
-  position: absolute;
-  left: -9999px;
+.mobile-video {
   display: none;
 }
 
-.hide {
-  display: none;
-}
+/* Media for web view point and larger screens */
+@media (max-width: 767px) {
+  /* Hide web video on mobile screens */
+  .web-video {
+    display: none;
+  }
 
-.valid {
-  color: limegreen;
-  margin-left: 0.25rem;
-}
+  .mobile-video {
+    display: block;
+  }
 
-.invalid {
-  color: red;
-  margin-left: 0.25rem;
-}
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-.errmsg {
-  background-color: lightpink;
-  color: firebrick;
-  font-weight: bold;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-}
+  section {
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 
-.line {
-  display: inline-block;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+  }
 
-.persistCheck label {
-  margin: 0;
-}
+  a,
+  a:visited {
+    color: #fff;
+  }
 
-[type="checkbox"] {
-  height: 20px;
-  width: 20px;
-  margin: 0 5px 2px 2px;
-}
+  input[type="text"],
+  input[type="password"],
+  button,
+  textarea {
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  }
 
-#root.site-background {
-  background-image: url("../public/images/bgtest.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-}
+  label,
+  button {
+    margin-top: 1rem;
+  }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
+  button {
+    padding: 0.5rem;
+  }
 
-.scroll-container {
-  /* Enable vertical scrolling */
-  overflow-y: scroll;
-  /* Set the height to the viewport height */
-  height: 100vh;
-  /* Scroll Snap properties */
-  scroll-snap-type: y mandatory;
-}
+  .instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+  }
 
-.scroll-section {
-  padding: 0;
-  /* Make each section the height of the viewport */
-  height: 100vh;
-  /* More Scroll Snap properties */
-  scroll-snap-align: start;
-}
+  .instructions > svg {
+    margin-right: 0.25rem;
+  }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  /* height: 100%;
-  overflow: hidden; */
-}
+  .offscreen {
+    position: absolute;
+    left: -9999px;
+    display: none;
+  }
 
-.video {
-  width: 100%;
-  height: auto;
-}
+  .hide {
+    display: none;
+  }
 
-.video-overlay {
-  position: absolute;
-  top: 10%;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  .valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+  }
 
-.video-overlay-header {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-}
+  .invalid {
+    color: red;
+    margin-left: 0.25rem;
+  }
 
-.video-overlay-body {
-  font-size: 0.75rem;
-  margin-bottom: 1rem;
-}
+  .errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 
-.carousel-caption {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-}
+  .line {
+    display: inline-block;
+  }
 
-.btn-custom-primary {
-  background-color: #190c3d !important;
-  border-color: #cedfe4 !important;
-  color: #fff !important;
-}
+  .persistCheck label {
+    margin: 0;
+  }
 
-.classes-table-header {
-  background-color: #190c3d !important;
-  color: #fff !important;
-}
+  [type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    margin: 0 5px 2px 2px;
+  }
 
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-}
+  #root.site-background {
+    background-image: url("../public/images/bgtest.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+  }
 
-.card-img-top {
-  width: 30%;
-  height: 30%;
-  border-radius: 50%;
-  block-size: 350px;
-}
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
 
-.card-body {
-  padding: 9px;
-  color: #333;
-  text-align: center;
-}
+  .scroll-container {
+    /* Enable vertical scrolling */
+    overflow-y: scroll;
+    /* Set the height to the viewport height */
+    height: 100vh;
+    /* Scroll Snap properties */
+    scroll-snap-type: y mandatory;
+  }
 
-.card-title {
-  font-size: 0.75rem !important;
-  font-weight: bold !important;
-}
+  .scroll-section {
+    padding: 0;
+    /* Make each section the height of the viewport */
+    height: 100vh;
+    /* More Scroll Snap properties */
+    scroll-snap-align: start;
+  }
 
-.card-text {
-  font-size: 0.75rem !important;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
-}
+  .video-container {
+    position: relative;
+    width: 100%;
+    /* height: 100%;
+    overflow: hidden; */
+  }
 
-.feature-link {
-  background-color: #190c3d !important;
-  margin-bottom: 8px !important;
-  margin-left: 8px !important;
-  padding: 4px !important;
-}
+  .video-overlay {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-li.nav-item > button.nav-link {
-  background-color: #190c3d !important;
-  margin-bottom: 8px !important;
-  margin-left: 8px !important;
-  padding: 8px !important;
-  color: #fff !important;
-}
+  .video-overlay-header {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+  }
 
-.media-heading {
-  --bs-text-opacity: 1;
-  color: #190c3d !important;
-  font-weight: 400 !important;
-  font-size: 1rem !important;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
-  margin: 5% !important;
-}
+  .video-overlay-body {
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
 
-.media-body {
-  padding-top: 188px;
-  width: 10000px;
-  padding-left: 58px;
-  word-wrap: break-word;
-}
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+  }
 
-.amenitytext {
-  font-size: 2rem;
-  font-weight: 300;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: #9999a1;
-}
+  .btn-custom-primary {
+    background-color: #190c3d !important;
+    border-color: #cedfe4 !important;
+    color: #fff !important;
+  }
 
-.section-summary {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
-  font-size: small;
-  font-style: oblique;
-}
+  .classes-table-header {
+    background-color: #190c3d !important;
+    color: #fff !important;
+  }
 
-.footer-link {
-  text-decoration: none;
-  color: #190c3d !important;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
-  font-size: smaller;
-}
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
 
-a:visited.footer-link {
-  text-decoration: none;
-  color: #190c3d !important;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
-  font-size: smaller;
-}
+  .card-img-top {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    block-size: 350px;
+  }
 
-.footer-copyright {
-  font-size: smaller;
-}
+  .card-body {
+    padding: 9px;
+    color: #333;
+    text-align: center;
+  }
 
-#footer_logo {
-  border-radius: 50%;
+  .card-title {
+    font-size: 0.75rem !important;
+    font-weight: bold !important;
+  }
+
+  .card-text {
+    font-size: 0.75rem !important;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif !important;
+  }
+
+  .feature-link {
+    background-color: #190c3d !important;
+    margin-bottom: 8px !important;
+    margin-left: 8px !important;
+    padding: 4px !important;
+  }
+
+  li.nav-item > button.nav-link {
+    background-color: #190c3d !important;
+    margin-bottom: 8px !important;
+    margin-left: 8px !important;
+    padding: 8px !important;
+    color: #fff !important;
+  }
+
+  .media-heading {
+    --bs-text-opacity: 1;
+    color: #190c3d !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif !important;
+    margin: 5% !important;
+  }
+
+  .media-body {
+    padding-top: 188px;
+    width: 10000px;
+    padding-left: 58px;
+    word-wrap: break-word;
+  }
+
+  .amenitytext {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #9999a1;
+  }
+
+  .section-summary {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif !important;
+    font-size: small;
+    font-style: oblique;
+  }
+
+  .footer-link {
+    text-decoration: none;
+    color: #190c3d !important;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif !important;
+    font-size: smaller;
+  }
+
+  a:visited.footer-link {
+    text-decoration: none;
+    color: #190c3d !important;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif !important;
+    font-size: smaller;
+  }
+
+  .footer-copyright {
+    font-size: smaller;
+  }
+
+  #footer_logo {
+    border-radius: 50%;
+  }
 }
