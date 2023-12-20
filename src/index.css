@@ -21,6 +21,239 @@ body {
   display: none;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+section {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+a,
+a:visited {
+  color: #fff;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.persistCheck label {
+  margin: 0;
+}
+
+[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  margin: 0 5px 2px 2px;
+}
+
+#root.site-background {
+  background-image: url("../public/images/bgtest.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.scroll-container {
+  /* Enable vertical scrolling */
+  overflow-y: scroll;
+  /* Set the height to the viewport height */
+  height: 100vh;
+  /* Scroll Snap properties */
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-section {
+  padding: 0;
+  /* Make each section the height of the viewport */
+  height: 100vh;
+  /* More Scroll Snap properties */
+  scroll-snap-align: start;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  /* height: 100%;
+  overflow: hidden; */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-overlay-header {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.video-overlay-body {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.btn-custom-primary {
+  background-color: #190c3d !important;
+  border-color: #cedfe4 !important;
+  color: #fff !important;
+}
+
+.classes-table-header {
+  background-color: #190c3d !important;
+  color: #fff !important;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.card-img-top {
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  block-size: 350px;
+}
+
+.card-body {
+  padding: 9px;
+  color: #333;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 0.75rem !important;
+  font-weight: bold !important;
+}
+
+.card-text {
+  font-size: 0.75rem !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+}
+
+.feature-link {
+  background-color: #190c3d !important;
+  margin-bottom: 8px !important;
+  margin-left: 8px !important;
+  padding: 4px !important;
+}
+
+li.nav-item > button.nav-link {
+  background-color: #190c3d !important;
+  margin-bottom: 8px !important;
+  margin-left: 8px !important;
+  padding: 8px !important;
+  color: #fff !important;
+}
+
 /* Media for web view point and larger screens */
 @media (max-width: 767px) {
   /* Hide web video on mobile screens */
