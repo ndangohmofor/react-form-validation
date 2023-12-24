@@ -63,55 +63,57 @@ const Login = () => {
   }, [persist]);
 
   return (
-    <section>
-      <p
-        ref={errRef}
-        className={errMsg ? "errmsg" : "offscreen"}
-        aria-live="assertive"
-      >
-        {errMsg}
-      </p>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSumit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          ref={userRef}
-          autoComplete="off"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-          required
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          required
-        />
-        <hr />
-        <button>Sign in</button>
-        <div className="persistCheck">
+    <div className="column">
+      <section className="login-form">
+        <p
+          ref={errRef}
+          className={errMsg ? "errmsg" : "offscreen"}
+          aria-live="assertive"
+        >
+          {errMsg}
+        </p>
+        <h1>Sign In</h1>
+        <form onSubmit={handleSumit}>
+          <label htmlFor="username">Username:</label>
           <input
-            type="checkbox"
-            id="persist"
-            onChange={togglePersist}
-            checked={persist}
+            type="text"
+            id="username"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            required
           />
-          <label htmlFor="persist">True This Device</label>
-        </div>
-      </form>
-      <p>
-        Need an Account?
-        <br />
-        <span className="line">
-          {/* put a router link here */}
-          <Link to="/register">Sign Up</Link>
-        </span>
-      </p>
-    </section>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
+          <hr />
+          <button>Sign in</button>
+          <div className="persistCheck">
+            <input
+              type="checkbox"
+              id="persist"
+              onChange={togglePersist}
+              checked={persist}
+            />
+            <label htmlFor="persist">True This Device</label>
+          </div>
+        </form>
+        <p>
+          Need an Account?
+          <br />
+          <span className="line">
+            {/* put a router link here */}
+            <Link to="/register">Sign Up</Link>
+          </span>
+        </p>
+      </section>
+    </div>
   );
 };
 

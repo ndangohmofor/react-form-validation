@@ -29,14 +29,14 @@ body {
   min-height: 100vh;
 }
 
-section {
+.login-form {
   width: 100%;
   /* Make each section the height of the viewport */
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 1rem;
+  padding: 2rem;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
