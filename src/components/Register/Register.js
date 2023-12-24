@@ -123,12 +123,14 @@ const Register = () => {
           >
             {errMsg}
           </p>
-          <h1>Register</h1>
+          <h1 className="register-heading">Register</h1>
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
                 {/** Label for First name */}
-                <label htmlFor="firstName">First Name:</label>
+                <label className="mt-0" htmlFor="firstName">
+                  First Name:
+                </label>
                 <input
                   type="text"
                   id="firstName"
@@ -153,7 +155,8 @@ const Register = () => {
                   Please enter your first name <br />
                 </p>
               </div>
-
+            </div>
+            <div className="form-row">
               <div className="form-group">
                 {/** Label for Last name */}
                 <label htmlFor="lastName">Last Name:</label>
@@ -225,7 +228,8 @@ const Register = () => {
                   Example: "someusername@somedomain.com"
                 </p>
               </div>
-
+            </div>
+            <div className="form-row">
               <div className="form-group">
                 {/** Label for Username */}
                 <label htmlFor="username">
@@ -311,7 +315,8 @@ const Register = () => {
                   <span aria-label="percent">%</span>
                 </p>
               </div>
-
+            </div>
+            <div className="form-row">
               <div className="form-group">
                 {/** Label for Confirm Password */}
 
@@ -352,6 +357,9 @@ const Register = () => {
               </div>
             </div>
             <div className="form-row">
+              <div className="form-group"></div>
+            </div>
+            <div className="form-row">
               <div className="form-group">
                 <button
                   disabled={
@@ -363,7 +371,7 @@ const Register = () => {
               </div>
             </div>
           </form>
-          <p>
+          <p className="already-registered">
             Already registered?
             <br />
             <span className="line">

@@ -1,6 +1,7 @@
 label {
   display: inline-block;
   margin-bottom: 5px;
+  margin-top: 0.7rem;
 }
 
 .form-row {
@@ -9,13 +10,27 @@ label {
 
 .form-group {
   padding: 5px;
-  width: 50%;
+  width: 100%;
 }
 
 .form-group input {
   width: 100%;
 }
 
+.register-heading {
+  font-size: larger;
+  font-weight: 600;
+}
+
+.already-registered {
+  background-color: rgba(196, 190, 190, 0.4);
+  border-radius: 5%;
+}
+
 section {
   min-width: fit-content;
+}
+
+label {
+  color: aliceblue;
 }
