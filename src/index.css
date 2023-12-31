@@ -25,6 +25,11 @@ body {
   display: block;
 }
 
+.carousel.slide img {
+  max-height: 100vh;
+  max-width: auto;
+}
+
 .thumbnail {
   display: block;
   padding: 4px;
@@ -226,7 +231,7 @@ body {
 
 .video-overlay-body {
   font-size: 0.75rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .carousel-caption {
