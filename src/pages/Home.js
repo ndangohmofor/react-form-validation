@@ -10,6 +10,10 @@ import Tab from "react-bootstrap/Tab";
 import CarouselImage1 from "../components/images/CarouselImage1/CarouselImage1";
 import CarouselImage3 from "../components/images/CarouselImage3/CarouselImage3";
 import CarouselImage2 from "../components/images/CarouselImage2/CarouselImage2";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -228,7 +232,7 @@ const Home = () => {
           </div>
         </section>
         <section className="scroll-section web-video">
-          <Tabs id="controlled-tab-features" defaultActiveKey={"tracking"}>
+          {/* <Tabs id="controlled-tab-features" defaultActiveKey={"tracking"}>
             <Tab eventKey={"tracking"} title={"Track"}>
               <Card bg="secondary" style={{ width: "auto" }}>
                 <Card.Img
@@ -310,7 +314,59 @@ const Home = () => {
                 </Button>
               </Card>
             </Tab>
-          </Tabs>
+          </Tabs> */}
+          <Container>
+            <Row>
+              <Col className="thumbnail" xs={3}>
+                <Image
+                  src="/images/features/gym_bikes.jpg"
+                  roundedCircle
+                  thumbnail
+                />
+                <h3 className="thumbnail-header">Easy Tracking</h3>
+                <p className="thumbnail-body">
+                  Record your workout session through our easy one-click checkin
+                  and checkout process.
+                </p>
+              </Col>
+              <Col className="thumbnail" xs={3}>
+                <Image
+                  src="/images/features/gym_bikes.jpg"
+                  roundedCircle
+                  thumbnail
+                />
+                <h3 className="thumbnail-header">Easy Tracking</h3>
+                <p className="thumbnail-body">
+                  Record your workout session through our easy one-click checkin
+                  and checkout process.
+                </p>
+              </Col>
+              <Col className="thumbnail" xs={3}>
+                <Image
+                  src="/images/features/gym_bikes.jpg"
+                  roundedCircle
+                  thumbnail
+                />
+                <h3 className="thumbnail-header">Easy Tracking</h3>
+                <p className="thumbnail-body">
+                  Record your workout session through our easy one-click checkin
+                  and checkout process.
+                </p>
+              </Col>
+              <Col className="thumbnail" xs={3}>
+                <Image
+                  src="/images/features/gym_bikes.jpg"
+                  roundedCircle
+                  thumbnail
+                />
+                <h3 className="thumbnail-header">Easy Tracking</h3>
+                <p className="thumbnail-body">
+                  Record your workout session through our easy one-click checkin
+                  and checkout process.
+                </p>
+              </Col>
+            </Row>
+          </Container>
           <h2 className="text-center video-overlay-header">Features</h2>
           <p className="section-summary mx-4">
             Modern gym with advanced equipment, diverse classes, VR workouts,
