@@ -23,7 +23,6 @@ body {
 
 .web-video {
   display: block;
-  margin: 32px;
 }
 
 .thumbnail {
@@ -193,6 +192,7 @@ body {
 
 .scroll-section {
   padding: 0;
+  margin: 0;
   /* More Scroll Snap properties */
   scroll-snap-align: start;
 }
