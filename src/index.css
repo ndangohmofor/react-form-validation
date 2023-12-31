@@ -25,6 +25,39 @@ body {
   display: block;
 }
 
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #ede7f6;
+  border: 1px solid #734eb5;
+  border-right-width: thick;
+  border-radius: 4px;
+  height: 425px;
+}
+
+.feature-button-div {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.feature-button {
+  display: block;
+  margin-top: auto;
+}
+
+.thumbnail-header {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+  font-size: 1rem;
+  font-weight: bold;
+}
+.thumbnail-body {
+  font-size: smaller;
+  font-weight: 400;
+}
+
 .App {
   display: flex;
   flex-direction: column;
