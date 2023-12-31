@@ -23,6 +23,7 @@ body {
 
 .web-video {
   display: block;
+  margin: 32px;
 }
 
 .thumbnail {
@@ -34,7 +35,7 @@ body {
   border: 1px solid #734eb5;
   border-right-width: thick;
   border-radius: 4px;
-  height: 425px;
+  height: 600px;
 }
 
 .feature-button-div {
@@ -44,8 +45,8 @@ body {
 }
 
 .feature-button {
-  display: block;
-  margin-top: auto;
+  position: absolute;
+  margin-bottom: 2px;
 }
 
 .thumbnail-header {
@@ -289,6 +290,16 @@ li.nav-item > button.nav-link {
   margin-left: 8px !important;
   padding: 8px !important;
   color: #fff !important;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Media for web view point and larger screens */
@@ -564,10 +575,11 @@ li.nav-item > button.nav-link {
   }
 
   .section-summary {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
       sans-serif !important;
     font-size: small;
     font-style: oblique;
+    color: #f3f1f5 !important;
   }
 
   .footer-link {
