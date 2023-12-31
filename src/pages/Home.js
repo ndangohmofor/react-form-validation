@@ -328,6 +328,7 @@ const Home = () => {
               <Col className="thumbnail" xs={3}>
                 <Image
                   src="/images/features/gym_bikes.jpg"
+                  width={"80%"}
                   roundedCircle
                   thumbnail
                 />
