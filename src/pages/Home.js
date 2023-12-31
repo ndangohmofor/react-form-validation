@@ -14,6 +14,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+import Badge from "react-bootstrap/Badge";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -315,6 +316,13 @@ const Home = () => {
               </Card>
             </Tab>
           </Tabs> */}
+          <Container>
+            <Row>
+              <h1>
+                <Badge bg="tertiary">Features</Badge>
+              </h1>
+            </Row>
+          </Container>
           <Container>
             <Row>
               <Col className="thumbnail" xs={3}>
