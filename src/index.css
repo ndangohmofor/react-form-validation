@@ -21,6 +21,10 @@ body {
   display: none;
 }
 
+.web-video {
+  display: block;
+}
+
 .App {
   display: flex;
   flex-direction: column;
