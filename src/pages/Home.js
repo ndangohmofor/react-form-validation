@@ -227,7 +227,7 @@ const Home = () => {
             </Button>
           </div>
         </section>
-        <section className="scroll-section">
+        <section className="scroll-section web-video">
           <Tabs id="controlled-tab-features" defaultActiveKey={"tracking"}>
             <Tab eventKey={"tracking"} title={"Track"}>
               <Card bg="secondary" style={{ width: "auto" }}>
@@ -235,6 +235,93 @@ const Home = () => {
                   variant="top"
                   src="/images/features/features_bikess.png"
                 />
+                <Card.Body>
+                  <Card.Title>Easy Tracking</Card.Title>
+                  <Card.Text>
+                    Record your workout session through our easy one-click
+                    checkin and checkout process.
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"checkin"}
+                  size="sm"
+                >
+                  Checkin
+                </Button>
+              </Card>
+            </Tab>
+            <Tab eventKey={"Logging"} title={"Log"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img variant="top" src="/images/features/runner.png" />
+                <Card.Body>
+                  <Card.Title>Endurance</Card.Title>
+                  <Card.Text>
+                    Keep track of your goals by using our workout log.
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"exerciseLog"}
+                  size="sm"
+                >
+                  Log your workout
+                </Button>
+              </Card>
+            </Tab>
+            <Tab eventKey={"Coaching"} title={"Coach"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img variant="top" src="/images/features/lifting.png" />
+                <Card.Body>
+                  <Card.Title>Companion</Card.Title>
+                  <Card.Text>
+                    We offer training on our machines to help you perfect your
+                    form
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"machineinfo"}
+                  size="sm"
+                >
+                  Log your workout
+                </Button>
+              </Card>
+            </Tab>
+            <Tab eventKey={"Classes"} title={"Class"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img variant="top" src="/images/features/yoga.jpg" />
+                <Card.Body>
+                  <Card.Title>Classes</Card.Title>
+                  <Card.Text>
+                    Try any classes you want. All classes are complementary
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  variant="custom-primary"
+                  as={Link}
+                  to={"classes"}
+                  size="sm"
+                >
+                  View Classes
+                </Button>
+              </Card>
+            </Tab>
+          </Tabs>
+          <h2 className="text-center video-overlay-header">Features</h2>
+          <p className="section-summary mx-4">
+            Modern gym with advanced equipment, diverse classes, VR workouts,
+            rock-climbing, wellness center, steam room, and nutrition services.
+          </p>
+        </section>
+        <section className="scroll-section mobile-video">
+          <Tabs id="controlled-tab-features" defaultActiveKey={"tracking"}>
+            <Tab eventKey={"tracking"} title={"Track"}>
+              <Card bg="secondary" style={{ width: "auto" }}>
+                <Card.Img variant="top" src="/images/features/gym_bikes.jpg" />
                 <Card.Body>
                   <Card.Title>Easy Tracking</Card.Title>
                   <Card.Text>
