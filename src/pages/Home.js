@@ -324,13 +324,22 @@ const Home = () => {
             </Row>
           </Container>
           <Container>
+            <Row>
+              <p className="section-summary mx-4">
+                Modern gym with advanced equipment, diverse classes, VR
+                workouts, rock-climbing, wellness center, steam room, and
+                nutrition services.
+              </p>
+            </Row>
+          </Container>
+          <Container>
             <Row className="feature-row">
               <Col className="thumbnail mx-1">
                 <Row>
                   <Image
                     src="/images/features/gym_bikes.jpg"
                     width={"80%"}
-                    roundedCircle
+                    height={"300px"}
                   />
                 </Row>
                 <Row>
@@ -340,6 +349,10 @@ const Home = () => {
                   <p className="thumbnail-body">
                     Record your workout session through our easy one-click
                     checkin and checkout process.
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                   </p>
                 </Row>
                 <Row className="feature-button-div">
@@ -357,9 +370,9 @@ const Home = () => {
               <Col className="thumbnail mx-1">
                 <Row>
                   <Image
-                    src="/images/features/gym_bikes.jpg"
+                    src="/images/features/runner.png"
                     width={"80%"}
-                    roundedCircle
+                    height={"300px"}
                   />
                 </Row>
                 <Row>
@@ -367,7 +380,11 @@ const Home = () => {
                 </Row>
                 <Row>
                   <p className="thumbnail-body">
-                    Keep track of your goals by using our workout log.
+                    Keep track of your goals by using our workout log. <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                   </p>
                 </Row>
                 <Row className="feature-button-div">
@@ -385,9 +402,9 @@ const Home = () => {
               <Col className="thumbnail mx-1">
                 <Row>
                   <Image
-                    src="/images/features/gym_bikes.jpg"
+                    src="/images/features/lifting.png"
                     width={"80%"}
-                    roundedCircle
+                    height={"300px"}
                   />
                 </Row>
                 <Row>
@@ -395,8 +412,12 @@ const Home = () => {
                 </Row>
                 <Row>
                   <p className="thumbnail-body">
-                    We offer training on our workout machines to guide you
-                    through the proper techniques on perfecting your form.
+                    We offer training on our workout machines to help you
+                    perfect your form.
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                   </p>
                 </Row>
                 <Row className="feature-button-div">
@@ -414,9 +435,9 @@ const Home = () => {
               <Col className="thumbnail mx-1">
                 <Row>
                   <Image
-                    src="/images/features/gym_bikes.jpg"
+                    src="/images/features/yoga.jpg"
                     width={"80%"}
-                    roundedCircle
+                    height={"300px"}
                   />
                 </Row>
                 <Row>
@@ -426,6 +447,10 @@ const Home = () => {
                   <p className="thumbnail-body">
                     Try any class you want, then another . . . and another. All
                     classes are complimentary to you.
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                   </p>
                 </Row>
                 <Row className="feature-button-div">
@@ -442,11 +467,6 @@ const Home = () => {
               </Col>
             </Row>
           </Container>
-          <h2 className="text-center video-overlay-header">Features</h2>
-          <p className="section-summary mx-4">
-            Modern gym with advanced equipment, diverse classes, VR workouts,
-            rock-climbing, wellness center, steam room, and nutrition services.
-          </p>
         </section>
         <section className="scroll-section mobile-video">
           <Tabs id="controlled-tab-features" defaultActiveKey={"tracking"}>
