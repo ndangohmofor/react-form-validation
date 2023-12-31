@@ -292,7 +292,7 @@ const Home = () => {
                   to={"machineinfo"}
                   size="sm"
                 >
-                  Log your workout
+                  Machine Guides
                 </Button>
               </Card>
             </Tab>
@@ -324,55 +324,121 @@ const Home = () => {
             </Row>
           </Container>
           <Container>
-            <Row>
-              <Col className="thumbnail" xs={3}>
-                <Image
-                  src="/images/features/gym_bikes.jpg"
-                  width={"80%"}
-                  roundedCircle
-                  thumbnail
-                />
-                <h3 className="thumbnail-header">Easy Tracking</h3>
-                <p className="thumbnail-body">
-                  Record your workout session through our easy one-click checkin
-                  and checkout process.
-                </p>
+            <Row className="feature-row">
+              <Col className="thumbnail mx-1">
+                <Row>
+                  <Image
+                    src="/images/features/gym_bikes.jpg"
+                    width={"80%"}
+                    roundedCircle
+                  />
+                </Row>
+                <Row>
+                  <h3 className="thumbnail-header my-3">Easy Tracking</h3>
+                </Row>
+                <Row>
+                  <p className="thumbnail-body">
+                    Record your workout session through our easy one-click
+                    checkin and checkout process.
+                  </p>
+                </Row>
+                <Row className="feature-button-div">
+                  <Button
+                    className="feature-button"
+                    variant="custom-primary"
+                    as={Link}
+                    to={"checkin"}
+                    size="sm"
+                  >
+                    Checkin
+                  </Button>
+                </Row>
               </Col>
-              <Col className="thumbnail" xs={3}>
-                <Image
-                  src="/images/features/gym_bikes.jpg"
-                  roundedCircle
-                  thumbnail
-                />
-                <h3 className="thumbnail-header">Easy Tracking</h3>
-                <p className="thumbnail-body">
-                  Record your workout session through our easy one-click checkin
-                  and checkout process.
-                </p>
+              <Col className="thumbnail mx-1">
+                <Row>
+                  <Image
+                    src="/images/features/gym_bikes.jpg"
+                    width={"80%"}
+                    roundedCircle
+                  />
+                </Row>
+                <Row>
+                  <h3 className="thumbnail-header  my-3">Endurance</h3>
+                </Row>
+                <Row>
+                  <p className="thumbnail-body">
+                    Keep track of your goals by using our workout log.
+                  </p>
+                </Row>
+                <Row className="feature-button-div">
+                  <Button
+                    className="feature-button"
+                    variant="custom-primary"
+                    as={Link}
+                    to={"exerciseLog"}
+                    size="sm"
+                  >
+                    Log your workout
+                  </Button>
+                </Row>
               </Col>
-              <Col className="thumbnail" xs={3}>
-                <Image
-                  src="/images/features/gym_bikes.jpg"
-                  roundedCircle
-                  thumbnail
-                />
-                <h3 className="thumbnail-header">Easy Tracking</h3>
-                <p className="thumbnail-body">
-                  Record your workout session through our easy one-click checkin
-                  and checkout process.
-                </p>
+              <Col className="thumbnail mx-1">
+                <Row>
+                  <Image
+                    src="/images/features/gym_bikes.jpg"
+                    width={"80%"}
+                    roundedCircle
+                  />
+                </Row>
+                <Row>
+                  <h3 className="thumbnail-header  my-3">Companion</h3>
+                </Row>
+                <Row>
+                  <p className="thumbnail-body">
+                    We offer training on our workout machines to guide you
+                    through the proper techniques on perfecting your form.
+                  </p>
+                </Row>
+                <Row className="feature-button-div">
+                  <Button
+                    className="feature-button"
+                    variant="custom-primary"
+                    as={Link}
+                    to={"machineinfo"}
+                    size="sm"
+                  >
+                    Machine Guides
+                  </Button>
+                </Row>
               </Col>
-              <Col className="thumbnail" xs={3}>
-                <Image
-                  src="/images/features/gym_bikes.jpg"
-                  roundedCircle
-                  thumbnail
-                />
-                <h3 className="thumbnail-header">Easy Tracking</h3>
-                <p className="thumbnail-body">
-                  Record your workout session through our easy one-click checkin
-                  and checkout process.
-                </p>
+              <Col className="thumbnail mx-1">
+                <Row>
+                  <Image
+                    src="/images/features/gym_bikes.jpg"
+                    width={"80%"}
+                    roundedCircle
+                  />
+                </Row>
+                <Row>
+                  <h3 className="thumbnail-header  my-3">Classes</h3>
+                </Row>
+                <Row>
+                  <p className="thumbnail-body">
+                    Try any class you want, then another . . . and another. All
+                    classes are complimentary to you.
+                  </p>
+                </Row>
+                <Row className="feature-button-div">
+                  <Button
+                    className="feature-button"
+                    variant="custom-primary"
+                    as={Link}
+                    to={"classes"}
+                    size="sm"
+                  >
+                    View Classes
+                  </Button>
+                </Row>
               </Col>
             </Row>
           </Container>
