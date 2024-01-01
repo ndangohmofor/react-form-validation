@@ -555,7 +555,7 @@ const Home = () => {
             rock-climbing, wellness center, steam room, and nutrition services.
           </p>
         </section>
-        <section className="scroll-section">
+        <section className="scroll-section mobile-video">
           <Tabs id="controlled-tab-features" defaultActiveKey={"yoga"}>
             <Tab eventKey={"yoga"} title={"Retreats"}>
               <Card bg="secondary" style={{ width: "auto" }}>
@@ -626,6 +626,82 @@ const Home = () => {
             rock-climbing wall. Amenities include a steam room, sauna, and
             wellness center for nutrition and physiotherapy services.
           </p>
+        </section>
+        <section className="scroll-section web-video">
+          <Row>
+            <h2 className="text-center video-overlay-header">Amenities</h2>
+          </Row>
+          <Row>
+            <p className="section-summary mx-4">
+              Our modern gym offers a wide range of equipment, including cardio
+              machines, weights, and functional training zones. It hosts diverse
+              classes like yoga and spin, and features a VR workout area and
+              rock-climbing wall. Amenities include a steam room, sauna, and
+              wellness center for nutrition and physiotherapy services.
+            </p>
+          </Row>
+          <Row>
+            <Col className="d-flex">
+              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/amenityyoga.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">Yoga Retreats</Card.Title>
+                <Card.Text>
+                  Find your zen through our annual Yoga retreat in the Himalayas
+                  led by John C.
+                </Card.Text>
+              </Card>
+            </Col>
+            <Col className="d-flex">
+              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/personaltrainer.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">
+                  Personal Trainer
+                </Card.Title>
+                <Card.Text>
+                  Meet with our world-class trainers to help you meet your
+                  personal fitness goals.
+                </Card.Text>
+              </Card>
+            </Col>
+            <Col className="d-flex">
+              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/water-sport.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">
+                  Olympic Sized Pool
+                </Card.Title>
+                <Card.Text>
+                  Get your cardio in by swimming in our olympic size pool.We
+                  also have varying diving board heights. At the end of your
+                  swim, rinse off and then relax in our sauna rooms.
+                </Card.Text>
+              </Card>
+            </Col>
+            <Col className="d-flex">
+              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+                <Card.Img
+                  variant="bottom"
+                  src="/images/amenities/gym-changing-room.jpg"
+                ></Card.Img>
+                <Card.Title className="media-heading">
+                  Modern Facilities
+                </Card.Title>
+                <Card.Text>
+                  Say goodbye to the old gym changing room experience. Our
+                  modern rooms will make you feel like you are at a 5-star
+                  hotel.
+                </Card.Text>
+              </Card>
+            </Col>
+          </Row>
         </section>
       </div>
     </>
