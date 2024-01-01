@@ -644,8 +644,9 @@ const Home = () => {
           </Row>
           <Row>
             <Col className="d-flex">
-              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+              <Card bg="white" style={{ width: "100%", height: "auto" }}>
                 <Card.Img
+                  className="mb-3"
                   variant="bottom"
                   src="/images/amenities/amenityyoga.jpg"
                 ></Card.Img>
@@ -657,8 +658,9 @@ const Home = () => {
               </Card>
             </Col>
             <Col className="d-flex">
-              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+              <Card bg="white" style={{ width: "100%", height: "auto" }}>
                 <Card.Img
+                  className="mb-3"
                   variant="bottom"
                   src="/images/amenities/personaltrainer.jpg"
                 ></Card.Img>
@@ -672,8 +674,9 @@ const Home = () => {
               </Card>
             </Col>
             <Col className="d-flex">
-              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+              <Card bg="white" style={{ width: "100%", height: "auto" }}>
                 <Card.Img
+                  className="mb-3"
                   variant="bottom"
                   src="/images/amenities/water-sport.jpg"
                 ></Card.Img>
@@ -688,8 +691,9 @@ const Home = () => {
               </Card>
             </Col>
             <Col className="d-flex">
-              <Card bg="secondary" style={{ width: "100%", height: "auto" }}>
+              <Card bg="tertiary" style={{ width: "100%", height: "auto" }}>
                 <Card.Img
+                  className="mb-3"
                   variant="bottom"
                   src="/images/amenities/gym-changing-room.jpg"
                 ></Card.Img>
