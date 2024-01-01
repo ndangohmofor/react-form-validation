@@ -325,7 +325,7 @@ const Home = () => {
           </Container>
           <Container>
             <Row>
-              <p className="section-summary mx-4">
+              <p className="section-summary video-overlay-header mx-4">
                 Modern gym with advanced equipment, diverse classes, VR
                 workouts, rock-climbing, wellness center, steam room, and
                 nutrition services.
@@ -629,10 +629,12 @@ const Home = () => {
         </section>
         <section className="scroll-section web-video">
           <Row>
-            <h2 className="text-center video-overlay-header">Amenities</h2>
+            <h1 className="text-center">
+              <Badge bg="tertiary">Amenities</Badge>
+            </h1>
           </Row>
           <Row>
-            <p className="section-summary mx-4">
+            <p className="section-summary mx-4 video-overlay-header">
               Our modern gym offers a wide range of equipment, including cardio
               machines, weights, and functional training zones. It hosts diverse
               classes like yoga and spin, and features a VR workout area and
