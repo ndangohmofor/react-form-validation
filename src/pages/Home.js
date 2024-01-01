@@ -558,10 +558,12 @@ const Home = () => {
         <section className="scroll-section mobile-video">
           <Tabs id="controlled-tab-features" defaultActiveKey={"yoga"}>
             <Tab eventKey={"yoga"} title={"Retreats"}>
-              <Card bg="secondary" style={{ width: "auto" }}>
+              <Card bg="secondary" style={{ width: "auto", height: "auto" }}>
                 <Card.Img
                   variant="bottom"
                   src="/images/amenities/amenityyoga.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">Yoga Retreats</Card.Title>
                 <Card.Text>
@@ -571,10 +573,12 @@ const Home = () => {
               </Card>
             </Tab>
             <Tab eventKey={"trainer"} title={"Trainer"}>
-              <Card bg="secondary" style={{ width: "auto" }}>
+              <Card bg="secondary" style={{ width: "auto", height: "auto" }}>
                 <Card.Img
                   variant="bottom"
                   src="/images/amenities/personaltrainer.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">
                   Personal Trainer
@@ -586,10 +590,12 @@ const Home = () => {
               </Card>
             </Tab>
             <Tab eventKey={"pool"} title={"Pool"}>
-              <Card bg="secondary" style={{ width: "auto" }}>
+              <Card bg="secondary" style={{ width: "auto", height: "auto" }}>
                 <Card.Img
                   variant="bottom"
                   src="/images/amenities/water-sport.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">
                   Olympic Sized Pool
@@ -602,10 +608,12 @@ const Home = () => {
               </Card>
             </Tab>
             <Tab eventKey={"facilities"} title={"Facilities"}>
-              <Card bg="secondary" style={{ width: "auto" }}>
+              <Card bg="secondary" style={{ width: "auto", height: "auto" }}>
                 <Card.Img
                   variant="bottom"
                   src="/images/amenities/gym-changing-room.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">
                   Modern Facilities
