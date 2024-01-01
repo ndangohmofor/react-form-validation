@@ -15,6 +15,12 @@ html {
 body {
   min-height: 100vh;
   background-color: dodgerblue;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .mobile-video {
