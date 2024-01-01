@@ -649,6 +649,8 @@ const Home = () => {
                   className="mb-3"
                   variant="bottom"
                   src="/images/amenities/amenityyoga.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">Yoga Retreats</Card.Title>
                 <Card.Text>
@@ -663,6 +665,8 @@ const Home = () => {
                   className="mb-3"
                   variant="bottom"
                   src="/images/amenities/personaltrainer.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">
                   Personal Trainer
@@ -679,6 +683,8 @@ const Home = () => {
                   className="mb-3"
                   variant="bottom"
                   src="/images/amenities/water-sport.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">
                   Olympic Sized Pool
@@ -696,6 +702,8 @@ const Home = () => {
                   className="mb-3"
                   variant="bottom"
                   src="/images/amenities/gym-changing-room.jpg"
+                  width={"100%"}
+                  height={"50%"}
                 ></Card.Img>
                 <Card.Title className="media-heading">
                   Modern Facilities
