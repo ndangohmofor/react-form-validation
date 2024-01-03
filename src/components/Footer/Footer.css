@@ -49,3 +49,9 @@ ul.footer > li > a:link {
 ul.footer > li > a:hover {
   color: darkred;
 }
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
