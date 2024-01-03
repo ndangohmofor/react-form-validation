@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";
 import Missing from "./pages/Missing";
-import Home from "./pages/Home";
+import Index from "./pages";
 import UserProfile from "./components/UserProfile/UserProfile";
 import UpdateProfile from "./components/UserProfile/UpdateProfile";
 import { UserDetailsProvider } from "./context/UserDetailsProvider";
@@ -25,6 +25,7 @@ function App() {
             {/* public routes */}
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="/" element={<Index />} />
 
             {/* protected routes */}
             <Route element={<PersistLogin />}>
@@ -57,9 +58,7 @@ function App() {
                     allowedRoles={["ROLE_USER", "ROLE_USER", "ROLE_ADMIN"]}
                   />
                 }
-              >
-                <Route path="/home" element={<Home />} />
-              </Route>
+              ></Route>
             </Route>
 
             {/* catch all  */}
