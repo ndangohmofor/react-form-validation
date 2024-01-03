@@ -123,7 +123,6 @@ const Register = () => {
           >
             {errMsg}
           </p>
-          <h1 className="register-heading">Register</h1>
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
@@ -370,15 +369,15 @@ const Register = () => {
                 </button>
               </div>
             </div>
+            <p className="already-registered">
+              Already registered?
+              <br />
+              <span className="line">
+                {/** put a router link here */}
+                <Link to={"/login"}>Sign In</Link>
+              </span>
+            </p>
           </form>
-          <p className="already-registered">
-            Already registered?
-            <br />
-            <span className="line">
-              {/** put a router link here */}
-              <Link to={"/login"}>Sign In</Link>
-            </span>
-          </p>
         </section>
       )}
     </>
