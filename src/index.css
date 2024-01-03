@@ -366,6 +366,12 @@ section {
     color: #fff;
   }
 
+  a.line,
+  a:visited.line {
+    color: #190c3d !important;
+    font-weight: 600;
+  }
+
   input[type="text"],
   input[type="password"],
   button,
