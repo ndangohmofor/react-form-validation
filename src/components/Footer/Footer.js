@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Row, Col, Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
