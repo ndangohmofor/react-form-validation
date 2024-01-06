@@ -13,6 +13,7 @@ import Index from "./pages";
 import UserProfile from "./components/UserProfile/UserProfile";
 import UpdateProfile from "./components/UserProfile/UpdateProfile";
 import { UserDetailsProvider } from "./context/UserDetailsProvider";
+import Checkin from "./pages/Checkin";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,13 @@ function App() {
                 }
               >
                 <Route path="/employee" element={<Employee />} />
+              </Route>
+              <Route
+                element={
+                  <RequireAuth allowedRoles={["ROLE_EMPLOYEE", "ROLE_USER"]} />
+                }
+              >
+                <Route path="checkin" element={<Checkin />} />
               </Route>
               <Route
                 element={
