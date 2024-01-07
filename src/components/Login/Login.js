@@ -36,7 +36,8 @@ const Login = () => {
       );
       const accessToken = response.data?.access_token;
       const role = response.data?.role;
-      setAuth({ username, role, accessToken });
+      const checkedIn = response.data?.checkedIn;
+      setAuth({ username, role, accessToken, checkedIn });
       setUsername("");
       setPassword("");
       navigate(from, { replace: true });
