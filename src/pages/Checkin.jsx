@@ -6,7 +6,7 @@ import useAuth from "../hooks/useAuth";
 
 const Checkin = () => {
   const { setAuth, auth } = useAuth();
-  const [checkin, setCheckin] = useState(false);
+  const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
   const axios = useAxiosPrivate();
   const handleCheckin = async () => {
     const response = await axios.post("/api/v1/checkins/usercheckin");
@@ -15,12 +15,19 @@ const Checkin = () => {
     }
   };
 
+  const handleCheckout = async () => {
+    const response = await axios.post("/api/v1/checkins/usercheckout");
+    if (response.status === 200) {
+      setCheckin(false);
+    }
+  };
+
   useEffect(() => {
     setAuth({
       ...auth,
       checkedIn: checkin,
     });
-  }, [checkin, auth, setAuth]);
+  }, [checkin]);
 
   return (
     <div className="row">
@@ -29,8 +36,8 @@ const Checkin = () => {
           <Card.Header>Check out</Card.Header>
           <Card.Body>
             <Card.Title>Checkout to end workout sessioin</Card.Title>
-            <Card.Text>Click the button to Check out</Card.Text>
-            <Button onClick={handleCheckin} variant="primary" size="sm">
+            {/* <Card.Text>Click the button to Check out</Card.Text> */}
+            <Button onClick={handleCheckout} variant="primary" size="sm">
               Checkout
             </Button>
           </Card.Body>
