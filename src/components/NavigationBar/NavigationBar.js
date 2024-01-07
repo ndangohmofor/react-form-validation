@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import NavDropDown from "react-bootstrap/NavDropdown";
@@ -16,11 +16,16 @@ const NavigationBar = () => {
   const navigate = useNavigate();
   const logout = useLogout();
   const [expanded, setExpanded] = useState(false);
+  const [checkedIn, setCheckedIn] = useState(auth.checkedIn);
 
   const signOut = async () => {
     await logout();
     navigate("/");
   };
+
+  useEffect(() => {
+    auth.checkedIn ? setCheckedIn(true) : setCheckedIn(false);
+  }, [auth]);
 
   const navLinks = (
     <>
@@ -75,7 +80,7 @@ const NavigationBar = () => {
   const loginLinks = auth.username ? (
     <Nav>
       <NavDropDown title={auth.username} id="basic-nav-dropdown">
-        {auth.checkedIn ? (
+        {checkedIn ? (
           <>
             <NavDropDown.Item
               className="nav-link-black"
