@@ -75,7 +75,7 @@ const NavigationBar = () => {
   const loginLinks = auth.username ? (
     <Nav>
       <NavDropDown title={auth.username} id="basic-nav-dropdown">
-        {auth.user?.checkedin ? (
+        {auth.checkedIn ? (
           <>
             <NavDropDown.Item
               className="nav-link-black"
