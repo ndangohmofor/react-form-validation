@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
@@ -6,10 +6,21 @@ import useAuth from "../hooks/useAuth";
 
 const Checkin = () => {
   const { setAuth, auth } = useAuth();
+  const [checkin, setCheckin] = useState(false);
   const axios = useAxiosPrivate();
   const handleCheckin = async () => {
-    await axios.post("/api/v1/checkins/usercheckin");
+    const response = await axios.post("/api/v1/checkins/usercheckin");
+    if (response.status === 200) {
+      setCheckin(true);
+    }
   };
+
+  useEffect(() => {
+    setAuth({
+      ...auth,
+      checkedIn: checkin,
+    });
+  }, [checkin, auth, setAuth]);
 
   return (
     <div className="row">
