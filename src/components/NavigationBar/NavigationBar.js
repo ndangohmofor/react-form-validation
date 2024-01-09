@@ -85,7 +85,7 @@ const NavigationBar = () => {
             <NavDropDown.Item
               className="nav-link-black"
               as={Link}
-              to={"/checkout"}
+              to={"checkin"}
               onClick={() => setExpanded(false)}
             >
               Checkout
