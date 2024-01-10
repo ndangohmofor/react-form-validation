@@ -11,6 +11,7 @@ const Checkin = () => {
 
   const controller = new AbortController();
 
+  //TODO: Update the API calls here to use React useQuery hook. We may want to try useQueries when we add calls for the workout statitics
   const handleCheckin = async () => {
     const response = await axios.post("/api/v1/checkins/usercheckin", {
       headers: { "Content-Type": "application/json" },
