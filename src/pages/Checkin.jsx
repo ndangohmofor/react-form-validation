@@ -8,15 +8,24 @@ const Checkin = () => {
   const { setAuth, auth } = useAuth();
   const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
   const axios = useAxiosPrivate();
+
+  const controller = new AbortController();
+
   const handleCheckin = async () => {
-    const response = await axios.post("/api/v1/checkins/usercheckin");
+    const response = await axios.post("/api/v1/checkins/usercheckin", {
+      headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
+    });
     if (response.status === 200) {
       setCheckin(true);
     }
   };
 
   const handleCheckout = async () => {
-    const response = await axios.post("/api/v1/checkins/usercheckout");
+    const response = await axios.post("/api/v1/checkins/usercheckout", {
+      headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
+    });
     if (response.status === 200) {
       setCheckin(false);
     }
@@ -32,16 +41,30 @@ const Checkin = () => {
   return (
     <div className="row">
       {auth.checkedIn ? (
-        <Card style={{ width: "80vw" }}>
-          <Card.Header>Check out</Card.Header>
-          <Card.Body>
-            <Card.Title>Checkout to end workout sessioin</Card.Title>
-            {/* <Card.Text>Click the button to Check out</Card.Text> */}
-            <Button onClick={handleCheckout} variant="primary" size="sm">
-              Checkout
-            </Button>
-          </Card.Body>
-        </Card>
+        <div>
+          <Card style={{ width: "80vw" }}>
+            <Card.Header>Check out</Card.Header>
+            <Card.Body>
+              <Card.Title>Checkout to end workout sessioin</Card.Title>
+              {/* <Card.Text>Click the button to Check out</Card.Text> */}
+              <Button onClick={handleCheckout} variant="primary" size="sm">
+                Checkout
+              </Button>
+            </Card.Body>
+          </Card>
+          <Card style={{ width: "80vw" }}>
+            <Card.Header>Visit Metrics</Card.Header>
+            <Card.Body>
+              <Card.Title>Time Since First Visit:</Card.Title>
+              <Card.Text>{"??"} Year(s)</Card.Text>
+              <Card.Text>{"??"} Months(s)</Card.Text>
+              <Card.Text>{"??"} Days(s)</Card.Text>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title>Average Workout</Card.Title>
+            </Card.Body>
+          </Card>
+        </div>
       ) : (
         <Card style={{ width: "80vw" }}>
           <Card.Header>Check in</Card.Header>
