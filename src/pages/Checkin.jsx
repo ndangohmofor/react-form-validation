@@ -62,6 +62,8 @@ const Checkin = () => {
             </Card.Body>
             <Card.Body>
               <Card.Title>Average Workout</Card.Title>
+              <Card.Text>{"??"} Hour(s)</Card.Text>
+              <Card.Text>{"??"} Minute(s)</Card.Text>
             </Card.Body>
           </Card>
         </div>
