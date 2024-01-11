@@ -28,6 +28,9 @@ const Checkin = () => {
     if (response.status === 200) {
       setCheckin(true);
     }
+    if (firstLoginResponse.status === 200) {
+      setFirstCheckinDate(firstLoginResponse.data);
+    }
   };
 
   const handleCheckout = async () => {
