@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 const Checkin = () => {
   const { setAuth, auth } = useAuth();
   const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
-  const [firstCheckinDate, setFirstCheckinDate] = useState();
+  const [lastWorkoutDate, setLastWorkoutDate] = useState();
   const axios = useAxiosPrivate();
 
   const controller = new AbortController();
@@ -19,7 +19,7 @@ const Checkin = () => {
       signal: controller.signal,
     });
     const lastWorkoutResponse = await axios.get(
-      "/api/v1/checkins/firstcheckin",
+      "/api/v1/checkins/lastworkoutdate",
       {
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
@@ -29,7 +29,7 @@ const Checkin = () => {
       setCheckin(true);
     }
     if (lastWorkoutResponse.status === 200) {
-      setFirstCheckinDate(lastWorkoutResponse.data);
+      setLastWorkoutDate(lastWorkoutResponse.data);
     }
   };
 
@@ -67,10 +67,20 @@ const Checkin = () => {
           <Card style={{ width: "80vw" }}>
             <Card.Header>Visit Metrics</Card.Header>
             <Card.Body>
-              <Card.Title>Time Since Last Visit:</Card.Title>
-              <Card.Text>{"??"} Year(s)</Card.Text>
-              <Card.Text>{"??"} Months(s)</Card.Text>
-              <Card.Text>{"??"} Days(s)</Card.Text>
+              {!!lastWorkoutDate ? (
+                <>
+                  <Card.Title>Time Since Last Visit:</Card.Title>
+                  <Card.Text>{"??"} Year(s)</Card.Text>
+                  <Card.Text>{"??"} Months(s)</Card.Text>
+                  <Card.Text>{"??"} Days(s)</Card.Text>
+                </>
+              ) : (
+                <>
+                  <Card.Text>
+                    Congratulations on starting your first workout
+                  </Card.Text>
+                </>
+              )}
             </Card.Body>
             <Card.Body>
               <Card.Title>Average Workout</Card.Title>
