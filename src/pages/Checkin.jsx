@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 const Checkin = () => {
   const { setAuth, auth } = useAuth();
   const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
+  const [firstCheckinDate, setFirstCheckinDate] = useState();
   const axios = useAxiosPrivate();
 
   const controller = new AbortController();
@@ -17,6 +18,13 @@ const Checkin = () => {
       headers: { "Content-Type": "application/json" },
       signal: controller.signal,
     });
+    const firstLoginResponse = await axios.get(
+      "/api/v1/checkins/firstcheckin",
+      {
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+      }
+    );
     if (response.status === 200) {
       setCheckin(true);
     }
