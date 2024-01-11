@@ -12,6 +12,32 @@ const Checkin = () => {
 
   const controller = new AbortController();
 
+  const dateDiff = (oldDate) => {
+    let ynew = Date.now().getFullYear();
+    let mnew = Date.now().getMonth();
+    let dnew = Date.now().getDate();
+    let yold = oldDate.getFullYear();
+    let mold = oldDate.getMonth();
+    let dold = oldDate.getDate();
+
+    let diffYears = ynew - yold;
+    let diffMonths = mnew - mold;
+    let diffDays = dnew - dold;
+
+    if (diffMonths < 0) {
+      diffYears--;
+      diffMonths += 12;
+    }
+
+    if (diffDays < 0) {
+      diffMonths--;
+      let lastDayOfPrevMonth = new Date(ynew, mnew, 0).getDate();
+      diffDays += lastDayOfPrevMonth;
+    }
+
+    return { years: diffYears, months: diffMonths, days: diffDays };
+  };
+
   //TODO: Update the API calls here to use React useQuery hook. We may want to try useQueries when we add calls for the workout statitics
   const handleCheckin = async () => {
     const response = await axios.post("/api/v1/checkins/usercheckin", {
