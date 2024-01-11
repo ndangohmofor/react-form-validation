@@ -37,7 +37,11 @@ const Checkin = () => {
         diffDays += lastDayOfPrevMonth;
       }
 
-      return { years: diffYears, months: diffMonths, days: diffDays };
+      return {
+        years: diffYears,
+        months: diffMonths,
+        days: diffDays,
+      };
     }
     return null;
   };
@@ -86,7 +90,7 @@ const Checkin = () => {
     timeSinceLastVisit = dateDiff(lastWorkoutDate);
     console.log(lastWorkoutDate);
     console.log(timeSinceLastVisit);
-  }, [lastWorkoutDate]);
+  }, [lastWorkoutDate, timeSinceLastVisit]);
 
   return (
     <div className="row">
@@ -108,9 +112,9 @@ const Checkin = () => {
               {!!timeSinceLastVisit ? (
                 <>
                   <Card.Title>Time Since Last Visit:</Card.Title>
-                  <Card.Text>{"??"} Year(s)</Card.Text>
-                  <Card.Text>{"??"} Months(s)</Card.Text>
-                  <Card.Text>{"??"} Days(s)</Card.Text>
+                  <Card.Text>{`${timeSinceLastVisit.years} Year(s)`}</Card.Text>
+                  <Card.Text>{`${timeSinceLastVisit.months} Months(s)`}</Card.Text>
+                  <Card.Text>{`${timeSinceLastVisit.days} Day(s)`}</Card.Text>
                 </>
               ) : (
                 <>
