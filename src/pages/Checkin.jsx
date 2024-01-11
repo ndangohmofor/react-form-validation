@@ -18,7 +18,7 @@ const Checkin = () => {
       headers: { "Content-Type": "application/json" },
       signal: controller.signal,
     });
-    const firstLoginResponse = await axios.get(
+    const lastWorkoutResponse = await axios.get(
       "/api/v1/checkins/firstcheckin",
       {
         headers: { "Content-Type": "application/json" },
@@ -28,8 +28,8 @@ const Checkin = () => {
     if (response.status === 200) {
       setCheckin(true);
     }
-    if (firstLoginResponse.status === 200) {
-      setFirstCheckinDate(firstLoginResponse.data);
+    if (lastWorkoutResponse.status === 200) {
+      setFirstCheckinDate(lastWorkoutResponse.data);
     }
   };
 
