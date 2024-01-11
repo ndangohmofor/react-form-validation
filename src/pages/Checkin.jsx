@@ -67,7 +67,7 @@ const Checkin = () => {
           <Card style={{ width: "80vw" }}>
             <Card.Header>Visit Metrics</Card.Header>
             <Card.Body>
-              <Card.Title>Time Since First Visit:</Card.Title>
+              <Card.Title>Time Since Last Visit:</Card.Title>
               <Card.Text>{"??"} Year(s)</Card.Text>
               <Card.Text>{"??"} Months(s)</Card.Text>
               <Card.Text>{"??"} Days(s)</Card.Text>
