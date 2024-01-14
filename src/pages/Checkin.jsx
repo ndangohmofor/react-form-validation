@@ -4,47 +4,52 @@ import Button from "react-bootstrap/Button";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import useAuth from "../hooks/useAuth";
 
+const dateDiff = (oldDateRaw) => {
+  if (oldDateRaw) {
+    const oldDate = new Date(oldDateRaw);
+    let ynew = new Date().getFullYear();
+    let mnew = new Date().getMonth();
+    let dnew = new Date().getDate();
+    let yold = oldDate.getFullYear();
+    let mold = oldDate.getMonth();
+    let dold = oldDate.getDate();
+
+    let diffYears = ynew - yold;
+    let diffMonths = mnew - mold;
+    let diffDays = dnew - dold;
+
+    if (diffMonths < 0) {
+      diffYears--;
+      diffMonths += 12;
+    }
+
+    if (diffDays < 0) {
+      diffMonths--;
+      let lastDayOfPrevMonth = new Date(ynew, mnew, 0).getDate();
+      diffDays += lastDayOfPrevMonth;
+    }
+
+    return {
+      years: diffYears,
+      months: diffMonths,
+      days: diffDays,
+    };
+  }
+  return null;
+};
+
 const Checkin = () => {
   const { setAuth, auth } = useAuth();
   const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
   const [lastWorkoutDate, setLastWorkoutDate] = useState();
+  const [timeSinceLastVisit, setTimeSinceLastVisit] = useState({
+    years: 0,
+    months: 0,
+    days: 0,
+  });
   const axios = useAxiosPrivate();
 
   const controller = new AbortController();
-
-  const dateDiff = (oldDateRaw) => {
-    if (oldDateRaw) {
-      const oldDate = new Date(oldDateRaw);
-      let ynew = new Date().getFullYear();
-      let mnew = new Date().getMonth();
-      let dnew = new Date().getDate();
-      let yold = oldDate.getFullYear();
-      let mold = oldDate.getMonth();
-      let dold = oldDate.getDate();
-
-      let diffYears = ynew - yold;
-      let diffMonths = mnew - mold;
-      let diffDays = dnew - dold;
-
-      if (diffMonths < 0) {
-        diffYears--;
-        diffMonths += 12;
-      }
-
-      if (diffDays < 0) {
-        diffMonths--;
-        let lastDayOfPrevMonth = new Date(ynew, mnew, 0).getDate();
-        diffDays += lastDayOfPrevMonth;
-      }
-
-      return {
-        years: diffYears,
-        months: diffMonths,
-        days: diffDays,
-      };
-    }
-    return null;
-  };
 
   //TODO: Update the API calls here to use React useQuery hook. We may want to try useQueries when we add calls for the workout statitics
   const handleCheckin = async () => {
@@ -84,12 +89,8 @@ const Checkin = () => {
     });
   }, [checkin]);
 
-  let timeSinceLastVisit;
-
   useEffect(() => {
-    timeSinceLastVisit = dateDiff(lastWorkoutDate);
-    console.log(lastWorkoutDate);
-    console.log(timeSinceLastVisit);
+    setTimeSinceLastVisit(dateDiff(lastWorkoutDate));
   }, [lastWorkoutDate, timeSinceLastVisit]);
 
   return (
