@@ -91,7 +91,7 @@ const Checkin = () => {
 
   useEffect(() => {
     setTimeSinceLastVisit(dateDiff(lastWorkoutDate));
-  }, [lastWorkoutDate, timeSinceLastVisit]);
+  }, [lastWorkoutDate]);
 
   return (
     <div className="row">
@@ -114,7 +114,7 @@ const Checkin = () => {
                 <>
                   <Card.Title>Time Since Last Visit:</Card.Title>
                   <Card.Text>{`${timeSinceLastVisit.years} Year(s)`}</Card.Text>
-                  <Card.Text>{`${timeSinceLastVisit.months} Months(s)`}</Card.Text>
+                  <Card.Text>{`${timeSinceLastVisit.months} Month(s)`}</Card.Text>
                   <Card.Text>{`${timeSinceLastVisit.days} Day(s)`}</Card.Text>
                 </>
               ) : (
@@ -125,11 +125,6 @@ const Checkin = () => {
                 </>
               )}
             </Card.Body>
-            <Card.Body>
-              <Card.Title>Average Workout</Card.Title>
-              <Card.Text>{"??"} Hour(s)</Card.Text>
-              <Card.Text>{"??"} Minute(s)</Card.Text>
-            </Card.Body>
           </Card>
         </div>
       ) : (
@@ -137,13 +132,15 @@ const Checkin = () => {
           <Card.Header>Check in</Card.Header>
           <Card.Body>
             <Card.Title>Check in to your workout session</Card.Title>
-            <Card.Text>
-              You are not currently Checked into a workout session. Click the
-              button to Check in
-            </Card.Text>
+            <Card.Text>Click the button to Check in</Card.Text>
             <Button onClick={handleCheckin} variant="primary" size="sm">
               Checkin
             </Button>
+          </Card.Body>
+          <Card.Body>
+            <Card.Title>Average Workout</Card.Title>
+            <Card.Text>{"??"} Hour(s)</Card.Text>
+            <Card.Text>{"??"} Minute(s)</Card.Text>
           </Card.Body>
         </Card>
       )}
