@@ -109,6 +109,10 @@ const Checkin = () => {
     setTimeSinceLastVisit(dateDiff(lastWorkoutDate));
   }, [lastWorkoutDate]);
 
+  useEffect(() => {
+    setHms(convertSecondsToHMS(avgworkout));
+  }, [avgworkout]);
+
   return (
     <div className="row">
       {auth.checkedIn ? (
