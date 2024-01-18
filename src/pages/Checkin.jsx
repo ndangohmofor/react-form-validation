@@ -42,6 +42,7 @@ const Checkin = () => {
   const { setAuth, auth } = useAuth();
   const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
   const [lastWorkoutDate, setLastWorkoutDate] = useState();
+  const [avgworkout, setAvgWorkout] = useState();
   const [timeSinceLastVisit, setTimeSinceLastVisit] = useState({
     years: 0,
     months: 0,
@@ -77,8 +78,15 @@ const Checkin = () => {
       headers: { "Content-Type": "application/json" },
       signal: controller.signal,
     });
+    const avgWorkoutResponse = await axios.get("/api/v1/checkins/avgworkout", {
+      headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
+    });
     if (response.status === 200) {
       setCheckin(false);
+    }
+    if (avgWorkoutResponse.status === 200) {
+      setAvgWorkout(avgWorkoutResponse.data);
     }
   };
 
@@ -139,7 +147,7 @@ const Checkin = () => {
           </Card.Body>
           <Card.Body>
             <Card.Title>Average Workout</Card.Title>
-            <Card.Text>{"??"} Hour(s)</Card.Text>
+            <Card.Text>{`${avgworkout / 3600} Hour(s)`}</Card.Text>
             <Card.Text>{"??"} Minute(s)</Card.Text>
           </Card.Body>
         </Card>
