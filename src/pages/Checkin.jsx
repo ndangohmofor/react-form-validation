@@ -159,8 +159,9 @@ const Checkin = () => {
           </Card.Body>
           <Card.Body>
             <Card.Title>Average Workout</Card.Title>
-            <Card.Text>{`${avgworkout / 3600} Hour(s)`}</Card.Text>
-            <Card.Text>{"??"} Minute(s)</Card.Text>
+            <Card.Text>{`${hms.hours} Hour(s)`}</Card.Text>
+            <Card.Text>{`${hms.minutes} Minute(s)`}</Card.Text>
+            <Card.Text>{`${hms.seconds} Second(s)`}</Card.Text>
           </Card.Body>
         </Card>
       )}
