@@ -38,11 +38,19 @@ const dateDiff = (oldDateRaw) => {
   return null;
 };
 
+const convertSecondsToHMS = (totalSeconds) => {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds - hours * 3600) / 60);
+  const seconds = totalSeconds - hours * 3600 - minutes * 60;
+  return { hours, minutes, seconds };
+};
+
 const Checkin = () => {
   const { setAuth, auth } = useAuth();
   const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
   const [lastWorkoutDate, setLastWorkoutDate] = useState();
   const [avgworkout, setAvgWorkout] = useState();
+  const [hms, setHms] = useState({ hours: 0, minutes: 0, seconds: 0 });
   const [timeSinceLastVisit, setTimeSinceLastVisit] = useState({
     years: 0,
     months: 0,
