@@ -49,7 +49,8 @@ const Checkin = () => {
   const { setAuth, auth } = useAuth();
   const [checkin, setCheckin] = useState(auth.checkedIn ? true : false);
   const [lastWorkoutDate, setLastWorkoutDate] = useState();
-  const [avgworkout, setAvgWorkout] = useState();
+  const [avgTotalworkout, setAvgTotalWorkout] = useState();
+  const [totalSessionworkout, setTotalSessionWorkout] = useState();
   const [sessionWorkout, setSessionWorkout] = useState({
     hours: 0,
     minutes: 0,
@@ -92,7 +93,7 @@ const Checkin = () => {
       signal: controller.signal,
     });
     const sessionWorkoutResponse = await axios.get(
-      "/api/v1/checkins/avgSessionWorkout",
+      "/api/v1/checkins/totalSessionWorkout",
       {
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
@@ -102,20 +103,20 @@ const Checkin = () => {
       setCheckin(false);
     }
     if (sessionWorkoutResponse.status === 200) {
-      setAvgWorkout(sessionWorkout.data);
+      setTotalSessionWorkout(sessionWorkoutResponse.data);
     }
   };
 
   useEffect(() => {
     async function fetchAvgWorkout() {
-      return await axios.get("/api/v1/checkins/avgworkout", {
+      return await axios.get("/api/v1/checkins/totalWorkout", {
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
       });
     }
     const avgWorkoutResponse = fetchAvgWorkout();
     if (avgWorkoutResponse.status === 200) {
-      setAvgWorkout(avgWorkoutResponse.data);
+      setAvgTotalWorkout(avgWorkoutResponse.data);
     }
   });
 
@@ -131,8 +132,8 @@ const Checkin = () => {
   }, [lastWorkoutDate]);
 
   useEffect(() => {
-    setHms(convertSecondsToHMS(avgworkout));
-  }, [avgworkout]);
+    setSessionWorkout(convertSecondsToHMS(totalSessionworkout));
+  }, [totalSessionworkout]);
 
   return (
     <div className="row">
