@@ -104,6 +104,19 @@ const Checkin = () => {
   };
 
   useEffect(() => {
+    async function fetchAvgWorkout() {
+      return await axios.get("/api/v1/checkins/avgworkout", {
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+      });
+    }
+    const avgWorkoutResponse = fetchAvgWorkout();
+    if (avgWorkoutResponse.status === 200) {
+      setAvgWorkout(avgWorkoutResponse.data);
+    }
+  });
+
+  useEffect(() => {
     setAuth({
       ...auth,
       checkedIn: checkin,
@@ -164,9 +177,9 @@ const Checkin = () => {
           </Card.Body>
           <Card.Body>
             <Card.Title>Average Workout For This Session</Card.Title>
-            <Card.Text>{`${hms.hours} Hour(s)`}</Card.Text>
-            <Card.Text>{`${hms.minutes} Minute(s)`}</Card.Text>
-            <Card.Text>{`${hms.seconds} Second(s)`}</Card.Text>
+            <Card.Text>{`${sessionWorkout.hours} Hour(s)`}</Card.Text>
+            <Card.Text>{`${sessionWorkout.minutes} Minute(s)`}</Card.Text>
+            <Card.Text>{`${sessionWorkout.seconds} Second(s)`}</Card.Text>
           </Card.Body>
           <Card.Body>
             <Card.Title>Total Average Workout</Card.Title>
