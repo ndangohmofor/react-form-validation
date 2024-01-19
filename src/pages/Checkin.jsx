@@ -179,12 +179,16 @@ const Checkin = () => {
               Checkin
             </Button>
           </Card.Body>
-          <Card.Body>
-            <Card.Title>Average Workout For This Session</Card.Title>
-            <Card.Text>{`${sessionWorkout.hours} Hour(s)`}</Card.Text>
-            <Card.Text>{`${sessionWorkout.minutes} Minute(s)`}</Card.Text>
-            <Card.Text>{`${sessionWorkout.seconds} Second(s)`}</Card.Text>
-          </Card.Body>
+          {sessionWorkout ? (
+            <Card.Body>
+              <Card.Title>Average Workout For This Session</Card.Title>
+              <Card.Text>{`${sessionWorkout.hours} Hour(s)`}</Card.Text>
+              <Card.Text>{`${sessionWorkout.minutes} Minute(s)`}</Card.Text>
+              <Card.Text>{`${sessionWorkout.seconds} Second(s)`}</Card.Text>
+            </Card.Body>
+          ) : (
+            <></>
+          )}
           <Card.Body>
             <Card.Title>Total Average Workout</Card.Title>
             <Card.Text>{`${hms.hours} Hour(s)`}</Card.Text>
