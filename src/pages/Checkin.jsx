@@ -91,15 +91,18 @@ const Checkin = () => {
       headers: { "Content-Type": "application/json" },
       signal: controller.signal,
     });
-    const avgWorkoutResponse = await axios.get("/api/v1/checkins/avgworkout", {
-      headers: { "Content-Type": "application/json" },
-      signal: controller.signal,
-    });
+    const sessionWorkoutResponse = await axios.get(
+      "/api/v1/checkins/avgSessionWorkout",
+      {
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+      }
+    );
     if (response.status === 200) {
       setCheckin(false);
     }
-    if (avgWorkoutResponse.status === 200) {
-      setAvgWorkout(avgWorkoutResponse.data);
+    if (sessionWorkoutResponse.status === 200) {
+      setAvgWorkout(sessionWorkout.data);
     }
   };
 
